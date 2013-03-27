@@ -3,15 +3,15 @@
 
 en:
   helpers:
-    actions: "Actions"
+    actions: "Handlinger"
     links:
-      back: "Back"
-      cancel: "Cancel"
-      confirm: "Are you sure?"
-      destroy: "Delete"
-      new: "New"
+      back: "Tilbake"
+      cancel: "Avbryt"
+      confirm: "Er du sikker?"
+      destroy: "Slett"
+      new: "Ny"
     titles:
-      edit: "Edit"
-      save: "Save"
-      new: "New"
-      delete: "Delete"
+      edit: "Rediger"
+      save: "Lagre"
+      new: "Ny"
+      delete: "Slett"

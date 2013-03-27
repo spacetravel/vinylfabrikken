@@ -1,25 +1,25 @@
 <%- model_class = News -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1>Nyhetssak</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dt><strong>Tittel:</strong></dt>
   <dd><%= @news.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ingress) %>:</strong></dt>
+  <dt><strong>Ingress:</strong></dt>
   <dd><%= @news.ingress %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
+  <dt><strong>Brødtekst:</strong></dt>
   <dd><%= @news.body %></dd>
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to "Tilbake",
               news_index_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to "Rediger",
               edit_news_path(@news), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to "Slett",
               news_path(@news),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Er du sikker?')) },
               :class => 'btn btn-danger' %>
 </div>

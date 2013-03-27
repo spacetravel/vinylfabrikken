@@ -1,14 +1,13 @@
-<%= form_for @page, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @page, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-  <legend><%= controller.action_name.capitalize %> Side</legend>
 
-  <%= f.input :title %>
-	<%= f.input :ingress %>
-  	<%= f.input :body %>
+  <%= f.input :title, label: "Tittel" %>
+	<%= f.input :ingress, label: "Ingress" %>
+  	<%= f.input :body, label: "Brødtekst" %>
  
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel',pages_path, :class => 'btn' %>
+    <%= f.submit "Opprett side", :class => 'btn btn-primary' %>
+    <%= link_to 'Avbryt',pages_path, :class => 'btn' %>
   </div>
 </fieldset>
 <% end %>
