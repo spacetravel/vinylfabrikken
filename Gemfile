@@ -13,6 +13,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'devise'
 gem "therubyracer"
 gem "less-rails", '2.2.3'
 gem 'simple_form'

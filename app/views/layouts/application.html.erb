@@ -13,6 +13,7 @@
 </head>
 <body class="container">
 	<div class="container">
+
 	  <% flash.each do |name, msg| %>
 	    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 	        <a class="close" data-dismiss="alert">x</a>
@@ -20,7 +21,7 @@
 	    </div>
 	  <% end %>
 	  <!-- Rest of content -->
-	</div>
+	</div>	
 	<div class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="navbar-inner">
 	    <div class="container">
@@ -29,7 +30,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </a>
-	      <a class="brand" href="/">Vinylfabrikken</a>
+	     
 	      <div class="nav-collapse">
 	        <ul class="nav">
 	          <li><%= link_to "Produkter", products_path %></li>
@@ -38,7 +39,30 @@
 	          <li><%= link_to "Sider", pages_path %></li>
 	          <li><%= link_to "Nyheter", news_index_path %></li>
 	          <li><%= link_to "Bestillinger" %></li>
-	        </ul>
+		
+
+		      <% if user_signed_in? %>
+				 <li class="dropdown">
+			       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						    <%= current_user.email %>
+							<b class="caret"></b>
+					</a>
+			      	<ul class="dropdown-menu">
+			       		<li>
+							<%= link_to 'Rediger profil', edit_user_registration_path %>
+						</li>
+						<li>
+							<%= link_to "Logg ut", destroy_user_session_path, method: :delete %>
+						</li>
+			      </ul>
+			    </li>
+			    <% else %>
+
+			      <li><%= link_to "Opprett konto", new_user_registration_path %></li>
+			      <li><%= link_to "Logg inn", new_user_session_path %></li>
+			   
+			 	<% end %>
+		    </ul>	
 	      </div>
 	    </div>
 	  </div>
@@ -51,7 +75,8 @@
 		</div>
 	</div>
 	
-
-
+<script type="text/javascript">
+	$('.dropdown-toggle').dropdown()
+</script>
 </body>
 </html>
