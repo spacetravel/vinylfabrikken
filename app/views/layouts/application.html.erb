@@ -24,22 +24,23 @@
 	</div>	
 	<div class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="navbar-inner">
-	    <div class="container">
-	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </a>
 	     
 	      <div class="nav-collapse">
+	 		<a class="brand" href="#">VinylAdmin</a>	    
 	        <ul class="nav">
+		<% if user_signed_in? %>
 	          <li><%= link_to "Produkter", products_path %></li>
 	          <li><%= link_to "Produktkategorier", product_types_path %></li>
 	          <li><%= link_to "Priser" %></li>
 	          <li><%= link_to "Sider", pages_path %></li>
 	          <li><%= link_to "Nyheter", news_index_path %></li>
 	          <li><%= link_to "Bestillinger" %></li>
-		
+		<% end %>
 
 		      <% if user_signed_in? %>
 				 <li class="dropdown">
