@@ -5,4 +5,5 @@ class Product < ActiveRecord::Base
   validates :product_type_id, presence: true
   
   belongs_to :product_type
+  has_many :order_lines
 end

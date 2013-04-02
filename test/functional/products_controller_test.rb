@@ -21,7 +21,7 @@ class ProductsControllerTest < ActionController::TestCase
       post :create, product: { desc: @product.desc, name: @product.name, price: @product.price, type_id: @product.type_id }
     end
 
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to admin_product_path(assigns(:product))
   end
 
   test "should show product" do
@@ -36,7 +36,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should update product" do
     put :update, id: @product, product: { desc: @product.desc, name: @product.name, price: @product.price, type_id: @product.type_id }
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to admin_product_path(assigns(:product))
   end
 
   test "should destroy product" do

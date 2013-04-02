@@ -1,19 +1,18 @@
 Vf::Application.routes.draw do
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
  
-  resources :news
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
+  root :to => 'frontpage#index'
+ 
+  namespace :admin do
+    resources :news
+    resources :pages
+    resources :product_types
+    resources :products
+    resources :dashboard
+    match "/" => "dashboard#index"
+  end
 
-  resources :pages
-
-
-  resources :product_types
-
-
-  resources :products
-
-
-  root :to => 'products#index'
 
 
 

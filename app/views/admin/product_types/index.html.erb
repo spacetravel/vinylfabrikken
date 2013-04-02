@@ -1,0 +1,38 @@
+<%- model_class = ProductType -%>
+<div class="page-header">
+  <h1>Produktkategorier</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Navn</th>
+      <th>Beskrivelse</th>
+      <th>Opprettet</th>
+      <th>Handlinger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_types.each do |product_type| %>
+      <tr>
+        <td><%= link_to product_type.id, admin_product_type_path(product_type) %></td>
+        <td><%= product_type.name %></td>
+        <td><%= product_type.desc %></td>
+        <td><%= product_type.created_at.strftime("%d. %B %Y") %></td>
+        <td>
+          <%= link_to "Rediger",
+                      edit_admin_product_type_path(product_type), :class => 'btn btn-mini' %>
+          <%= link_to "Slett",
+                      admin_product_type_path(product_type),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Er du sikker?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Ny kategori",
+            new_admin_product_type_path,
+            :class => 'btn btn-primary' %>
