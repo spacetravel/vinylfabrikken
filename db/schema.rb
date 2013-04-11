@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402153319) do
+ActiveRecord::Schema.define(:version => 20130411135404) do
+
+  create_table "album_media", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "name"
+    t.string   "address"
+    t.text     "description"
+  end
+
+  create_table "audio_masters", :force => true do |t|
+    t.string   "sample_rate"
+    t.string   "resolution"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "album_medium_id"
+  end
+
+  create_table "cover_media", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "name"
+    t.string   "address"
+    t.text     "description"
+  end
+
+  create_table "delivery_methods", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -25,16 +56,35 @@ ActiveRecord::Schema.define(:version => 20130402153319) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "order_id"
-    t.integer  "product_id"
     t.integer  "quantity"
     t.integer  "status",     :default => 0
   end
 
+  create_table "order_statuses", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "color"
+    t.integer  "owner"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "orders", :force => true do |t|
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "status",     :default => 0
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "status",             :default => 0
     t.integer  "user_id"
+    t.integer  "artwork_medium_id"
+    t.string   "payment_type"
+    t.string   "order_number"
+    t.datetime "order_date"
+    t.string   "title"
+    t.string   "artist"
+    t.integer  "delivery_method_id"
+    t.integer  "audio_master_id"
+    t.integer  "number_of_records"
+    t.integer  "order_status_id"
+    t.text     "comments"
   end
 
   create_table "pages", :force => true do |t|
@@ -45,20 +95,9 @@ ActiveRecord::Schema.define(:version => 20130402153319) do
     t.text     "body"
   end
 
-  create_table "product_types", :force => true do |t|
-    t.string   "name"
-    t.text     "desc"
+  create_table "payment_methods", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.text     "desc"
-    t.decimal  "price"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "product_type_id"
   end
 
   create_table "users", :force => true do |t|

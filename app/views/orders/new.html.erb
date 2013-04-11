@@ -1,6 +1,44 @@
 <h2>Ny bestilling</h2>
-Ordre #ID <%= @order.id %>
 
-<% form_for @order do |f| %>
+<%= form_for @order do |f| %>
 	
+    <fieldset>
+   		 <legend>Generell informasjon</legend>
+
+	<%= f.label "Tittel på produksjonen" %>	
+	<%= f.text_field :title %>	
+
+	<%= f.label "Artist" %>	
+	<%= f.text_field :artist %>	
+
+	<%= f.label "Opplag" %>	
+	<%= f.text_field :artist %>	
+
+	<%= f.label "Levering" %>
+	<%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
+
+	<%= f.label "Type" %>
+
+	<%= select(:order, :number_of_records, [['Enkel (1 LP)', 1], ['Dobbel (2 LP)', 2], ['Trippel (3 LP)', 3]]) %>
+
+	</fieldset>
+	
+	<fieldset>
+   		 <legend>Audio Master</legend>
+   		 	<%= f.fields_for :audio_masters do |audio_master_fields| %>
+
+				<%= audio_master_fields.label "Samplingsrate" %>
+				<%= audio_master_fields.text_field :sampling_rate %>
+
+				<%= audio_master_fields.label "Oppløsning" %>
+				<%= audio_master_fields.text_field :resolution %>
+				
+	   		 	<%= audio_master_fields.fields_for :album_media  do |album_medium| %>
+					
+					<%= album_medium.label "Leveringsmedium" %>
+					<%= album_medium.collection_select(:delivery_method_id, AlbumMedium.all, :id, :name) %>
+
+	   		 	<% end %>
+			<% end %>
+	</fieldset>
 <% end %>

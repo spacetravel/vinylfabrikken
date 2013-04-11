@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: order_lines
+# Table name: cover_media
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  order_id   :integer
-#  quantity   :integer
-#  status     :integer          default(0)
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  name        :string(255)
+#  address     :string(255)
+#  description :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

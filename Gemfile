@@ -9,6 +9,10 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+end
+
 group :production do
   gem 'pg'
 end

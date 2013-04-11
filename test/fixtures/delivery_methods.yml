@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: order_lines
+# Table name: delivery_methods
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  order_id   :integer
-#  quantity   :integer
-#  status     :integer          default(0)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
