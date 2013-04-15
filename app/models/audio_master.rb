@@ -7,14 +7,14 @@
 #  resolution      :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  order_id        :integer
 #  album_medium_id :integer
 #
 
 class AudioMaster < ActiveRecord::Base
-   attr_accessible :sample_rate, :resolution
+   attr_accessible :sample_rate, :resolution, :album_medium, :album_medium_attributes, :album_medium_id
 
    belongs_to :order
-   has_one :album_medium, :dependent => :destroy
-   accepts_nested_attributes_for :album_medium
+   belongs_to :album_medium, :dependent => :destroy
 
 end

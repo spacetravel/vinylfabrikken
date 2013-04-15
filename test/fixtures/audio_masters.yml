@@ -7,6 +7,7 @@
 #  resolution      :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  order_id        :integer
 #  album_medium_id :integer
 #
 

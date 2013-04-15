@@ -5,6 +5,7 @@
 #  id                 :integer          not null, primary key
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  status             :integer          default(0)
 #  user_id            :integer
 #  artwork_medium_id  :integer
 #  payment_type       :string(255)
@@ -13,19 +14,18 @@
 #  title              :string(255)
 #  artist             :string(255)
 #  delivery_method_id :integer
-#  audio_master_id    :integer
 #  number_of_records  :integer
 #  order_status_id    :integer
 #  comments           :text
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :audio_master_medium_id, :number_of_records
+  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes
   
- 
   belongs_to :user
 
   has_many :order_lines, :dependent => :destroy
+
   has_one :order_status, :dependent => :destroy
   has_one :delivery_method, :dependent => :destroy
   has_one :cover_medium, :dependent => :destroy
@@ -37,7 +37,6 @@ class Order < ActiveRecord::Base
   validates :title, presence: true
   validates :number_of_records, presence: true
   validates :delivery_method_id, presence: true
-  validates :audio_master_id, presence: true
   validates :order_status_id, presence: true
   validates :payment_type, presence: true
 

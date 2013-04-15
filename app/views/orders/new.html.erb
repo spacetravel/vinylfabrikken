@@ -1,44 +1,179 @@
 <h2>Ny bestilling</h2>
 
+<div class="progress" style="height:30px">
+  <div class="bar bar-success" style="width: 45%;">Ferdig</div>
+  <div class="bar bar-warning" style="width: 35%;">Ikke valgt</div>
+  <div class="bar bar-danger" style="width: 20%;">Problemer</div>
+</div>
+
 <%= form_for @order do |f| %>
-	
+<div class="span5">	
     <fieldset>
    		 <legend>Generell informasjon</legend>
 
 	<%= f.label "Tittel på produksjonen" %>	
-	<%= f.text_field :title %>	
+	<%= f.text_field :title, placeholder: "F.eks. Abbey Road" %>	
 
 	<%= f.label "Artist" %>	
-	<%= f.text_field :artist %>	
-
-	<%= f.label "Opplag" %>	
-	<%= f.text_field :artist %>	
+	<%= f.text_field :artist, placeholder: "F.eks. The Beatles" %>	
 
 	<%= f.label "Levering" %>
 	<%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
 
 	<%= f.label "Type" %>
-
 	<%= select(:order, :number_of_records, [['Enkel (1 LP)', 1], ['Dobbel (2 LP)', 2], ['Trippel (3 LP)', 3]]) %>
 
 	</fieldset>
 	
-	<fieldset>
-   		 <legend>Audio Master</legend>
-   		 	<%= f.fields_for :audio_masters do |audio_master_fields| %>
+	<%= render :partial => 'audio_master', :locals => { :f => f } %>
+</div>
 
-				<%= audio_master_fields.label "Samplingsrate" %>
-				<%= audio_master_fields.text_field :sampling_rate %>
+<div class="span6">	
+    <fieldset>
+   		 <legend>Bestilling</legend>
+   		 
+   		<div class="progress orderline"  id="toggle-button">
+  			<div class="bar bar-success" style="width:100%;">
+  				<b>GRAVERING</b>
+          <i class="icon-minus-sign" style="float:right;padding:10px"></i>
+          <i class="icon-plus-sign" style="display:none;float:right;padding:10px" ></i>
+  			</div>
+      </div>
+      <div id="toggle-info"> 
+		    <table class="table orderline" >
+          <tr>
+            <td>Side A</td>
+            <td style="text-align:right">Ja</td>
+          </tr>
+          <tr>
+            <td>Side B</td>
+            <td style="text-align:right">Ja</td>
+          </tr>
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
 
-				<%= audio_master_fields.label "Oppløsning" %>
-				<%= audio_master_fields.text_field :resolution %>
-				
-	   		 	<%= audio_master_fields.fields_for :album_media  do |album_medium| %>
-					
-					<%= album_medium.label "Leveringsmedium" %>
-					<%= album_medium.collection_select(:delivery_method_id, AlbumMedium.all, :id, :name) %>
+    <div class="progress orderline">
+        <div class="bar bar-warning" style="width:100%;">
+          <b>MATRISER</b>
+        </div>
+      </div>
+      <div> 
+        <table class="table orderline">
+          <tr>
+            <td>Antall</td>
+            <td style="text-align:right">1</td>
+          </tr>
 
-	   		 	<% end %>
-			<% end %>
-	</fieldset>
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
+
+    <div class="progress orderline">
+        <div class="bar bar-danger" style="width:100%;">
+          <b>PRØVETRYKK</b>
+        </div>
+      </div>
+      <div> 
+        <table class="table orderline">
+          <tr>
+            <td>Antall kopier</td>
+            <td style="text-align:right">5 stk</td>
+          </tr>
+
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
+     
+      <div class="progress orderline">
+        <div class="bar bar-success" style="width:100%;">
+          <b>PRESSING AV VINYL</b>
+        </div>
+      </div>
+      <div> 
+        <table class="table orderline">
+          <tr>
+            <td>Farge</td>
+            <td style="text-align:right">Svart</td>
+          </tr>
+          <tr>
+            <td>Antall</td>
+            <td style="text-align:right">400 eksemplarer</td>
+          </tr>
+
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
+
+    <div class="progress orderline">
+        <div class="bar bar-warning" style="width:100%;">
+          <b>LABELER</b>
+        </div>
+      </div>
+      <div> 
+        <table class="table orderline">
+          <tr>
+            <td>Antall</td>
+            <td style="text-align:right">600 stk</td>
+          </tr>
+
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
+
+    <div class="progress orderline">
+        <div class="bar bar-danger" style="width:100%;">
+          <b>COVER</b>
+        </div>
+      </div>
+      <div> 
+        <table class="table orderline">
+          <tr>
+            <td>Trykketeknikk</td>
+            <td style="text-align:right">Digitaltrykk</td>
+          </tr>
+          <tr>
+            <td>Antall</td>
+            <td style="text-align:right">400 stk</td>
+          </tr>
+           <tr>
+            <td style="font-weight:bold">Pris</td>
+            <td style="text-align:right">400 kr</td>
+          </tr>
+        </table>
+      
+    </div>
+  
+
+
+    </fieldset>
+    <br />
+	<%= f.submit "Send bestilling", class: 'btn btn-primary pull-right' %>
+</div>
+
 <% end %>

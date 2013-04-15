@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411135404) do
+ActiveRecord::Schema.define(:version => 20130415133120) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130411135404) do
     t.string   "resolution"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "order_id"
     t.integer  "album_medium_id"
   end
 
@@ -81,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20130411135404) do
     t.string   "title"
     t.string   "artist"
     t.integer  "delivery_method_id"
-    t.integer  "audio_master_id"
     t.integer  "number_of_records"
     t.integer  "order_status_id"
     t.text     "comments"

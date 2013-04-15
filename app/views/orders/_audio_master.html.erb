@@ -1,0 +1,14 @@
+	<fieldset>
+   		 <legend>Audio Master</legend>
+   		 	<%= f.fields_for :audio_master do |audio_master_fields| %>
+
+				<%= audio_master_fields.label "Samplingsrate" %>
+				<%= audio_master_fields.select(:sample_rate, [['44,1 kHz (standard)', '44100'], ['32 kHz', '32000'], ['44,056 kHz', '44056'], ['48 kHz', '48000'], ['56 kHz', '56000'], ['96 kHz', '96000'], ['192 kHz', '192000']]) %>
+
+				<%= audio_master_fields.label "Oppløsning (bit resolution)" %>
+				<%= audio_master_fields.select(:resolution, [['16 (standard)', '16'], ['20', '20'], ['24', '24']]) %>
+				
+				<%= audio_master_fields.label "Leveringsmedium" %>
+				<%= audio_master_fields.collection_select(:album_medium_id, AlbumMedium.all, :id, :name) %>
+			<% end %>
+	</fieldset>
