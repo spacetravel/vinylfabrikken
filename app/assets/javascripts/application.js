@@ -19,9 +19,10 @@
 
 jQuery(document).ready(function() {
 	$('.toggle-button').click(function() {
-	    $(this).next('#plusminusicon').toggleClass('icon-plus-sign');
 	    $(this).next('.toggle-info').slideToggle('slow', function() {
 	    	// Animation complete.
 	    });
+		$(this).find('#plusminusicon').toggleClass('icon-plus-sign');
+		$(this).find('#plusminusicon').toggleClass('icon-minus-sign');
 	});
 });
