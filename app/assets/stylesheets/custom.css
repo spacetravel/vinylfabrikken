@@ -1,0 +1,14 @@
+#overskrift {
+	font-size:4em;
+	text-align:center;
+	padding:0 0 30px 0;
+	font-family: Verdana;
+}
+
+.search-query {
+	width:150px;
+}
+
+.navbar-search {
+	padding: 4px 0 0 20px;
+}

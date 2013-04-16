@@ -15,3 +15,13 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+// Slider functions for order form
+
+jQuery(document).ready(function() {
+	$('.toggle-button').click(function() {
+	    $(this).next('#plusminusicon').toggleClass('icon-plus-sign');
+	    $(this).next('.toggle-info').slideToggle('slow', function() {
+	    	// Animation complete.
+	    });
+	});
+});

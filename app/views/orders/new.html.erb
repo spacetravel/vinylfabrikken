@@ -1,10 +1,3 @@
-<h2>Ny bestilling</h2>
-
-<div class="progress" style="height:30px">
-  <div class="bar bar-success" style="width: 45%;">Ferdig</div>
-  <div class="bar bar-warning" style="width: 35%;">Ikke valgt</div>
-  <div class="bar bar-danger" style="width: 20%;">Problemer</div>
-</div>
 
 <%= form_for @order do |f| %>
 <div class="span5">	
@@ -30,16 +23,17 @@
 
 <div class="span6">	
     <fieldset>
-   		 <legend>Bestilling</legend>
-   		 
-   		<div class="progress orderline"  id="toggle-button">
-  			<div class="bar bar-success" style="width:100%;">
-  				<b>GRAVERING</b>
-          <i class="icon-minus-sign" style="float:right;padding:10px"></i>
-          <i class="icon-plus-sign" style="display:none;float:right;padding:10px" ></i>
+   		 <legend >Bestilling</legend>
+   		
+      <div class="progress orderline toggle-button">
+  			<div class="bar" style="width:100%;">
+          <i id="plusminusicon" class="icon-minus-sign" style="float:left;padding:10px"></i>
+          <span style="float:left;padding-left:20px"><b>GRAVERING</b></span>
+          <span style="text-align:center">Side A + Side B - 400 kr</span>
+          <span class="btn btn-success btn-mini" style="float:right;margin:5px">Ferdig</span>
   			</div>
       </div>
-      <div id="toggle-info"> 
+      <div class="toggle-info"> 
 		    <table class="table orderline" >
           <tr>
             <td>Side A</td>
@@ -58,12 +52,15 @@
     </div>
   
 
-    <div class="progress orderline">
-        <div class="bar bar-warning" style="width:100%;">
-          <b>MATRISER</b>
+    <div class="progress orderline toggle-button">
+        <div class="bar" style="width:100%;">
+          <i id="plusminusicon" class="icon-minus-sign" style="float:left;padding:10px"></i>
+          <span style="float:left;padding-left:20px"><b>MATRISER</b></span>
+          <span style="text-align:center">1 stk - 2500 kr</span>
+          <span class="btn btn-success btn-mini" style="float:right;margin:5px">Ferdig</span>
         </div>
       </div>
-      <div> 
+      <div class="toggle-info"> 
         <table class="table orderline">
           <tr>
             <td>Antall</td>
@@ -79,12 +76,15 @@
     </div>
   
 
-    <div class="progress orderline">
-        <div class="bar bar-danger" style="width:100%;">
-          <b>PRØVETRYKK</b>
-        </div>
+    <div class="progress orderline toggle-button">
+        <div class="bar" style="width:100%;">
+          <i id="plusminusicon" class="icon-minus-sign" style="float:left;padding:10px"></i>
+          <span style="float:left;padding-left:20px"><b>PRØVETRYKK</b></span>
+          <span style="text-align:center"></span>
+          <span class="btn btn-warning btn-mini" style="float:right;margin:5px">Ikke valgt</span>
       </div>
-      <div> 
+    </div>
+    <div class="toggle-info"> 
         <table class="table orderline">
           <tr>
             <td>Antall kopier</td>
@@ -100,12 +100,15 @@
     </div>
   
      
-      <div class="progress orderline">
-        <div class="bar bar-success" style="width:100%;">
-          <b>PRESSING AV VINYL</b>
+      <div class="progress orderline toggle-button">
+        <div class="bar" style="width:100%;">
+          <i id="plusminusicon" class="icon-minus-sign" style="float:left;padding:10px"></i>
+          <span style="float:left;padding-left:20px"><b>PRESSING AV VINYL</b></span>
+          <span style="text-align:center">300x - Svart vinyl - 4000 kr</span>
+          <span class="btn btn-success btn-mini" style="float:right;margin:5px">Ferdig</span>
         </div>
       </div>
-      <div> 
+      <div class="toggle-info"> 
         <table class="table orderline">
           <tr>
             <td>Farge</td>
@@ -125,12 +128,12 @@
     </div>
   
 
-    <div class="progress orderline">
+    <div class="progress orderline toggle-button">
         <div class="bar bar-warning" style="width:100%;">
           <b>LABELER</b>
         </div>
       </div>
-      <div> 
+      <div class="toggle-info"> 
         <table class="table orderline">
           <tr>
             <td>Antall</td>
@@ -146,12 +149,12 @@
     </div>
   
 
-    <div class="progress orderline">
+    <div class="progress orderline toggle-button">
         <div class="bar bar-danger" style="width:100%;">
           <b>COVER</b>
         </div>
       </div>
-      <div> 
+      <div class="toggle-info"> 
         <table class="table orderline">
           <tr>
             <td>Trykketeknikk</td>
@@ -173,7 +176,8 @@
 
     </fieldset>
     <br />
-	<%= f.submit "Send bestilling", class: 'btn btn-primary pull-right' %>
+  <%= f.submit "Bestill", class: 'btn btn-primary pull-right' %>
+  <%= f.submit "Lagre", class: 'btn btn-success pull-right' %>
 </div>
 
 <% end %>
