@@ -5,7 +5,8 @@ Vf::Application.routes.draw do
   root :to => 'frontpage#index'
  
   resources :orders
- 
+  resources :articles
+   
   namespace :admin do
     resources :news
     resources :pages
