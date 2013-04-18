@@ -1,13 +1,13 @@
-<div class"span12">
+<%= render 'carousel' %>
 
-	<div class="span4 offset1">
-		yo
-	</div>
-	<div class="span4">
-		yo
-	</div>
-	<div class="span2">
-		<button class="btn btn-large btn-inverse" onClick="location.href='<%= new_order_path %>'" style="width:200px;height:130px;font-weight:bold">GÅ TIL BESTILLING</button>
-	</div>
 
-</div>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <% @news.each do |news| %>
+            <%= render 'news' %>
+        <% end %>
+      </div><!-- /.row -->
+    </div>

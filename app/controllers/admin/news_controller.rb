@@ -48,7 +48,7 @@ class Admin::NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
+        format.html { redirect_to admin_news_index_url, notice: 'News was successfully created.' }
         format.json { render json: @news, status: :created, location: @news }
       else
         format.html { render action: "new" }

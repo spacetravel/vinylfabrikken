@@ -1,6 +1,5 @@
-
 <%= form_for @order do |f| %>
-<div class="span5">	
+<div class="span4">	
     <fieldset>
    		 <legend>Generell informasjon</legend>
 
@@ -21,7 +20,7 @@
 	<%= render :partial => 'audio_master', :locals => { :f => f } %>
 </div>
 
-<div class="span6">	
+<div class="span7">	
     <fieldset>
    		 <legend >Bestilling</legend>
    		
@@ -29,8 +28,8 @@
   			<div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>GRAVERING</b></span>
-          <span style="text-align:center;">Side A + Side B | Pris: 400 kr</span>
           <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
+          <span style="float:right;padding-right:10px">Side A + Side B</span>
   			</div>
       </div>
       <div class="toggle-info"> 
@@ -59,8 +58,8 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
         <div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>MATRISER</b></span>
-          <span style="text-align:center;">2 stk | Pris: 400 kr</span>
           <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
+          <span style="float:right;padding-right:10px">2 x Matrise</span>
         </div>
       </div>
       <div class="toggle-info"> 
@@ -79,7 +78,6 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
             <td style="text-align:right">400 kr</td>
           </tr>
         </table>
-      
     </div>
   
 
@@ -87,8 +85,9 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
         <div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>PRØVETRYKK</b></span>
-          <span style="text-align:center;"></span>
           <span class="btn btn-warning btn-mini" style="float:right;margin-right:20px">Ikke valgt</span>
+          <span style="float:right;padding-right:10px"></span>
+
         </div>
       </div>
 
@@ -116,8 +115,9 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
         <div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>VINYLPRESSING</b></span>
-          <span style="text-align:center;"> Svart Vinyl | 300x | 4000 kr </span>
-          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
+          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ikke valgt</span>
+          <span style="float:right;padding-right:10px">300 x Svart Vinyl </span>
+
         </div>
       </div>
       <div class="toggle-info"> 
@@ -148,8 +148,8 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
         <div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>LABELS</b></span>
-          <span style="text-align:center;">500 stk | 1500 kr</span>
           <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
+          <span style="float:right;padding-right:10px">600 x Hvite labler</span>
         </div>
       </div>
       <div class="toggle-info"> 
@@ -170,14 +170,13 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
         </table>
       
     </div>
-  
 
      <div class="progress orderline toggle-button">
         <div class="btn btn-inverse" style="width:100%;">
           <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
           <span style="float:left;padding-left:20px;padding-top:2px"><b>COVER</b></span>
           <span style="text-align:center;"></span>
-          <span class="btn btn-danger btn-mini" style="float:right;margin-right:20px">Ikke valgt</span>
+          <span class="btn btn-danger btn-mini" style="float:right;margin-right:20px">Valgt bort</span>
         </div>
       </div>
       <div class="toggle-info"> 
@@ -199,12 +198,9 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
             <td style="text-align:right">400 kr</td>
           </tr>
         </table>
-      
     </div>
-  
 
-
-    </fieldset>
+  </fieldset>
     <br />
   <%= f.submit "Bestill", class: 'btn btn-primary pull-right' %>
   <%= f.submit "Lagre", class: 'btn btn-success pull-right' %>

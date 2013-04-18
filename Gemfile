@@ -18,8 +18,6 @@ group :production do
 end
 
 gem 'devise'
-gem "therubyracer"
-gem "less-rails", '2.2.3'
 gem 'simple_form'
 
 # Gems used only for assets and not required
@@ -27,10 +25,11 @@ gem 'simple_form'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-rails'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
-  gem 'jquery-rails'
+  gem 'bootstrap-sass'
+  gem 'bootswatch-rails'
 end
 
 
