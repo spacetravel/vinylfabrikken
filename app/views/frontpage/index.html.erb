@@ -6,8 +6,6 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <% @news.each do |news| %>
-            <%= render 'news' %>
-        <% end %>
+            <%= render :partial =>'news', :collection => @news  %>
       </div><!-- /.row -->
     </div>
