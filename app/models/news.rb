@@ -11,8 +11,10 @@
 #
 
 class News < ActiveRecord::Base
-  attr_accessible :body, :ingress, :title
+  attr_accessible :body, :ingress, :title, :image
   
   validates :title, presence: true
   validates :body, presence: true
+
+  mount_uploader :image, ImageUploader
 end

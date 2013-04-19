@@ -57,13 +57,24 @@ body {
 }
 
 .carousel-control {
-  height: 80px;
-  margin-top: 0;
-  font-size: 120px;
-  text-shadow: 0 1px 1px rgba(0,0,0,.4);
-  background-color: transparent;
-  border: 0;
-  z-index: 10;
+position: absolute;
+top: 40%;
+left: 15px;
+width: 40px;
+height: 40px;
+margin-top: 20px;
+font-size: 60px;
+font-weight: 100;
+line-height: 30px;
+color: white;
+text-align: center;
+background: #222;
+border: 3px solid white;
+-webkit-border-radius: 23px;
+-moz-border-radius: 23px;
+border-radius: 23px;
+opacity: 0.5;
+filter: alpha(opacity=50);
 }
 
 .carousel .item {
@@ -74,7 +85,7 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 500px;
+  height: 450px;
 }
 
 .carousel-caption {
@@ -82,6 +93,7 @@ body {
   position: static;
   max-width: 550px;
   padding: 0 20px;
+  padding-left:100px;
   margin-top: 200px;
 }
 .carousel-caption h1,

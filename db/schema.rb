@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415133120) do
+ActiveRecord::Schema.define(:version => 20130418174352) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130415133120) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
   create_table "order_lines", :force => true do |t|
