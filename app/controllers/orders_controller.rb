@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  include OrdersHelper
 
   before_filter :authenticate_user!, :except => [:index]
+
 
   def index
   

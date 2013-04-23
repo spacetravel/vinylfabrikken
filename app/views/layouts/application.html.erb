@@ -26,7 +26,7 @@
             <li><%= link_to "Bestilling", new_order_path %></li>
         	<li><%= link_to "Priser" %></li>
         	<li><%= link_to "Utgivelser" %></li>
-	   	<li><%= link_to "Om Vinylfabrikken" %></li>
+	      	<li><%= link_to "Om Vinylfabrikken" %></li>
      	
           </ul>
           <form class="navbar-search pull-left" action="">
@@ -87,7 +87,14 @@
 
 	
 <script type="text/javascript">
-	$('.dropdown-toggle').dropdown()
+  $(function(){
+    // You used .myCarousel here. 
+    // That's the class selector not the id selector,
+    // which is #myCarousel
+    $('#myCarousel').carousel();
+    $('.dropdown-toggle').dropdown()
+  });
+
 </script>
 </body>
 </html>

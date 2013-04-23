@@ -15,9 +15,11 @@
 //= require bootstrap
 //= require_tree .
 
-// Slider functions for order form
+
 
 jQuery(document).ready(function() {
+
+	// Slider functions for order form
 	$('.toggle-button').click(function() {
 	    $(this).next('.toggle-info').slideToggle('slow', function() {
 	    	// Animation complete.
@@ -25,4 +27,29 @@ jQuery(document).ready(function() {
 		$(this).find('#plusminusicon').toggleClass('icon-plus-sign');
 		$(this).find('#plusminusicon').toggleClass('icon-minus-sign');
 	});
+	
+	// Info boxes for order form
+	$('.infoBox').hide();
+	$('.order_info').mouseenter(function(evt)  {
+	   evt.preventDefault();
+       $(this).next('.infoBox').toggle();
+	 }); 
+
+	$('.order_info').mouseleave(function(evt)  {
+	   evt.preventDefault();
+       $(this).next('.infoBox').toggle();
+	 }); 
 });
+
+/*
+function show(object)
+{
+var obj = document.getElementById(object);
+obj.style.visibility = 'visible';
+}
+
+function hide(object)
+{
+var obj = document.getElementById(object);
+obj.style.visibility = 'hidden';
+}*/

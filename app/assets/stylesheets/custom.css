@@ -5,6 +5,11 @@
 	font-family: Verdana;
 }
 
+.alignright {
+  text-align:right;
+}
+
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -78,7 +83,7 @@ filter: alpha(opacity=50);
 }
 
 .carousel .item {
-  height: 500px;
+  height: 450px;
 }
 .carousel img {
   position: absolute;

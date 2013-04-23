@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418174352) do
+ActiveRecord::Schema.define(:version => 20130422130427) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20130418174352) do
     t.string   "resolution"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "order_id"
     t.integer  "album_medium_id"
+    t.integer  "order_id"
   end
 
   create_table "cover_media", :force => true do |t|
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20130418174352) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "info_texts", :force => true do |t|
+    t.string   "keyword"
+    t.text     "desc"
+    t.text     "short_desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "news", :force => true do |t|
@@ -97,6 +105,11 @@ ActiveRecord::Schema.define(:version => 20130418174352) do
   end
 
   create_table "payment_methods", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "plugs", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

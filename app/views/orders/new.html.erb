@@ -24,91 +24,11 @@
     <fieldset>
    		 <legend >Bestilling</legend>
    		
-      <div class="progress orderline toggle-button">
-  			<div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>GRAVERING</b></span>
-          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
-          <span style="float:right;padding-right:10px">Side A + Side B</span>
-  			</div>
-      </div>
-      <div class="toggle-info"> 
-		    <table class="table orderline" >
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Side A</td>
-            <td style="text-align:right">Ja</td>
-          </tr>
-          <tr>
-            <td>Side B</td>
-            <td style="text-align:right">Ja</td>
-          </tr>
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-      
-    </div>
-
-      <div class="progress orderline toggle-button">
-        <div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>MATRISER</b></span>
-          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
-          <span style="float:right;padding-right:10px">2 x Matrise</span>
-        </div>
-      </div>
-      <div class="toggle-info"> 
-        <table class="table orderline">
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Antall</td>
-            <td style="text-align:right">1</td>
-          </tr>
-
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-    </div>
+      <%= render :partial => 'gravering' %>
+      <%= render :partial => 'matriser' %>    
+      <%= render :partial => 'provetrykk' %>    
   
 
-     <div class="progress orderline toggle-button">
-        <div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>PRØVETRYKK</b></span>
-          <span class="btn btn-warning btn-mini" style="float:right;margin-right:20px">Ikke valgt</span>
-          <span style="float:right;padding-right:10px"></span>
-
-        </div>
-      </div>
-
-    <div class="toggle-info"> 
-        <table class="table orderline">
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Antall kopier</td>
-            <td style="text-align:right">5 stk</td>
-          </tr>
-
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-      
-    </div>
   
      
      <div class="progress orderline toggle-button">
@@ -120,7 +40,7 @@ Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate
 
         </div>
       </div>
-      <div class="toggle-info"> 
+      <div class="toggle-info">
         <table class="table orderline">
           <tr>
             <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>

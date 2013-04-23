@@ -1,0 +1,35 @@
+<div class="progress orderline toggle-button">
+		<div class="btn btn-inverse" style="width:100%;">
+      <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
+      <span class="orderline_title"><b>GRAVERING</b></span>
+      <span class="btn btn-success btn-mini orderline_status">Ferdig</span>
+      <span class="orderline_status_text">Side A + Side B</span>
+		</div>
+  </div>
+  <div class="toggle-info"> 
+    <table class="table orderline">
+      <tr>
+        <td colspan="2">
+          <i class="icon-info-sign pull-right order_info" style="padding:5px"></i>
+
+          <div class="infoBox">
+            <%= get_info_text('gravering').desc %>
+          </div>
+          <%= get_info_text('gravering').short_desc %>
+        </td>
+      </tr>
+      <tr>
+        <td>Side A</td>
+        <td style="text-align:right">Ja</td>
+      </tr>
+      <tr>
+        <td>Side B</td>
+        <td style="text-align:right">Ja</td>
+      </tr>
+       <tr>
+        <td class="orderprice">Pris</td>
+        <td style="text-align:right">400 kr</td>
+      </tr>
+    </table>
+
+</div>

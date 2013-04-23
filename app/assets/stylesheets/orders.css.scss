@@ -16,3 +16,36 @@ table.orderline {
 .toggle-info {
     display: none;
 }
+
+
+.orderprice {
+	font-weight:bold;
+}
+
+.orderline_status {
+	float:right;
+	margin-right:20px;
+}
+
+.orderline_status_text {
+	float:right;
+	padding-right:10px;
+}
+
+.orderline_title {
+	float:left;
+	padding-left:20px;
+	padding-top:2px;
+}
+
+.infoBox
+{
+	font-size: 13px;
+	background-color: #ffffff;
+	margin: 0 10px;
+	padding: 5px;
+	width: 500px;
+	border: solid 2px black;
+	position: absolute;
+
+}

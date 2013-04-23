@@ -1,0 +1,35 @@
+<div class="progress orderline toggle-button">
+    <div class="btn btn-inverse" style="width:100%;">
+      <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
+      <span class="orderline_title"><b>PRØVETRYKK</b></span>
+      <span class="btn btn-warning btn-mini orderline_status">Ikke valgt</span>
+      <span class="orderline_status_text"></span>
+    </div>
+  </div>
+  <div class="toggle-info"> 
+    <table class="table orderline">
+      <tr>
+        <td colspan="2">
+          <i class="icon-info-sign pull-right order_info" style="padding:5px"></i>
+
+          <div class="infoBox">
+            <%= get_info_text('provetrykk').desc %>
+          </div>
+          <%= get_info_text('provetrykk').short_desc %>
+        </td>
+      </tr>
+      <tr>
+        <td>Antall plater</td>
+        <td style="text-align:right">10 eksemplarer</td>
+      </tr>
+      <tr>
+        <td>Hastighet</td>
+        <td style="text-align:right">33 rpm</td>
+      </tr>
+       <tr>
+        <td class="orderprice">Pris</td>
+        <td style="text-align:right">150 kr</td>
+      </tr>
+    </table>
+
+</div>

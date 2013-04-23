@@ -33,3 +33,17 @@ puts "- Created or updated delivery methods"
       OrderStatus.find_or_create_by_title(order_status, description: "Beskrivelse av status ordere", color: "not defined", owner: 0)
     end
 puts "- Created or updated order statuses"
+
+# Adding Info Texts
+
+puts "- Creating info texts"
+
+# Create the seed data for info texts
+   InfoText.find_or_create_by_keyword("gravering", short_desc: "Kort teskst om gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created gravering info text"
+
+   InfoText.find_or_create_by_keyword("matriser", short_desc: "Kort tekst om matriser, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Matriser, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created matriser info text"
+
+   InfoText.find_or_create_by_keyword("provetrykk", short_desc: "Kort tekst om prøvetrykk, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Prøvetrykk, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created matriser info text"
