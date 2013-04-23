@@ -21,8 +21,8 @@ vinylplate.jpeg: vinylplate-1ed38f56d1c4fb672f3b3484c8662b04.jpeg
 vinylplate/index.jpeg: vinylplate-1ed38f56d1c4fb672f3b3484c8662b04.jpeg
 application.js: application-940d893598f63cee0880e935c2c78087.js
 application/index.js: application-940d893598f63cee0880e935c2c78087.js
-application.css: application-74d6d03a665e9938dd39a08ce13c0d5f.css
-application/index.css: application-74d6d03a665e9938dd39a08ce13c0d5f.css
+application.css: application-981f0f9b6a24c0bc6a8c8bedb66602db.css
+application/index.css: application-981f0f9b6a24c0bc6a8c8bedb66602db.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
@@ -37,3 +37,5 @@ fontawesome-webfont.ttf: fontawesome-webfont-6a4e273908b7e43d9e479d38b8ae5957.tt
 fontawesome-webfont/index.ttf: fontawesome-webfont-6a4e273908b7e43d9e479d38b8ae5957.ttf
 fontawesome-webfont.woff: fontawesome-webfont-a0fbd98b232e7e1ef9cdaad813b26eb3.woff
 fontawesome-webfont/index.woff: fontawesome-webfont-a0fbd98b232e7e1ef9cdaad813b26eb3.woff
+font-awesome-ie7.min.css: font-awesome-ie7.min-cc74f6289091b05417f400b3abca2854.css
+font-awesome-ie7/index.min.css: font-awesome-ie7.min-cc74f6289091b05417f400b3abca2854.css

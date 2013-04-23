@@ -6,7 +6,7 @@
 </div>
 
 <div class="span12">
-	<div class="pakkeitem"><br />
+	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
 
 		<div class="pakkeheading">	
 			<i class="icon-align-center icon-large" style="padding:5px;"></i>
@@ -15,17 +15,18 @@
 		<div class="pakkekropp">
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Bygg en ny bestilling fra bunnen <br />
+				Start med en tom bestilling <br />
 			</div>		
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				Komponer den fra bunnen
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Lagre bestillingen
+				Ha full kontroll i alle ledd
 			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>	
 	<div class="pakkeitem"><br />
@@ -37,17 +38,22 @@
 		<div class="pakkekropp">
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				150 Svart vinyl <br />
+				150 x Sort vinyl <br />
 			</div>		
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				300 x Sorte labels
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Lagre bestillingen
+				150 x Foldere
 			</div>		
+			<div class="pakkelinje">
+				<i class="icon-check icon-large"></i>
+				150 x Omslag med digitaltrykk
+			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>	
 	<div class="pakkeitem"><br />
@@ -64,12 +70,13 @@
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				So
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>
 	<div class="pakkeitem"><br />
@@ -92,6 +99,7 @@
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>
 	<div class="pakkeitem"><br />
@@ -114,6 +122,7 @@
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>
 	<div class="pakkeitem"><br />
@@ -136,6 +145,7 @@
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
+			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 	</div>	
 </div>
