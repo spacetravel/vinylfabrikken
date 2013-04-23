@@ -47,3 +47,12 @@ puts "- Created matriser info text"
 
    InfoText.find_or_create_by_keyword("provetrykk", short_desc: "Kort tekst om prøvetrykk, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Prøvetrykk, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
 puts "- Created matriser info text"
+
+   InfoText.find_or_create_by_keyword("pressing", short_desc: "Kort tekst om vinylpressing, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Vinylpressing, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created pressing info text"
+
+   InfoText.find_or_create_by_keyword("labels", short_desc: "Kort tekst om labels, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Labels, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created labels info text"
+
+   InfoText.find_or_create_by_keyword("covers", short_desc: "Kort tekst om covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created covers info text"

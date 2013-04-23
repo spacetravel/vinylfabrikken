@@ -20,7 +20,7 @@
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes
+  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size
   
   belongs_to :user
 

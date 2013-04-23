@@ -5,6 +5,8 @@ Vf::Application.routes.draw do
   root :to => 'frontpage#index'
  
   resources :orders
+  match "/choosepackage" => "orders#choosepackage"
+  
   resources :articles
    
   namespace :admin do

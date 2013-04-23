@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422130427) do
+ActiveRecord::Schema.define(:version => 20130423154742) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(:version => 20130422130427) do
     t.integer  "number_of_records"
     t.integer  "order_status_id"
     t.text     "comments"
+    t.string   "record_size"
+    t.integer  "priority"
   end
 
   create_table "pages", :force => true do |t|

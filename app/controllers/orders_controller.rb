@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     end
   end
   
+
   def new
     @order = Order.new
 	  @order.build_audio_master
@@ -53,4 +54,10 @@ class OrdersController < ApplicationController
     end
 
   end
+
+
+  def choosepackage  
+  
+  end
+  
 end

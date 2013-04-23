@@ -49,3 +49,38 @@ table.orderline {
 	position: absolute;
 
 }
+.infoTextBox {
+	padding-right:40px;
+}
+
+.pakkeitem {
+	background-color: black;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	width:320px;
+	height:300px;
+	float:left;
+	margin:20px;
+}
+
+.pakkeheading {
+	color:white;
+	font-size:2em;
+	width:100%;
+	font-weight:bold;
+	font-family: Arial;
+	padding:20px;
+}
+
+.pakkekropp {
+	color:white;
+	font-size:1.2em;
+	font-family: Arial;
+	padding-left:20px;
+	padding-right:20px;
+
+}
+
+.pakkelinje {
+	padding-bottom:15px;
+}

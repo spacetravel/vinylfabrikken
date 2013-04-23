@@ -35,10 +35,13 @@ jQuery(document).ready(function() {
        $(this).next('.infoBox').toggle();
 	 }); 
 
+
 	$('.order_info').mouseleave(function(evt)  {
 	   evt.preventDefault();
        $(this).next('.infoBox').toggle();
-	 }); 
+	 });
+
+	
 });
 
 /*

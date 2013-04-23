@@ -20,6 +20,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
+gem "font-awesome-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,6 +33,7 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'bootswatch-rails'
 end
+
 
 
 

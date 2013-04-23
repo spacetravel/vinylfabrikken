@@ -12,8 +12,12 @@
 	<%= f.label "Levering" %>
 	<%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
 
-	<%= f.label "Type" %>
-	<%= select(:order, :number_of_records, [['Enkel (1 LP)', 1], ['Dobbel (2 LP)', 2], ['Trippel (3 LP)', 3]]) %>
+  <%= f.label "Størrelse" %>
+  <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
+
+	<%= f.label "Antall plater" %>
+	<%= select(:order, :number_of_records, [['Enkel', 1], ['Dobbel', 2], ['Trippel', 3]]) %>
+
 
 	</fieldset>
 	
@@ -27,98 +31,11 @@
       <%= render :partial => 'gravering' %>
       <%= render :partial => 'matriser' %>    
       <%= render :partial => 'provetrykk' %>    
-  
+      <%= render :partial => 'pressing' %> 
+      <%= render :partial => 'labels' %> 
+      <%= render :partial => 'covers' %> 
 
   
-     
-     <div class="progress orderline toggle-button">
-        <div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>VINYLPRESSING</b></span>
-          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ikke valgt</span>
-          <span style="float:right;padding-right:10px">300 x Svart Vinyl </span>
-
-        </div>
-      </div>
-      <div class="toggle-info">
-        <table class="table orderline">
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Farge</td>
-            <td style="text-align:right">Svart</td>
-          </tr>
-          <tr>
-            <td>Antall</td>
-            <td style="text-align:right">400 eksemplarer</td>
-          </tr>
-
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-      
-    </div>
-  
-
-     <div class="progress orderline toggle-button">
-        <div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>LABELS</b></span>
-          <span class="btn btn-success btn-mini" style="float:right;margin-right:20px">Ferdig</span>
-          <span style="float:right;padding-right:10px">600 x Hvite labler</span>
-        </div>
-      </div>
-      <div class="toggle-info"> 
-        <table class="table orderline">
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Antall</td>
-            <td style="text-align:right">600 stk</td>
-          </tr>
-
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-      
-    </div>
-
-     <div class="progress orderline toggle-button">
-        <div class="btn btn-inverse" style="width:100%;">
-          <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
-          <span style="float:left;padding-left:20px;padding-top:2px"><b>COVER</b></span>
-          <span style="text-align:center;"></span>
-          <span class="btn btn-danger btn-mini" style="float:right;margin-right:20px">Valgt bort</span>
-        </div>
-      </div>
-      <div class="toggle-info"> 
-        <table class="table orderline">
-          <tr>
-            <td colspan="2"><i class="icon-info-sign pull-right" style="padding:5px"></i>
-Gravering, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler. </td>
-          </tr>
-          <tr>
-            <td>Trykketeknikk</td>
-            <td style="text-align:right">Digitaltrykk</td>
-          </tr>
-          <tr>
-            <td>Antall</td>
-            <td style="text-align:right">400 stk</td>
-          </tr>
-           <tr>
-            <td style="font-weight:bold">Pris</td>
-            <td style="text-align:right">400 kr</td>
-          </tr>
-        </table>
-    </div>
 
   </fieldset>
     <br />

@@ -5,8 +5,13 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
+  
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+ <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "font-awesome-ie7.min.css", media: "all" %>
+  <![endif]-->
+ 
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/assets/vinylicon.gif" />
@@ -23,10 +28,10 @@
         <a class="brand" href="/">Vinylfabrikken.no</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Bestilling", new_order_path %></li>
+            <li><%= link_to "Bestilling", '/choosepackage' %></li>
         	<li><%= link_to "Priser" %></li>
         	<li><%= link_to "Utgivelser" %></li>
-	      	<li><%= link_to "Om Vinylfabrikken" %></li>
+          <li><%= link_to "Om Vinylfabrikken" %></li>
      	
           </ul>
           <form class="navbar-search pull-left" action="">
@@ -63,7 +68,6 @@
       </div>
     </div><!-- /navbar-inner -->
   </div><!-- /navbar -->
-
 		<div class="container">
 
 	  <% flash.each do |name, msg| %>
@@ -79,8 +83,11 @@
       <%= yield %>
     </div>
       <!-- FOOTER -->
-    <footer>
-      <p class="footer">&copy; 2013 Vinylfabrikken.no &middot; <a href="#">Kontakt oss</a> </p>
+    <footer style="padding-top:40px;text-align:center">
+         <a href="http://www.facebook.com/Vinylfabrikken"><i class="icon-facebook-sign icon-3x"></i></a>
+         <a href="http://www.twitter.com"><i class="icon-twitter-sign icon-3x"></i></a>
+      <p class="footer">Vinylfabrikken &copy; 2013 </p>
+ 
     </footer>
   </div>
 
