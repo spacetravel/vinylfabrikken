@@ -4,4 +4,8 @@ module OrdersHelper
 	    return InfoText.where('keyword = ?', keyword).first
 	end
 
+	def calculate_matrices(record_qty)
+		return (record_qty / 1000).ceil
+	end
+
 end

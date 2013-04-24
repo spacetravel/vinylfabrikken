@@ -3,14 +3,14 @@
       <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
       <span class="orderline_title"><b>MATRISER</b></span>
       <span class="btn btn-success btn-mini orderline_status">Ferdig</span>
-      <span class="orderline_status_text">2 stk. Matriser</span>
+      <span class="orderline_status_text">1 stk Matrise</span>
 		</div>
   </div>
   <div class="toggle-info"> 
     <table class="table orderline">
       <tr>
         <td colspan="2">
-          <i class="icon-info-sign pull-right order_info" style="padding:5px"></i>
+          <i class="icon-info-sign icon-2x pull-right order_info" style="padding:5px"></i>
 
           <div class="infoBox">
             <%= get_info_text('matriser').desc %>
@@ -20,18 +20,18 @@
           </div>
         </td>
       </tr>
+      <%= f.fields_for :matrix, :remote => true do |matrix_fields| %>
       <tr>
-        <td>Antall matriser</td>
-        <td style="text-align:right">2 stk</td>
-      </tr>
-      <tr>
-        <td>Hastighet</td>
-        <td style="text-align:right">33 rpm</td>
+        <td><b>Antall matriser</b> (én per 1000 eks)</td>
+        <td style="text-align:right">
+            <%= matrix_fields.text_field :quantity, :size => 2, 'disabled' => 'true', :style => 'width:20px' %>
+         </td>
       </tr>
        <tr>
         <td class="orderprice">Pris</td>
-        <td style="text-align:right">400 kr</td>
+        <td style="text-align:right;font-weight:bold">400 kr</td>
       </tr>
+      <% end %>
     </table>
 
 </div>

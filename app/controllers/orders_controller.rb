@@ -15,10 +15,17 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-	  @order.build_audio_master
+    
+    # Build order lines 
+
+    @order.build_audio_master
+    @order.build_gravering
+    @order.build_matrix
+    @order.build_testpress
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @order }
     end
   end

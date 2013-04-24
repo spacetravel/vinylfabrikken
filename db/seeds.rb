@@ -11,13 +11,13 @@ puts "Seeding Vinylfabrikken database ... "
 
 
 # Create the seed data for Album medium
-    ["CD-R", "DVD-R", "DAT","Bånd","FTP", "E-Post"].each do |upload_method|
+    ["CD-R", "DVD-R", "DAT","Bånd","FTP", "Minnepinne", "E-Post"].each do |upload_method|
       AlbumMedium.find_or_create_by_name(upload_method, address: "Adressen filene skal sendes til", description: "Beskrivelse av opplastingsmetode")
     end 
 puts "- Created or updated album media"
 
 # Create the seed data for cover medium
-    ["CD-R", "DVD-R", "FTP", "E-Post"].each do |upload_method|
+    ["CD-R", "DVD-R", "FTP", "Minnepinne", "E-Post"].each do |upload_method|
       CoverMedium.find_or_create_by_name(upload_method, address: "Adressen filene skal sendes til", description: "Beskrivelse av opplastingsmetode")
     end 
 puts "- Created or updated cover media"

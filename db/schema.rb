@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423154742) do
+ActiveRecord::Schema.define(:version => 20130424154439) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -45,12 +45,27 @@ ActiveRecord::Schema.define(:version => 20130423154742) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "graverings", :force => true do |t|
+    t.string   "side_a_rpm"
+    t.string   "side_b_rpm"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "order_id"
+  end
+
   create_table "info_texts", :force => true do |t|
     t.string   "keyword"
     t.text     "desc"
     t.text     "short_desc"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "matrices", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "order_id"
+    t.integer  "quantity"
   end
 
   create_table "news", :force => true do |t|
@@ -80,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20130423154742) do
   end
 
   create_table "orders", :force => true do |t|
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "status",             :default => 0
     t.integer  "user_id"
     t.integer  "artwork_medium_id"
@@ -96,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20130423154742) do
     t.text     "comments"
     t.string   "record_size"
     t.integer  "priority"
+    t.string   "rpm"
+    t.integer  "quantity",           :default => 300
   end
 
   create_table "pages", :force => true do |t|
@@ -112,6 +129,13 @@ ActiveRecord::Schema.define(:version => 20130423154742) do
   end
 
   create_table "plugs", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "testpresses", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

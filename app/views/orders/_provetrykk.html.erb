@@ -10,7 +10,7 @@
     <table class="table orderline">
       <tr>
         <td colspan="2">
-          <i class="icon-info-sign pull-right order_info" style="padding:5px"></i>
+          <i class="icon-info-sign icon-2x pull-right order_info" style="padding:5px"></i>
 
           <div class="infoBox">
             <%= get_info_text('provetrykk').desc %>
@@ -18,15 +18,16 @@
           <%= get_info_text('provetrykk').short_desc %>
         </td>
       </tr>
-      <tr>
-        <td>Antall plater</td>
-        <td style="text-align:right">10 eksemplarer</td>
-      </tr>
-      <tr>
-        <td>Hastighet</td>
-        <td style="text-align:right">33 rpm</td>
-      </tr>
+      <%= f.fields_for :testpress, :remote => true do |testpress_fields| %>
        <tr>
+        <td>Antall plater</td>
+        <td style="text-align:right">
+            <%= testpress_fields.select(:quantity, [['10 eksemplarer', 10], ['5 eksemplarer', 5]]) %>  
+   
+  </td>
+      </tr>
+      <% end %>
+      <tr>
         <td class="orderprice">Pris</td>
         <td style="text-align:right">150 kr</td>
       </tr>

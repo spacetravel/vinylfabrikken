@@ -1,36 +1,67 @@
 <%= form_for @order do |f| %>
-<div class="span4">	
+<div class="span8 offset2">	
+
+  <div id="orderDetails" class="orderDetails">
     <fieldset>
-   		 <legend>Generell informasjon</legend>
+     <div style="font-size:2em;padding-bottom:20px;">
+        Min bestilling 
+        <div class="pull-right">
+          <i class="icon-info-sign  pull-right order_info" style="padding:5px"></i>
+        </div>
 
-	<%= f.label "Tittel på produksjonen" %>	
-	<%= f.text_field :title, placeholder: "F.eks. Abbey Road" %>	
+    </div>
+    <div style="span8">
+      <div class="span2" style="padding-right:40px">
+        <%= f.label "Tittel på produksjonen" %> 
+        <%= f.text_field :title, placeholder: "F.eks. Abbey Road" %>  
 
-	<%= f.label "Artist" %>	
-	<%= f.text_field :artist, placeholder: "F.eks. The Beatles" %>	
+        <%= f.label "Artist" %> 
+        <%= f.text_field :artist, placeholder: "F.eks. The Beatles" %>  
+      </div>
+      <div class="span2" style="padding-right:40px">
+        <%= f.label "Levering" %>
+        <%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
 
-	<%= f.label "Levering" %>
-	<%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
+        <%= f.label "Størrelse" %>
+        <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
+      </div>
+      <div class="span2">
+        <%= f.label "Type" %>
+        <%= select(:order, :number_of_records, [['Enkel', 1], ['Dobbel', 2], ['Trippel', 3]]) %>
 
-  <%= f.label "Størrelse" %>
-  <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
+        <%= f.label "Hastighet (rpm)" %>
+        <%= select(:order, :rpm, [['45 rpm', '45 rpm'], ['33 1/3 rpm', '33 1/3 rpm']]) %>
+      </div>
 
-	<%= f.label "Antall plater" %>
-	<%= select(:order, :number_of_records, [['Enkel', 1], ['Dobbel', 2], ['Trippel', 3]]) %>
+    </div>
+     <div class="span10">
+        <%= f.label "Antall plater" %>
+     </div>
+      <div>
+        <div class="span5">
+          
+          1 <input id="quantitySlider" type="text" class="span4" value="300" data-slider-min="0" data-slider-max="2000" data-slider-step="1" data-slider-value="300" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show"> 2000
+        </div>
+        <div class="span2" style="float:left;margin-left:80px;" >
+          <%= f.number_field(:quantity, :in => 1...2001, :style => 'width:60px;') %> stk
+        </div>
+      </div>
+  </fieldset>
+  
+  </div>
 
-
-	</fieldset>
-	
-	<%= render :partial => 'audio_master', :locals => { :f => f } %>
 </div>
 
-<div class="span7">	
+<div class="span8 offset2">	
     <fieldset>
-   		 <legend >Bestilling</legend>
    		
-      <%= render :partial => 'gravering' %>
-      <%= render :partial => 'matriser' %>    
-      <%= render :partial => 'provetrykk' %>    
+      <div id="gravering_line">
+        <%= render :partial => 'gravering', :locals => {  :f => f, :rpm => @order.rpm } %>
+      </div>
+
+      <div id="matrix_line"><%= render :partial => 'matriser', :locals => {  :f => f} %></div>    
+
+      <%= render :partial => 'provetrykk', :locals => {  :f => f} %>    
       <%= render :partial => 'pressing' %> 
       <%= render :partial => 'labels' %> 
       <%= render :partial => 'covers' %> 
@@ -39,8 +70,51 @@
 
   </fieldset>
     <br />
-  <%= f.submit "Send bestilling", class: 'btn btn-primary pull-right' %>
-  <%= f.submit "Lagre Bestilling", class: 'btn btn-success pull-lagre' %>
+  <%= f.submit "Send til handlekurv", class: 'btn btn-primary pull-right' %>
+  <%= f.submit "Lagre i mine bestillinger", class: 'btn btn-success pull-lagre' %>
 </div>
 
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+     $('#quantitySlider').slider()
+      .on('slide', function(ev){
+        // set number_field to slider value
+        currentValue = $(this).slider('getValue').val();
+        $('#order_quantity').val(currentValue);
+
+        // set number of matrices to albumQty / 1000
+        albumQty = $('#order_quantity').val()
+        matrixQty = Math.ceil(albumQty / 1000);
+        $('#order_matrix_attributes_quantity').val(matrixQty);      
+    });
+  
+     $('#quantitySlider').slideStop()
+      .on('slide', function(ev){
+        // set number_field to slider value
+        currentValue = $(this).slider('getValue').val();
+        $('#order_quantity').val(currentValue);
+
+        // set number of matrices to albumQty / 1000
+        albumQty = $('#order_quantity').val()
+        matrixQty = Math.ceil(albumQty / 1000);
+        $('#order_matrix_attributes_quantity').val(matrixQty);      
+    });
+  
+    $('#order_quantity').change(function() {
+        console.log('Handler for .change() called.');
+        $('#quantitySlider').slider('setValue', $(this).val())
+
+        // set number of matrices to albumQty / 1000
+        albumQty = $('#order_quantity').val()
+        matrixQty = Math.ceil(albumQty / 1000);
+        $('#order_matrix_attributes_quantity').val(matrixQty);      
+    });
+   
+
+});
+
+</script>
+  
 <% end %>
+

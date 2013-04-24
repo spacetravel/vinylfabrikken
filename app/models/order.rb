@@ -20,7 +20,7 @@
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size
+  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size, :rpm, :quantity, :gravering, :gravering_attributes, :matrix, :matrix_attributes, :testpress, :testpress_attributes
   
   belongs_to :user
 
@@ -30,6 +30,9 @@ class Order < ActiveRecord::Base
   has_one :delivery_method, :dependent => :destroy
   has_one :cover_medium, :dependent => :destroy
   has_one :audio_master, :dependent => :destroy
+  has_one :gravering, :dependent => :destroy
+  has_one :matrix, :dependent => :destroy
+  has_one :testpress, :dependent => :destroy
 
   validates :user_id, presence: true
   validates :order_number, presence: true
@@ -44,5 +47,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :delivery_method
   accepts_nested_attributes_for :cover_medium
   accepts_nested_attributes_for :audio_master
-
+  accepts_nested_attributes_for :gravering
+  accepts_nested_attributes_for :matrix
+  accepts_nested_attributes_for :testpress
 end
