@@ -33,6 +33,7 @@ class Order < ActiveRecord::Base
   has_one :gravering, :dependent => :destroy
   has_one :matrix, :dependent => :destroy
   has_one :testpress, :dependent => :destroy
+  has_one :pressing, :dependent => :destroy
 
   validates :user_id, presence: true
   validates :order_number, presence: true

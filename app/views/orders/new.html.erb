@@ -89,18 +89,6 @@
         $('#order_matrix_attributes_quantity').val(matrixQty);      
     });
   
-     $('#quantitySlider').slideStop()
-      .on('slide', function(ev){
-        // set number_field to slider value
-        currentValue = $(this).slider('getValue').val();
-        $('#order_quantity').val(currentValue);
-
-        // set number of matrices to albumQty / 1000
-        albumQty = $('#order_quantity').val()
-        matrixQty = Math.ceil(albumQty / 1000);
-        $('#order_matrix_attributes_quantity').val(matrixQty);      
-    });
-  
     $('#order_quantity').change(function() {
         console.log('Handler for .change() called.');
         $('#quantitySlider').slider('setValue', $(this).val())
