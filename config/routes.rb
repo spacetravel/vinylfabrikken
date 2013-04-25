@@ -1,25 +1,17 @@
 Vf::Application.routes.draw do
  
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+
+  ActiveAdmin.routes(self)
 
   root :to => 'frontpage#index'
+
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
  
   resources :orders
+
   match "/choosepackage" => "orders#choosepackage"
   
   resources :articles
-   
-  namespace :admin do
-    resources :news
-    resources :pages
-    resources :product_types
-    resources :products
-    resources :dashboard
-    match "/" => "dashboard#index"
-  end
-
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
