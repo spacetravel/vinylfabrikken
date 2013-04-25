@@ -20,7 +20,7 @@
       </tr>
       <%= f.fields_for :testpress, :remote => true do |testpress_fields| %>
        <tr>
-        <td>Antall plater</td>
+        <td><b>Antall plater</b></td>
         <td style="text-align:right">
             <%= testpress_fields.select(:quantity, [['10 eksemplarer', 10], ['5 eksemplarer', 5]]) %>  
    

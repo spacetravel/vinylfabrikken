@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424154439) do
+ActiveRecord::Schema.define(:version => 20130425140458) do
 
   create_table "album_media", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20130424154439) do
     t.text     "description"
   end
 
+  create_table "covers", :force => true do |t|
+    t.string   "inner_sleeve_type"
+    t.string   "sleeve_type"
+    t.integer  "order_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "thickness"
+  end
+
   create_table "delivery_methods", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -57,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20130424154439) do
     t.string   "keyword"
     t.text     "desc"
     t.text     "short_desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "labels", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -113,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20130424154439) do
     t.integer  "priority"
     t.string   "rpm"
     t.integer  "quantity",           :default => 300
+    t.string   "catalogue_number"
   end
 
   create_table "pages", :force => true do |t|
@@ -131,6 +148,16 @@ ActiveRecord::Schema.define(:version => 20130424154439) do
   create_table "plugs", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "pressings", :force => true do |t|
+    t.string   "color"
+    t.integer  "weight"
+    t.boolean  "repress"
+    t.string   "holesize"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "order_id"
   end
 
   create_table "testpresses", :force => true do |t|

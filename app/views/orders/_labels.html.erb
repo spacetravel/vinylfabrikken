@@ -20,18 +20,20 @@
           </div>
         </td>
       </tr>
+
+    <%= f.fields_for :labels do |labels_fields| %>
       <tr>
-        <td>Side A</td>
-        <td style="text-align:right">Ja</td>
-      </tr>
-      <tr>
-        <td>Side B</td>
-        <td style="text-align:right">Ja</td>
+        <td><b>Farge / Trykk</b></td>
+        <td style="text-align:right">
+          <%= labels_fields.select(:type, [['Hvite', 'Hvite'],['Svarte', 'Svarte'], ['Digitaltrykk', 'Digitaltrykk']]) %> 
+        </td>
       </tr>
        <tr>
         <td class="orderprice">Pris</td>
         <td style="text-align:right">400 kr</td>
       </tr>
+    <% end %>
+
     </table>
 
 </div>

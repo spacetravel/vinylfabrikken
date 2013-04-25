@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
 
 
   def index
-  
+    
+    @orders = current_user.orders
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
@@ -22,6 +24,10 @@ class OrdersController < ApplicationController
     @order.build_gravering
     @order.build_matrix
     @order.build_testpress
+    @order.build_pressing
+    @order.build_labels
+    @order.build_covers
+
 
     respond_to do |format|
       format.html # index.html.erb

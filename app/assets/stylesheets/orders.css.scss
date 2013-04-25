@@ -95,3 +95,23 @@ table.orderline {
 	color:white;
 
 }
+
+.myOrdersWrapper {
+	background-color:black;
+	padding:20px;
+	margin-top:30px;
+	margin-bottom:30px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	color:white;
+}
+
+.myOrderHeading {
+	font-size: 1.4em;
+	padding:10px;
+
+}
+
+.myOrderBody {
+	display:none;	
+}

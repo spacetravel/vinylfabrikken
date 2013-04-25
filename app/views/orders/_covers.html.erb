@@ -20,18 +20,25 @@
           </div>
         </td>
       </tr>
+      <%= f.fields_for :covers do |covers_fields| %>
       <tr>
-        <td>Side A</td>
-        <td style="text-align:right">Ja</td>
+        <td><b>Innerhylse</b></td>
+        <td style="text-align:right">
+           <%= covers_fields.select(:inner_sleeve_type, [['Hvite', 'Hvite'], ['Svarte', 'Svarte']]) %>  
+        </td>
       </tr>
       <tr>
-        <td>Side B</td>
-        <td style="text-align:right">Ja</td>
+        <td><b>Cover</b></td>
+        <td style="text-align:right">
+          <%= covers_fields.select(:thickness, [['3 mm', '3 mm'], ['6 mm', '6 mm'], ['10 mm', '10 mm']], :class => 'tykkelse') %>  
+          <%= covers_fields.select(:sleeve_type, [['Cover med rygg (spined)', 'Cover med rygg (spined)'], ['Brettet omslag (gatefold)', 'Brettet omslag (gatefold)']]) %>  
+        </td>
       </tr>
        <tr>
         <td class="orderprice">Pris</td>
         <td style="text-align:right">400 kr</td>
       </tr>
+      <% end %>
     </table>
 
 </div>

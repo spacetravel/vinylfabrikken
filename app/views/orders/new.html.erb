@@ -17,6 +17,9 @@
 
         <%= f.label "Artist" %> 
         <%= f.text_field :artist, placeholder: "F.eks. The Beatles" %>  
+
+        <%= f.label "Katalognummer" %> 
+        <%= f.text_field :catalogue_number, placeholder: "F.eks. VF001" %>  
       </div>
       <div class="span2" style="padding-right:40px">
         <%= f.label "Levering" %>
@@ -25,7 +28,7 @@
         <%= f.label "Størrelse" %>
         <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
       </div>
-      <div class="span2">
+      <div class="span2" style="padding-right:40px">
         <%= f.label "Type" %>
         <%= select(:order, :number_of_records, [['Enkel', 1], ['Dobbel', 2], ['Trippel', 3]]) %>
 
@@ -59,14 +62,25 @@
         <%= render :partial => 'gravering', :locals => {  :f => f, :rpm => @order.rpm } %>
       </div>
 
-      <div id="matrix_line"><%= render :partial => 'matriser', :locals => {  :f => f} %></div>    
+      <div id="matrix_line">
+        <%= render :partial => 'matriser', :locals => {  :f => f} %>
+      </div>
 
-      <%= render :partial => 'provetrykk', :locals => {  :f => f} %>    
-      <%= render :partial => 'pressing' %> 
-      <%= render :partial => 'labels' %> 
-      <%= render :partial => 'covers' %> 
+      <div id="provetrykk_line">
+        <%= render :partial => 'provetrykk', :locals => {  :f => f} %>
+      </div>
 
-  
+      <div id="pressing_line">
+        <%= render :partial => 'pressing', :locals => {  :f => f} %> 
+      </div>
+
+      <div id="label_line">
+        <%= render :partial => 'labels', :locals => {  :f => f} %> 
+      </div>
+
+      <div id="cover_line">
+        <%= render :partial => 'covers', :locals => {  :f => f} %> 
+      </div>
 
   </fieldset>
     <br />

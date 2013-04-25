@@ -20,18 +20,41 @@
           </div>
         </td>
       </tr>
+      <%= f.fields_for :pressing do |pressing_fields| %>
       <tr>
-        <td>Side A</td>
-        <td style="text-align:right">Ja</td>
+        <td><b>Farge</b></td>
+        <td style="text-align:right">
+        
+          <%= pressing_fields.select(:color, [['Svart', 'Svart'], ['Rød', 'Rød'], ['Hvit', 'Hvit']]) %> 
+        </td>
       </tr>
       <tr>
-        <td>Side B</td>
-        <td style="text-align:right">Ja</td>
+        <td><b>Størrelse på hull</b></td>
+        <td style="text-align:right">
+        
+          <%= pressing_fields.select(:holesize, [['Stort (ser best ut)', 'Stort'], ['Lite', 'Lite']]) %> 
+        </td>
+      </tr>
+      <tr>
+        <td><b>Vekt</b></td>
+        <td style="text-align:right">
+        
+          <%= pressing_fields.select(:weight, [['140g', 140], ['180g', 180]]) %> 
+        </td>
+      </tr>
+      <tr>
+        <td><b>Repressing?</b></td>
+        <td style="text-align:right">
+        
+          <%= pressing_fields.check_box(:repress) %> 
+        </td>
       </tr>
        <tr>
         <td class="orderprice">Pris</td>
         <td style="text-align:right">400 kr</td>
       </tr>
+
+      <% end %>
     </table>
 
 </div>
