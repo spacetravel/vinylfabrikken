@@ -1,0 +1,32 @@
+<div class="span12"><h1>Spørsmål & Svar</h1><br /><br /></div>
+<div class="container">
+  <!-- Three columns of text below the carousel -->
+      
+    <% @faq_categories.each do |faq_cat| %>
+      <div class="span12">
+        <h3><%= faq_cat.title %></h3>
+      </div>
+
+      <% faq_cat.faqs.each do |faq| %>
+        <div class="span5" style="text-align:justify">
+          <table class="table">
+            <tr>
+              <td style="width:15px"> 
+                <i class=" icon-question-sign icon-2x" ></i>
+              </td>
+              <td>
+                <div style="padding-top:4px;font-weight:bold;font-family:Arial;font-size:16px;"><%= faq.question %></div>     
+              </td>            
+            </tr>
+            <tr>
+              <td colspan="2">            
+
+                <%= faq.answer %>
+              </td>            
+            </tr>
+          </table>        
+        </div><!-- /.span4 -->
+      <% end %>
+
+    <% end %>
+  </div>

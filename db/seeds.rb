@@ -56,3 +56,9 @@ puts "- Created labels info text"
 
    InfoText.find_or_create_by_keyword("covers", short_desc: "Kort tekst om covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.", desc: "Covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
 puts "- Created covers info text"
+
+# Adding FAQ Categories
+   FaqCategory.find_or_create_by_title("Generelt", desc: "Covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+   FaqCategory.find_or_create_by_title("Priser", desc: "Covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+   FaqCategory.find_or_create_by_title("Teknisk", desc: "Covers, kunsten å risse eller skjære inn ornamenter eller bilder i en flate av metall, glass, stein, tre, ben o.l. ved hjelp av redskaper som stikler eller meisler.")
+puts "- Created FAQ Categories"

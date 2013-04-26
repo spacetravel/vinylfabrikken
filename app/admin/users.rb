@@ -1,6 +1,6 @@
 ActiveAdmin.register User, :as => "Bruker" do
  
-
+  actions :all, :except => [:show]
   filter :email, :label => "E-post"
   filter :admin, :label => "Administrator?"
   config.comments = false

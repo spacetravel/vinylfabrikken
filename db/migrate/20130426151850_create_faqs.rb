@@ -3,8 +3,8 @@ class CreateFaqs < ActiveRecord::Migration
     create_table :faqs do |t|
       t.text :question
       t.text :answer
-      t.string :category
       t.boolean :published
+      t.integer :faq_category_id
 
       t.timestamps
     end

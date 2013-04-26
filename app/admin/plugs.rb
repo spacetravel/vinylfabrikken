@@ -1,5 +1,6 @@
 ActiveAdmin.register Plug,  :as => "Forsideplugg" do
-
+  
+  actions :all, :except => [:show]
   filter :title, :label => "Overskrift"
   filter :body, :label => "Tekst"
 
