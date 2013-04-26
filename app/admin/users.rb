@@ -1,15 +1,15 @@
-ActiveAdmin.register User do
+ActiveAdmin.register User, :as => "Bruker" do
  
 
-  filter :email
-  filter :admin
+  filter :email, :label => "E-post"
+  filter :admin, :label => "Administrator?"
   config.comments = false
   menu :label => "Brukere"
   
 
   index do
     column "E-post", :email do |user|
-    	link_to user.email, edit_admin_user_path(user)
+    	link_to user.email, edit_admin_bruker_path(user)
     end
     column "Administrator", :admin
   
@@ -23,13 +23,13 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "Brukerinformasjon" do
-      f.input :email
-      f.input :password
+      f.input :email, :label => "E-post"
+      f.input :password, :label => "Passord"
 	end
     f.inputs "Kontaktinformasjon" do
 	end
     f.inputs "Systeminstillinger" do
-	  f.input :admin
+	  f.input :admin, :label => "Er denne brukeren administrator?"
 	end
 	f.actions
   end

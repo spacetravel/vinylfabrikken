@@ -3,23 +3,21 @@ ActiveAdmin.register_page "Dashboard" do
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
-    div :class => "blank_slate_container", :id => "dashboard_default_message" do
-      span :class => "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
-      end
-    end
-
+   
     # Here is an example of a simple dashboard with columns and panels.
     #
     columns do
       column do
-        panel "Nyeste plugger" do
-          ul do
-#            Plug.recent(5).map do |plug|
- #             li link_to(plug.title, admin_plug_path(plug))
-  #          end
+        panel "Nyeste forsideplugger" do
+          table_for Plug.order("created_at desc").limit(5) do
+            column "Overskrift", :title do |news|
+              link_to news.title, edit_admin_forsideplugg_path(news)
+            end
+            column "Opprettet", :created_at, :sortable => :created_at do |news|
+              (time_ago_in_words news.created_at) + " siden"
+            end
           end
+          strong { link_to "Se alle forsidepluggene", admin_forsidepluggs_path }
         end
       end
 
