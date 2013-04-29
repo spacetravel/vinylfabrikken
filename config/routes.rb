@@ -1,6 +1,8 @@
 Vf::Application.routes.draw do
  
 
+  mount Rich::Engine => '/rich', :as => 'rich'
+
   ActiveAdmin.routes(self)
 
   root :to => 'frontpage#index'

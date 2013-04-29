@@ -21,8 +21,11 @@ gem 'devise'
 gem 'simple_form'
 gem 'fog', '1.3.1'
 gem 'carrierwave'
+gem 'paperclip'
+gem 'aws-sdk'
 gem "font-awesome-rails"
 gem 'activeadmin'
+gem 'rich', git: 'git://github.com/dogmacreative/rich.git', branch: 'active-admin'
 
 # Gems used only for assets and not required
 # in production environments by default.

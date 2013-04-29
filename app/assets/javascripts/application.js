@@ -16,7 +16,6 @@
 //= require_tree .
 
 
-
 jQuery(document).ready(function() {
 
 	// Slider functions for order form

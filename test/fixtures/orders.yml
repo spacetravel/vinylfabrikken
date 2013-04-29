@@ -17,6 +17,11 @@
 #  number_of_records  :integer
 #  order_status_id    :integer
 #  comments           :text
+#  record_size        :string(255)
+#  priority           :integer
+#  rpm                :string(255)
+#  quantity           :integer          default(300)
+#  catalogue_number   :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

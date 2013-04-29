@@ -1,4 +1,6 @@
 nb:
+  picker_browse:
+    "Velg fil"  
   devise:
       sessions:
           admin_user:
