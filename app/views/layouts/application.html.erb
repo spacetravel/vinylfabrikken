@@ -35,8 +35,8 @@
                  <b class="caret"></b>
             </a>
              <ul class="dropdown-menu">
-              <li><%= link_to "Prisoversikt", '/omoss' %></li>
-              <li><%= link_to "Priskalkulator", '/partnere' %></li>
+              <li><%= link_to "Prisoversikt", '/priser' %></li>
+              <li><%= link_to "Priskalkulator", '/priser' %></li>
             </ul>
           </li>
 
@@ -69,6 +69,12 @@
                 <li>
 				    			<%= link_to 'Rediger profil', edit_user_registration_path %>
       					</li>
+                <% if current_user.admin %>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Administrer", '/admin' %>
+                  </li>
+                <% end %>
                 <li class="divider"></li>
                 <li>
 		    					<%= link_to "Logg ut", destroy_user_session_path, method: :delete %>

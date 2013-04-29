@@ -11,13 +11,14 @@ Vf::Application.routes.draw do
  
   resources :faqs
   resources :orders
-
+  resources :prices
  
 
   match "/choosepackage" => "orders#choosepackage"
   match "/omoss" => "articles#show", :id => 1
   match "/kontakt" => "articles#show", :id => 2
   match "/partnere" => "articles#show", :id => 3
+  match "/priser" => "prices#index"
 
   resources :articles
 
