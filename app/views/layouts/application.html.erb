@@ -29,12 +29,32 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Bestilling", '/choosepackage' %></li>
-        	<li><%= link_to "Priser" %></li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 Priser
+                 <b class="caret"></b>
+            </a>
+             <ul class="dropdown-menu">
+              <li><%= link_to "Prisoversikt", '/omoss' %></li>
+              <li><%= link_to "Priskalkulator", '/partnere' %></li>
+            </ul>
+          </li>
+
         	<li><%= link_to "Utgivelser" %></li>
           <li><%= link_to "Spørsmål & Svar", faqs_path %></li>
-          <li><%= link_to "Om Vinylfabrikken" %></li>
-     	
-          </ul>
+          
+     	     <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 Om Vinylfabrikken
+                 <b class="caret"></b>
+            </a>
+             <ul class="dropdown-menu">
+              <li><%= link_to "Hvem er vi?", '/omoss' %></li>
+              <li><%= link_to "Våre samarbeidspartenere", '/partnere' %></li>
+              <li><%= link_to "Kontakt oss", '/kontakt' %></li>
+            </ul>
+          </li>
+       </ul>
 
           <ul class="nav pull-right">
 

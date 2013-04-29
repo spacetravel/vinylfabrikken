@@ -12,8 +12,13 @@ Vf::Application.routes.draw do
   resources :faqs
   resources :orders
 
+ 
+
   match "/choosepackage" => "orders#choosepackage"
-  
+  match "/omoss" => "articles#show", :id => 1
+  match "/kontakt" => "articles#show", :id => 2
+  match "/partnere" => "articles#show", :id => 3
+
   resources :articles
 
   # The priority is based upon order of creation:

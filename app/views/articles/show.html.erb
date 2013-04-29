@@ -1,11 +1,11 @@
 <div class="span10" >
-	<h2><%= @article.title %></h2>
-	<p style="font-weight:bold;">
-		<%= @article.ingress %>
+	<h1><%= @article.title %></h1><br /><br />
+	
+	<p>
+		<%= @article.ingress.html_safe %>
 	</p>
 
 	<p>
-		<%= image_tag @article.image_url(:medium).to_s, :class => "articleimage" %>
-		<%= @article.body %>
+		<%= @article.body.html_safe %>
 	</p>
 </div>
