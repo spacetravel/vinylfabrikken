@@ -19,10 +19,10 @@ end
 gem 'rmagick'
 gem 'devise'
 gem 'simple_form'
+gem 'fog', '1.3.1'
 gem 'carrierwave'
 gem "font-awesome-rails"
 gem 'activeadmin'
-gem 'fog'
 
 # Gems used only for assets and not required
 # in production environments by default.
