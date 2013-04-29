@@ -35,7 +35,12 @@ if Object.const_defined?("Rich")
 
     }
 
-    config.authentication_method = :authenticate_admin_user!
+    
+    Paperclip.interpolates(:s3_eu_url) { |attachment, style|
+  "#{attachment.s3_protocol}://s3-eu-west-1.amazonaws.com/#{attachment.bucket_name}/#{attachment.path(style).gsub(%r{^/}, "")}"
+}
+
+    # config.authentication_method = :authenticate_admin_user!
 
     # == Convert options
     #
@@ -56,7 +61,7 @@ if Object.const_defined?("Rich")
     #   config.allowed_styles = [ :large, :thumb ]
     #
     # Default:
-    # config.allowed_styles = :all
+    config.allowed_styles = :all
     
     # == Default Style
     # 
@@ -105,7 +110,7 @@ if Object.const_defined?("Rich")
     # will be able to see your images, and upload files.
     # 
     # Example for Devise with an AdminUser model:
-    #   config.authentication_method = :authenticate_admin_user!
+      config.authentication_method = :authenticate_admin_user!
     # 
     # Default (NOT recommended in production environments): 
     # config.authentication_method = :none

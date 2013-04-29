@@ -37,5 +37,12 @@ Vf::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  
+  Paperclip::Attachment.default_options.merge!(
+    :storage => :s3,
+    :bucket => "vinylfabrikken-dev",
+    :s3_credentials => "#{::Rails.root}/config/s3.yml",
+    :path => "/images/:id/:style/:basename.:extension",
+    :url  => ":s3_eu_url"
+  )
+ 
 end

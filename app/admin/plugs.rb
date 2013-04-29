@@ -16,19 +16,18 @@ ActiveAdmin.register Plug,  :as => "Forsideplugg" do
       (time_ago_in_words plug.created_at) + " siden"
     end
     column "Bilde", :image do |plug|
-      link_to(image_tag(plug.image_url(:thumb).to_s), admin_forsideplugg_path(plug))
+      link_to(image_tag(plug.image.url(:thumb).to_s), admin_forsideplugg_path(plug))
     end
     default_actions
   
   end     
   
-  form do |f|
+  form :html => { :multipart => true }  do |f|
     f.inputs "Informasjon" do
       f.input :title, :label => "Overskrift"
       f.input :body, :label => "Tekst"
       f.input :link, :label => "Lenke"
-      f.input :image, :as => :rich_picker, :config => { :style => 'width: 400px !important;' }
-
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb)), :config => { :style => 'width: 400px !important;' }, :label => "Bilde" 
 	end
 	f.actions
   end

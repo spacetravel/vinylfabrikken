@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
-#  desc       :string(255)
-#  price      :float
+#  desc       :text
+#  price      :decimal(8, 2)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

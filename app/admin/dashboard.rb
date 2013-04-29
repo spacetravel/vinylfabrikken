@@ -8,9 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
    
     # Here is an example of a simple dashboard with columns and panels.
     #
-
-
-
+    
     columns do
       column do
         panel "Informasjon" do
@@ -18,7 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
-    
+
     columns do
       column do
         panel "Nyeste forsideplugger" do

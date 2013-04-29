@@ -16,11 +16,11 @@ end
 group :production do
   gem 'pg'
 end
+
 gem 'rmagick'
 gem 'devise'
 gem 'simple_form'
 gem 'fog', '1.3.1'
-gem 'carrierwave'
 gem 'paperclip'
 gem 'aws-sdk'
 gem "font-awesome-rails"
