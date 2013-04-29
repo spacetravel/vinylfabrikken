@@ -3,8 +3,8 @@ class CreatePrices < ActiveRecord::Migration
     create_table :prices do |t|
       t.string :name
       t.text :desc
-      t.decimal :price, :precision => 2
-      
+      t.decimal :price, :precision => 8, :scale => 2
+
       t.timestamps
     end
   end

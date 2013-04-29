@@ -18,6 +18,7 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+    
     columns do
       column do
         panel "Nyeste forsideplugger" do

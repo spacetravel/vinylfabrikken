@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(:version => 20130429175753) do
   create_table "prices", :force => true do |t|
     t.string   "name"
     t.text     "desc"
-    t.decimal  "price",      :precision => 2, :scale => 0
+    t.decimal  "price",      :precision => 8, :scale => 2
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
   end
