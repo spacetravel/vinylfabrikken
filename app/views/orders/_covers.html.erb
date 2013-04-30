@@ -3,7 +3,7 @@
       <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
       <span class="orderline_title"><b>COVERS</b></span>
       <span class="btn btn-success btn-mini orderline_status">Ferdig</span>
-      <span class="orderline_status_text">600 x Svarte coves</span>
+      <span id="covers_status_text" class="orderline_status_text">600 x Svarte coves</span>
 		</div>
   </div>
   <div class="toggle-info"> 
@@ -24,7 +24,7 @@
       <tr>
         <td><b>Innerhylse</b></td>
         <td style="text-align:right">
-           <%= covers_fields.select(:inner_sleeve_type, [['Hvite', 'Hvite'], ['Svarte', 'Svarte']]) %>  
+           <%= covers_fields.select(:inner_sleeve_type, [['Hvit', 'Hvit'], ['Svart', 'Svart']]) %>  
         </td>
       </tr>
       <tr>
