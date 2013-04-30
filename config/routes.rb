@@ -14,7 +14,7 @@ Vf::Application.routes.draw do
   resources :prices
  
 
-  match "/choosepackage" => "orders#choosepackage"
+  match "/velgpakke" => "orders#choosepackage"
   match "/omoss" => "articles#show", :id => 1
   match "/kontakt" => "articles#show", :id => 2
   match "/partnere" => "articles#show", :id => 3
