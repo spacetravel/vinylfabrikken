@@ -32,10 +32,8 @@ nb:
                       "Logget inn"
 
       pagination:
-        one: 
-          "Side 1"
-        empty:
-          "Ingen treff"
+          empty:
+              "Ingen treff"
       create_model:
           "Opprett %{model}"
       new_model: 
@@ -52,11 +50,6 @@ nb:
           "Detaljer"
       dashboard:
           "Skrivebord"
-      dashboard_welcome:
-          welcome:
-            "Velkommen til Vinylfabrikkens administrasjon"
-          call_to_action:
-            "Rediger 'app/admin/dashboard.rb' for at legge til elementer i oversikten"
       filter:
           "Filtrer"
       clear_filters:

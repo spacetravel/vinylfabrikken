@@ -31,8 +31,8 @@ module Vf
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :nb
-    
+    # config.i18n.default_locale = :nb
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -61,6 +61,11 @@ module Vf
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.2'
+    config.assets.version = '1.3'
+
+        # Force locale on Heroku
+    I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.yml').to_s]
+    I18n.locale = :nb
+    
   end
 end

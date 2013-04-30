@@ -1,4 +1,6 @@
-'nb':
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+nb:
   devise:
     confirmations:
       confirmed: "Din konto er aktivert og du er nå innlogget."
