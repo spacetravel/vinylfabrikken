@@ -84,6 +84,7 @@ filter: alpha(opacity=50);
 
 .carousel .item {
   height: 450px;
+
 }
 .carousel img {
   position: absolute;
@@ -104,12 +105,15 @@ filter: alpha(opacity=50);
 .carousel-caption h1,
 .carousel-caption .lead {
   margin: 0;
+  padding-bottom: 10px;
   line-height: 1.25;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
 }
 .carousel-caption .btn {
   margin-top: 10px;
+  border: 1px solid white;
+  color:white;
 }
 
 

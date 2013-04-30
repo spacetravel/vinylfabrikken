@@ -39,9 +39,17 @@
               <li><%= link_to "Priskalkulator", '/priser' %></li>
             </ul>
           </li>
-
-        	<li><%= link_to "Utgivelser" %></li>
-          <li><%= link_to "Spørsmål & Svar", faqs_path %></li>
+          <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 Galleri
+                 <b class="caret"></b>
+            </a>
+             <ul class="dropdown-menu">
+              <li><%= link_to "Våre utgivelser", '#' %></li>
+              <li><%= link_to "Kartoteket", '#' %></li>
+              <li><%= link_to "Utstillinger", '#' %></li>
+            </ul>
+          </li>
           
      	     <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -50,7 +58,8 @@
             </a>
              <ul class="dropdown-menu">
               <li><%= link_to "Hvem er vi?", '/omoss' %></li>
-              <li><%= link_to "Våre samarbeidspartenere", '/partnere' %></li>
+              <li><%= link_to "Spørsmål & Svar", faqs_path %></li>
+              <li><%= link_to "Våre samarbeidspartnere", '/partnere' %></li>
               <li><%= link_to "Kontakt oss", '/kontakt' %></li>
             </ul>
           </li>
@@ -109,8 +118,8 @@
     </div>
       <!-- FOOTER -->
     <footer style="padding-top:40px;text-align:center">
-         <a href="http://www.facebook.com/Vinylfabrikken"><i class="icon-facebook-sign icon-3x"></i></a>
-         <a href="http://www.twitter.com"><i class="icon-twitter-sign icon-3x"></i></a>
+         <i onclick="location.href='http://www.facebook.com/Vinylfabrikken'" class="icon-facebook-sign icon-3x"></i>
+         <i onclick="location.href='http://www.twitter.com'" class="icon-twitter-sign icon-3x"></i></a>
       <p class="footer">Vinylfabrikken &copy; 2013 </p>
  
     </footer>
@@ -123,8 +132,9 @@
     // You used .myCarousel here. 
     // That's the class selector not the id selector,
     // which is #myCarousel
-    $('#myCarousel').carousel();
-   
+    $('.carousel').carousel({
+      interval: 10000
+    })   
     $('.dropdown-toggle').dropdown()
   });
 
