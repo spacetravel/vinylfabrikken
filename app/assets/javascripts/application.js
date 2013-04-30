@@ -40,6 +40,17 @@ jQuery(document).ready(function() {
        $(this).next('.infoBox').toggle();
 	 });
 
+
+	// Slider functions for my orders
+	
+	$('.toggle-button').click(function() {
+	    $(this).next('.toggle-info').slideToggle('slow', function() {
+	    	// Animation complete.
+	    });
+		$(this).find('#plusminusicon').toggleClass('icon-plus-sign');
+		$(this).find('#plusminusicon').toggleClass('icon-minus-sign');
+	});
+	
 	
 });
 
