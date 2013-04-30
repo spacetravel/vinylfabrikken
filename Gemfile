@@ -17,6 +17,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'thin'
+gem 'delayed_job_active_record'
 gem 'rmagick'
 gem 'devise'
 gem 'simple_form'
