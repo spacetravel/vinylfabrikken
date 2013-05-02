@@ -13,4 +13,6 @@
 
 class OrderStatus < ActiveRecord::Base
    attr_accessible :title, :description, :color, :owner
+
+   belongs_to :order
 end

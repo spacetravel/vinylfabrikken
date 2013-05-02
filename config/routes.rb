@@ -15,6 +15,7 @@ Vf::Application.routes.draw do
  
 
   match "/velgpakke" => "orders#choosepackage"
+  match "/tilhandlekurv/:id" => "orders#move_to_shopping_cart"
   match "/omoss" => "articles#show", :id => 1
   match "/kontakt" => "articles#show", :id => 2
   match "/partnere" => "articles#show", :id => 3

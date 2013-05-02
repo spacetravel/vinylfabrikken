@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   include OrdersHelper
 
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:new]
 
 
   def index
@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
     @order.build_covers
 
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.js
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
     end
   end
   
-  def show
+  def edit
     @order = Order.find(params[:id])
 
     respond_to do |format|
@@ -58,8 +59,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Bestilling sendt til Vinylfabrikken.' }
-        format.json { render json: @order, status: :created, location: @order }
+        format.html { redirect_to orders_path, notice: 'Bestilling sendt til Vinylfabrikken.' }
+        format.json { render json: orders_path, status: :created, location: orders_path }
       else
         format.html { render action: "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -68,15 +69,26 @@ class OrdersController < ApplicationController
 
   end
 
+  def update
+    @order = Order.find(params[:id])
+    if @order.update_attributes(params[:order])
+      redirect_to(orders_path)
+    else
+      render "edit"
+    end
+  end
 
-   def destroy
-      Order.find(params[:id]).destroy
-      redirect_to :action => 'index'
-   end
+  def destroy
+     Order.find(params[:id]).destroy
+     redirect_to :action => 'index'
+  end
 
 
   def choosepackage  
   
+  end
+
+  def move_to_shopping_cart
   end
   
 end

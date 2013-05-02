@@ -1,38 +1,40 @@
 <div class="span12">
-	<h2>Mine bestillinger</h2>
+	<duv style="font-size:3em;padding:30px 0 30px 0" class="span9">Mine bestillinger</div>
 
-	<div class="span10">
+	<div class="span11">
 		<% @orders.each do |order| %>
-			<div class="myOrdersWrapper ">
-				<div class="myOrderHeading toggle-button">
-					<%= order.title %> / <%= order.artist%>
-					<div class="pull-right">
-						<i id="plusminusicon" class="icon-info-sign icon-large" style="padding-top:5px"></i>
-						<i id="plusminusicon" class="icon-plus-sign icon-large" style="padding-top:5px"></i>
+			<div class="myOrdersWrapper">
+				<div class="myOrderHeading">
+					<div class="pull-left">
+						<b><%= order.title %> / <%= order.artist %> </b>
+						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
+						<div style="padding:0px">
+							<%= button_to "Se på ordre", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
+						</div>
+					
 					</div>
-				</div>
-				<div class="toggle-info myOrderBody">
-					<table class="table table-floating">
-						<tr>
-							<td>
-								<%= order.gravering.side_a_rpm %>
-							</td>
-						</tr>
-						<tr>
-							<td>
-						<%= order.quantity %> x <%= order.pressing.color %> <%= order.record_size %> 
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<%= button_to "Rediger ordre", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary' %>
 
-								<%= button_to "Slett ordre", { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete, :class => 'btn btn-warning' %>
-							</td>
-						</tr>
-					</table>
+					<div class="pull-right">
+						<i class="icon-info-sign icon-large pull-right order_info" style="padding-top:5px"></i>
+
+					<br /><br />
+						<div style="padding:0px">
+							<%= button_to "Send til handlekurv", '/tilhandlekurv/'+order.id.to_s, :class => 'btn btn-success pull-right' %>
+						</div>
+					</div>
+
+					<div class="pull-right" style="font-size:12px;padding:10px;">
+				        Levering: <b><%=  DeliveryMethod.find(order.delivery_method_id).name %></b><br />
+				        Størrelse: <b><%=  order.record_size %></b>
+				    </div>
+				  	<div class="pull-right" style="font-size:12px;padding:10px;">
+  			        	Hastighet <b>(rpm): <%=  order.rpm %></b> <br />
+  			        	Katalognummer: <%= order.catalogue_number %>)
+				      
+				    </div>
 				</div>
 			</div>
+			<div style="clear:both">
 		<% end %>
 	</div>
 </div>

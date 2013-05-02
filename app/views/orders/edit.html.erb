@@ -1,0 +1,104 @@
+<%= form_for @order do |f| %>
+<div class="span8 offset2">	
+
+  <div id="orderDetails" class="orderDetails">
+    <fieldset>
+     <div style="font-size:2em;padding-bottom:20px;">
+        Min bestilling 
+        <div class="pull-right">
+          <i class="icon-info-sign  pull-right order_info" style="padding:5px"></i>
+        </div>
+
+    </div>
+    <div style="span8">
+      <div class="span2" style="padding-right:40px">
+        <%= f.label "Tittel på produksjonen" %> 
+        <%= f.text_field :title, placeholder: "F.eks. Abbey Road" %>  
+
+        <%= f.label "Artist" %> 
+        <%= f.text_field :artist, placeholder: "F.eks. The Beatles" %>  
+
+        <%= f.label "Katalognummer" %> 
+        <%= f.text_field :catalogue_number, placeholder: "F.eks. VF001" %>  
+      </div>
+      <div class="span2" style="padding-right:40px">
+        <%= f.label "Levering" %>
+        <%= collection_select(:order, :delivery_method_id, DeliveryMethod.all, :id, :name) %>
+
+        <%= f.label "Størrelse" %>
+        <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
+
+        <%= f.label "Opplag" %>
+
+        <%= f.range_field(:quantity, {:step => 5, :in => 0...2501}) %>
+
+          <p class="note"><span id="range-small">0</span> stk</p>
+      </div>
+      <div class="span2" style="padding-right:40px">
+        <%= f.label "Type" %>
+        <%= select(:order, :number_of_records, [['Enkel', 1], ['Dobbel', 2], ['Trippel', 3]]) %>
+
+        <%= f.label "Hastighet (rpm)" %>
+        <%= select(:order, :rpm, [['45 rpm', '45 rpm'], ['33 1/3 rpm', '33 1/3 rpm']]) %>
+
+        <div style="font-size:18px">
+          Antall plater:<br /><br /> 
+          <span id="range" style="font-size:26px">0</span>
+        </div>      
+      </div>
+
+    </div>
+          
+  </fieldset>
+  
+  </div>
+
+</div>
+
+<div class="span8 offset2">	
+    <fieldset>
+   		
+      <div id="gravering_line">
+        <%= render :partial => 'gravering', :locals => {  :f => f, :rpm => @order.rpm } %>
+      </div>
+
+      <div id="matrix_line">
+        <%= render :partial => 'matriser', :locals => {  :f => f} %>
+      </div>
+
+      <div id="provetrykk_line">
+        <%= render :partial => 'provetrykk', :locals => {  :f => f} %>
+      </div>
+
+      <div id="pressing_line">
+        <%= render :partial => 'pressing', :locals => {  :f => f} %> 
+      </div>
+
+      <div id="label_line">
+        <%= render :partial => 'labels', :locals => {  :f => f} %> 
+      </div>
+
+      <div id="cover_line">
+        <%= render :partial => 'covers', :locals => {  :f => f} %> 
+      </div>
+
+<div class="progress orderline" style="height:50px;">
+    <div class="btn btn-inverse" style="height:50px;width:100%;">
+      <span class="orderline_title"><b>TOTAL PRIS: </b></span>
+      <span class=" orderline_status">4500,00 kr</span>
+    </div>
+  </div>
+
+  </fieldset>
+    <br />
+  <%= f.submit "Send til handlekurv", class: 'btn btn-primary pull-right' %>
+  <%= f.submit "Lagre i mine bestillinger", class: 'btn btn-success pull-lagre' %>
+</div>
+
+  
+<script type="text/javascript">
+
+</script>
+  
+<% end %>
+

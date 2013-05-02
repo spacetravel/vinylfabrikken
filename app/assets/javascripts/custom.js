@@ -1,9 +1,10 @@
-$(function(){
+$( document ).ready(function(){
 
     var currentValue = $('#range');
     var currentValueSmall = $('#range-small');
     var sideA = $('#order_gravering_attributes_side_a_rpm');
     var sideB = $('#order_gravering_attributes_side_b_rpm');
+
 
 
     /* Gravering logic */
@@ -86,5 +87,5 @@ $(function(){
         $('#covers_status_text').html($('#order_quantity').val() + " x " + $('#order_covers_attributes_inner_sleeve_type').val());    
     });
 
-
+    $('#order_quantity').change();
 });

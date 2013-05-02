@@ -33,8 +33,8 @@ class Order < ActiveRecord::Base
 
   has_one :order_status, :dependent => :destroy
   has_one :delivery_method, :dependent => :destroy
-  has_one :cover_medium, :dependent => :destroy
-  has_one :audio_master, :dependent => :destroy
+  has_one :cover_medium #, :dependent => :destroy
+  has_one :audio_master #, :dependent => :destroy
   has_one :gravering, :dependent => :destroy
   has_one :matrix, :dependent => :destroy
   has_one :testpress, :dependent => :destroy

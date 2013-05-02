@@ -15,34 +15,6 @@
 //= require bootstrap
 //= require_tree .
 
-
-jQuery(document).ready(function() {
-
-	// Slider functions for order form
-	$('.toggle-button').click(function() {
-	    $(this).next('.toggle-info').slideToggle('slow', function() {
-	    	// Animation complete.
-		$(this).find('#plusminusicon').toggleClass('icon-plus-sign');
-		$(this).find('#plusminusicon').toggleClass('icon-minus-sign');
-	    });
-	});
-	
-	// Info boxes for order form
-	$('.infoBox').hide();
-	$('.order_info').mouseenter(function(evt)  {
-	   evt.preventDefault();
-       $(this).next('.infoBox').toggle();
-	 }); 
-
-
-	$('.order_info').mouseleave(function(evt)  {
-	   evt.preventDefault();
-       $(this).next('.infoBox').toggle();
-	 });
-
-	
-});
-
 /*
 function show(object)
 {
@@ -55,3 +27,31 @@ function hide(object)
 var obj = document.getElementById(object);
 obj.style.visibility = 'hidden';
 }*/
+
+$(document).ready(function(){
+
+
+    // Slider functions for order form
+    $('.toggle-button').click(function() {
+
+        $(this).next('.toggle-info').slideToggle('slow', function() {
+          $(this).next('#plusminusicon').toggleClass('icon-plus-sign');
+          $(this).next('#plusminusicon').toggleClass('icon-minus-sign');
+        });
+
+    });
+    
+    // Info boxes for order form
+    $('.infoBox').hide();
+    
+    $('.order_info').mouseenter(function(evt)  {
+       evt.preventDefault();
+       $(this).next('.infoBox').toggle();
+     }); 
+
+
+    $('.order_info').mouseleave(function(evt)  {
+       evt.preventDefault();
+       $(this).next('.infoBox').toggle();
+     });
+});
