@@ -49,7 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
  end
 
  version :xlarge do
-    process :resize_to_fill => [1024,1024]
+    process :resize_to_fill => [1170,350]
  end
 
   # Process files as they are uploaded:

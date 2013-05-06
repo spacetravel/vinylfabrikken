@@ -25,10 +25,10 @@ vinylicon.gif: vinylicon-f118d164bf1939e83ca833d8046033d6.gif
 vinylicon/index.gif: vinylicon-f118d164bf1939e83ca833d8046033d6.gif
 vinylplate.jpeg: vinylplate-a181b3c598b26f05972e784b11fc89a4.jpeg
 vinylplate/index.jpeg: vinylplate-a181b3c598b26f05972e784b11fc89a4.jpeg
-application.js: application-a4a14e15469ff447f65aa4bc40e5ba6d.js
-application/index.js: application-a4a14e15469ff447f65aa4bc40e5ba6d.js
-application.css: application-42601dad6cef724be40a97f8888869fe.css
-application/index.css: application-42601dad6cef724be40a97f8888869fe.css
+application.js: application-1a8b2c1a4194a832205e2b680040322b.js
+application/index.js: application-1a8b2c1a4194a832205e2b680040322b.js
+application.css: application-3965f7617a63b2e864adbe6a3e804ae2.css
+application/index.css: application-3965f7617a63b2e864adbe6a3e804ae2.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-067ce29a9778c12cf1b0184aead98aef.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-067ce29a9778c12cf1b0184aead98aef.png
 glyphicons-halflings.png: glyphicons-halflings-52d428985b76bdda04b823a2396210c8.png
