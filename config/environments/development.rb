@@ -44,5 +44,14 @@ Vf::Application.configure do
     :path => "/images/:id/:style/:basename.:extension",
     :url  => ":s3_eu_url"
   )
- 
+
+    CarrierWave.configure do |config|
+      config.fog_credentials = {
+        :provider               => 'AWS',       # required
+        :aws_access_key_id      => 'AKIAI2J75VJLDQRV5EHQ',       # required
+        :aws_secret_access_key  => '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',       # required
+        :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
+      }
+      config.fog_directory  = 'vinylfabrikken-dev'                     # required
+    end 
 end

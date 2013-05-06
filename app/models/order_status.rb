@@ -9,6 +9,7 @@
 #  owner       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  order_id    :integer
 #
 
 class OrderStatus < ActiveRecord::Base

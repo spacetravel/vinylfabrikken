@@ -27,7 +27,7 @@ ActiveAdmin.register Plug,  :as => "Forsideplugg" do
       f.input :title, :label => "Overskrift"
       f.input :body, :label => "Tekst"
       f.input :link, :label => "Lenke"
-      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb)), :config => { :style => 'width: 400px !important;' }, :label => "Bilde" 
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb)), :label => "Bilde" 
 	end
 	f.actions
   end

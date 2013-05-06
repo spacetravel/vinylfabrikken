@@ -1,0 +1,7 @@
+ <hr class="featurette-divider">
+
+<div class="featurette">
+	 <%= image_tag featurettes.image.url(:large).to_s, :class => "featurette-image #{ cycle("pull-right", "pull-left")}" %>
+	<h2 class="featurette-heading"><%= featurettes.title %><br /> <span class="muted"><%= featurettes.subtitle %></span></h2>
+	<p class="lead"><%= featurettes.text %></p>
+</div>

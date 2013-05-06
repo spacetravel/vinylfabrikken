@@ -11,6 +11,8 @@ nb:
               invalid:
                   "Feil i epost / password"
   active_admin:
+      delete_confirmation:
+        "Er du sikker på at du vil slette?"    
       devise:
           links:
               forgot_your_password:
@@ -279,3 +281,5 @@ nb:
   activerecord:
     errors:
       <<: *errors
+  picker_browse:
+    Velg bilde

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502113918) do
+ActiveRecord::Schema.define(:version => 20130506133536) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -108,6 +108,16 @@ ActiveRecord::Schema.define(:version => 20130502113918) do
     t.integer  "faq_category_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "featurettes", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "text"
+    t.string   "link"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "graverings", :force => true do |t|
@@ -226,6 +236,17 @@ ActiveRecord::Schema.define(:version => 20130502113918) do
     t.integer  "owner_id"
     t.text     "uri_cache"
     t.string   "simplified_type",        :default => "file"
+  end
+
+  create_table "sliders", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "button_text"
+    t.string   "link"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "active"
   end
 
   create_table "testpresses", :force => true do |t|

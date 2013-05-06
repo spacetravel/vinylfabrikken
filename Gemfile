@@ -24,6 +24,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'fog', '1.3.1'
 gem 'paperclip'
+gem 'carrierwave'
 gem 'aws-sdk'
 gem "font-awesome-rails"
 gem 'activeadmin'

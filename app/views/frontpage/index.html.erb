@@ -1,4 +1,21 @@
-<%= render 'carousel' %>
+
+    <!-- Carousel
+    ================================================== -->
+  <div id="myCarousel" class="carousel slide"  style="overflow:hidden">
+
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+
+      <%= render :partial => 'sliders', :collection => @sliders  %>
+
+     </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev" >&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
 
 
 
@@ -9,34 +26,11 @@
       </div><!-- /.row -->
     
 
-
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
-
-      <div class="featurette">
-        <img class="featurette-image pull-right" src="/assets/vinyl-icon.png">
-        <h2 class="featurette-heading">Vi selger platespillere<br /> <span class="muted">Til gode priser</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="featurette">
-        <img class="featurette-image pull-left" src="/assets/facebook.png">
-        <h2 class="featurette-heading">Følg oss på facebook<br /><span class="muted">For gode tilbud</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="featurette">
-        <img class="featurette-image pull-right" src="/assets/question-mark.png">
-        <h2 class="featurette-heading">Hvis du lurer på noe <br /> <span class="muted">Besøk oss i Pløens gate</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
+      <%= render :partial =>'featurettes', :collection => @featurettes  %>
+    
+       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 

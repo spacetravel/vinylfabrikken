@@ -4,9 +4,9 @@
 #
 #  id         :integer          not null, primary key
 #  order_id   :integer
-#  type       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  label_type :string(255)
 #
 
 class Labels < ActiveRecord::Base

@@ -1,0 +1,10 @@
+<div class="item <% if sliders.active %>active<% end %>">
+  <%= image_tag sliders.image.url(:xlarge).to_s %>
+  <div class="container">
+    <div class="carousel-caption">
+      <h1><%= sliders.title %></h1>
+      <p class="lead"><%= sliders.subtitle%></p>
+      <a class="btn btn-inverse pull-left" href="<%= sliders.link %>"><%= sliders.button_text %></a>
+    </div>
+  </div>
+</div>
