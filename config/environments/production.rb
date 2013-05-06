@@ -63,18 +63,18 @@ Vf::Application.configure do
 
   config.assets.precompile += %w( font-awesome-ie7.min.css )
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://vinylfabrikken-stage.herokuapp.com/' }
   
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-   Paperclip::Attachment.default_options.merge!(
-      :storage => :s3,
-      :bucket => "vinylfabrikken-dev",
-      :s3_credentials => "#{::Rails.root}/config/s3.yml",
-      :path => "/images/:id/:style/:basename.:extension",
-      :url  => ":s3_eu_url"
-    )
+#   Paperclip::Attachment.default_options.merge!(
+#      :storage => :s3,
+#      :bucket => "vinylfabrikken-dev",
+#      :s3_credentials => "#{::Rails.root}/config/s3.yml",
+#      :path => "/images/:id/:style/:basename.:extension",
+#      :url  => ":s3_eu_url"
+#    )
   config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Staging") do |u, p|
     [u, p] == ['vinylfabrikken', 'platepresse']
   end

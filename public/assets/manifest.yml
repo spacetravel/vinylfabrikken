@@ -9,10 +9,16 @@ carousel/slide-04.jpg: carousel/slide-04-8d0368bf2c96d22c7de8390b0acebed7.jpg
 carousel/slide-04/index.jpg: carousel/slide-04-8d0368bf2c96d22c7de8390b0acebed7.jpg
 carousel/slide-05.jpg: carousel/slide-05-2a8b02cf48a04730ba16767c6802e055.jpg
 carousel/slide-05/index.jpg: carousel/slide-05-2a8b02cf48a04730ba16767c6802e055.jpg
+facebook.png: facebook-0650b317d5f5219fca7eaf69c24ebf18.png
+facebook/index.png: facebook-0650b317d5f5219fca7eaf69c24ebf18.png
 platemodre.jpg: platemodre-56a11f226a8765c938646801c1046c50.jpg
 platemodre/index.jpg: platemodre-56a11f226a8765c938646801c1046c50.jpg
+question-mark.png: question-mark-d389360ed5bcea6e19aa95681aaee207.png
+question-mark/index.png: question-mark-d389360ed5bcea6e19aa95681aaee207.png
 rails.png: rails-696c1dd0d08cc4b40b5ef14b725749c4.png
 rails/index.png: rails-696c1dd0d08cc4b40b5ef14b725749c4.png
+vinyl-icon.png: vinyl-icon-65300ab8c293a67dc5110a995908b3b3.png
+vinyl-icon/index.png: vinyl-icon-65300ab8c293a67dc5110a995908b3b3.png
 vinylhvit.jpg: vinylhvit-900916fdddaf90173618000e9774155d.jpg
 vinylhvit/index.jpg: vinylhvit-900916fdddaf90173618000e9774155d.jpg
 vinylicon.gif: vinylicon-f118d164bf1939e83ca833d8046033d6.gif
@@ -21,8 +27,8 @@ vinylplate.jpeg: vinylplate-a181b3c598b26f05972e784b11fc89a4.jpeg
 vinylplate/index.jpeg: vinylplate-a181b3c598b26f05972e784b11fc89a4.jpeg
 application.js: application-a4a14e15469ff447f65aa4bc40e5ba6d.js
 application/index.js: application-a4a14e15469ff447f65aa4bc40e5ba6d.js
-application.css: application-8547d78f60196b15499a07773d8695f7.css
-application/index.css: application-8547d78f60196b15499a07773d8695f7.css
+application.css: application-42601dad6cef724be40a97f8888869fe.css
+application/index.css: application-42601dad6cef724be40a97f8888869fe.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-067ce29a9778c12cf1b0184aead98aef.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-067ce29a9778c12cf1b0184aead98aef.png
 glyphicons-halflings.png: glyphicons-halflings-52d428985b76bdda04b823a2396210c8.png
