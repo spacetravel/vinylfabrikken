@@ -4,10 +4,10 @@
   <div id="myCarousel" class="carousel slide"  style="overflow:hidden">
 
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+        <% @sliders.each_with_index do |slider, index| %>
+          <li data-target="#myCarousel" data-slide-to="<%= index %>" <% if slider.active %> class="active"<% end %>></li>
+        <% end %>
+        </ol>
       <div class="carousel-inner">
 
       <%= render :partial => 'sliders', :collection => @sliders  %>
