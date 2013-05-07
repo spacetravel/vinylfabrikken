@@ -1,5 +1,5 @@
 <div class="item <% if sliders.active %>active<% end %>">
-  <%= image_tag sliders.image.url.to_s %>
+  <%= image_tag sliders.image_url(:xlarge).to_s %>
   <div class="container">
     <div class="carousel-caption">
       <h1><%= sliders.title %></h1>
