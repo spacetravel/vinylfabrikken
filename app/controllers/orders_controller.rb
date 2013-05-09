@@ -3,8 +3,7 @@
 class OrdersController < ApplicationController
   include OrdersHelper
 
-  before_filter :authenticate_user!, :except => [:new, :choosepackage]
-
+  before_filter :authenticate_user!
 
   def index
     
@@ -57,49 +56,27 @@ class OrdersController < ApplicationController
   	@order.order_date = Time.now
 	  @order.order_status_id = 1
 	  @order.payment_type = 1  	
+    @order.user_id = current_user.id
 
-
-    # lagre i mine ordre
-    if params[:what_to_do] = "save_in_myorders"
     
       respond_to do |format|
-  
         if @order.save
-
-          if user_signed_in?
-            # if user logged in
-            @order.user_id = current_user.id
-
-             format.html { redirect_to orders_path, notice: 'Bestilling er lagret' }
-             format.json { render json: orders_path, status: :created, location: orders_path }
-          else
-            # if user not logged in
-            session[:current_order_id] = @order.id
-
-            format.html { redirect_to signin_path, notice: 'Logg inn eller registrer deg for å se dine bestillinger' }
-            format.json { render json: signin_path, status: :created, location: signin_path }
-          end
- 
-        else
-          format.html { render action: "new" }
-          format.json { render json: @order.errors, status: :unprocessable_entity }
-        end
-      end
-
-    # lagre i mine ordre og send til handlekurv
-    elsif params[:what_to_do] = "send_to_cart"
       
-      respond_to do |format|
-        if @order.save
-          format.html { redirect_to orders_path, notice: 'Bestilling sendt til Vinylfabrikken.' }
-          format.json { render json: orders_path, status: :created, location: orders_path }
+          if params[:what_to_do] = "save_in_myorders"
+            format.html { redirect_to orders_path, notice: 'Logg inn for å lagre bestilling.' }
+            format.json { render json: orders_path, status: :created, location: orders_path }
+            
+          elsif params[:what_to_do] = "send_to_cart"
+            format.html { redirect_to orders_path, notice: 'Bestilling sendt til Vinylfabrikken.' }
+            format.json { render json: orders_path, status: :created, location: orders_path }
+       
+          end 
+
         else
           format.html { render action: "new" }
           format.json { render json: @order.errors, status: :unprocessable_entity }
         end
       end
-    
-    end
     
   end
 
