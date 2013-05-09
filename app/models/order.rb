@@ -42,7 +42,7 @@ class Order < ActiveRecord::Base
   has_one :labels, :dependent => :destroy
   has_one :covers, :dependent => :destroy
 
-  validates :user_id, presence: true
+#  validates :user_id, presence: true
   validates :order_number, presence: true
   validates :order_date, presence: true
   validates :title, presence: true

@@ -1,3 +1,5 @@
+
+
 $( document ).ready(function(){
 
     var currentValue = $('#range');
@@ -34,6 +36,15 @@ $( document ).ready(function(){
 
     $('#order_quantity').change();
 
+    $('#range').bind('input', function() { 
+        $('#order_quantity').val($(this).val());
+        currentValueSmall.html(this.value);
+    });
+
+   $('#range').change(function() { 
+        $('#order_quantity').change();
+    });
+
     $('#order_quantity').change(function() {
 
         $('#quantitySlider').slider('setValue', $(this).val());
@@ -45,7 +56,7 @@ $( document ).ready(function(){
         $('#order_matrix_attributes_quantity').val(matrixQty);    
         $('#matrise_status_text').html(matrixQty +" stk");
 
-        currentValue.html(this.value);
+        currentValue.val(this.value);
         currentValueSmall.html(this.value);
 
         // set album qty status

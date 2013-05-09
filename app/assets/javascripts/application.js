@@ -27,20 +27,32 @@ function hide(object)
 var obj = document.getElementById(object);
 obj.style.visibility = 'hidden';
 }*/
-
 $(document).ready(function(){
 
 
     // Slider functions for order form
     $('.toggle-button').click(function() {
 
-        $(this).next('.toggle-info').slideToggle('slow', function() {
-          $(this).next('#plusminusicon').toggleClass('icon-plus-sign');
-          $(this).next('#plusminusicon').toggleClass('icon-minus-sign');
-        });
-
+      $(this).next('.toggle-info').slideToggle('slow', function() {
+      });
     });
-    
+ 
+   // Slider functions for order form
+    $('.toggle-button').click(function() {
+
+      $(this).next('#plusminusicon').toggleClass('icon-plus-sign');
+      $(this).next('#plusminusicon').toggleClass('icon-minus-sign');
+    });
+
+/*    
+$('div.foo').toggleClass(function() {
+  if ($(this).parent().is('.bar')) {
+    return 'happy';
+  } else {
+    return 'sad';
+  }
+});
+*/
     // Info boxes for order form
     $('.infoBox').hide();
     

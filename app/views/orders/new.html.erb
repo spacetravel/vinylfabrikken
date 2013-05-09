@@ -42,8 +42,8 @@
         <%= select(:order, :rpm, [['45 rpm', '45 rpm'], ['33 1/3 rpm', '33 1/3 rpm']]) %>
 
         <div style="font-size:18px">
-          Antall plater:<br /><br /> 
-          <span id="range" style="font-size:26px">0</span>
+          Antall plater<br /><br /> 
+          <input type="text" id="range" maxlength="4" max="2500"></span>
         </div>      
       </div>
 
@@ -91,8 +91,9 @@
 
   </fieldset>
     <br />
-  <%= f.submit "Send til handlekurv", class: 'btn btn-primary pull-right' %>
-  <%= f.submit "Lagre i mine bestillinger", class: 'btn btn-success pull-lagre' %>
+  <%= f.submit "Send til handlekurv", :what_to_do => "send_to_cart", class: 'btn btn-primary pull-right' %>
+  
+  <%= f.submit "Lagre i mine bestillinger", :what_to_do => "save_in_myorders" , class: 'btn btn-success pull-lagre' %>
 </div>
 
   

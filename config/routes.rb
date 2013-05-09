@@ -3,9 +3,10 @@ Vf::Application.routes.draw do
 
   mount Rich::Engine => '/rich', :as => 'rich'
 
-  ActiveAdmin.routes(self)
 
   root :to => 'frontpage#index'
+
+  ActiveAdmin.routes(self)
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
  
