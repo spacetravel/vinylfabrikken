@@ -1,6 +1,8 @@
 Vf::Application.routes.draw do
  
 
+
+
   mount Rich::Engine => '/rich', :as => 'rich'
 
 
@@ -10,6 +12,9 @@ Vf::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
  
+  resources :line_items
+  resources :carts, :except => [:index]
+  match "/handlekurv" => "carts#show"
   resources :faqs
   resources :orders
   resources :prices

@@ -12,7 +12,7 @@ nb:
                   "Feil i epost / password"
   active_admin:
       delete_confirmation:
-        "Er du sikker på at du vil slette?"    
+        "Er du sikker på at du vil slette?"
       devise:
           links:
               forgot_your_password:
@@ -71,10 +71,9 @@ nb:
               "Operasjoner"
       blank_slate:
           content:
-              "Ingen registrerte" 
+              "Ingen registrerte"
           link:
-              "Opprett innhold" 
-        
+              "Opprett innhold"
   date:
     abbr_day_names:
     - søn

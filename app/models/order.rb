@@ -27,9 +27,11 @@
 class Order < ActiveRecord::Base
   attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size, :rpm, :quantity, :gravering, :gravering_attributes, :matrix, :matrix_attributes, :testpress, :testpress_attributes, :pressing_attributes, :catalogue_number, :labels_attributes, :labels, :covers_attributes
   
-  belongs_to :user
+  before_destroy :ensure_not_referenced_by_any_line_item
 
-  has_many :order_lines, :dependent => :destroy
+  belongs_to :user
+  
+  has_many :line_items, :dependent => :destroy
 
   has_one :order_status, :dependent => :destroy
   has_one :delivery_method, :dependent => :destroy
@@ -62,4 +64,12 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :labels
   accepts_nested_attributes_for :covers
 
+  def ensure_not_referenced_by_any_line_item
+    if line_items.empty?
+      return true
+    else
+      error.all(:base, "Bestillingen ligger i handlekurven")
+      return false
+    end
+  end
 end

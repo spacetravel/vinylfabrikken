@@ -9,7 +9,7 @@
 						<b><%= order.title %> / <%= order.artist %> </b>
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
 						<div style="padding:0px">
-							<%= button_to "Se på bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
+							<%= button_to "Rediger på bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
 			
 						</div>
 					
@@ -21,7 +21,8 @@
 						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
 					<br /><br />
 						<div style="padding:0px">
-							<%= button_to "Send til handlekurv", '/tilhandlekurv/'+order.id.to_s, :class => 'btn btn-success pull-right' %>
+							<%= button_to "Send til handlekurv",  line_items_path(order_id: order.id), :class => 'btn btn-success pull-right' %>
+
 						</div>
 					</div>
 

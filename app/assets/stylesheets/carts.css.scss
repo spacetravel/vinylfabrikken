@@ -1,0 +1,22 @@
+// Place all the styles related to the carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.handlekurv_line {
+	font-size: 14px;
+	font-weight:none;
+ 	text-align: right;
+	padding:5px;
+}
+
+.cart_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding-bottom:20px;
+}
+
+.total_cell {
+	font-weight: bold;
+	padding-top:15px;
+  	border-top: 1px solid black;
+}

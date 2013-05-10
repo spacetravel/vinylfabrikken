@@ -1,0 +1,25 @@
+<div class="span9 offset1">
+	<% if notice %>
+	<p id="notice" ><%= notice %></p>
+	<% end %>
+
+	<div class="cart_title">Min handlekurv</div>
+	 	<table>
+		 	<% @cart.line_items.each do |item| %>
+		 		<tr>
+				 	<td class="handlekurv_line">* <%= item.order.title %> /</td>
+				 	<td class="handlekurv_line"><%= item.order.artist %> /</td>
+				 	<td class="handlekurv_line"><%= item.order.quantity %> eksemplarer</td>
+				 </tr>
+		 	<% end %>
+		 	<tr>
+		 			<td colspan="2">Total pris</td>
+		 			<td class="total_cell">5600,00 kr (inkl. mva)</td>
+		 	</tr>
+	 	</table>
+
+
+	<%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
+
+</div>
+

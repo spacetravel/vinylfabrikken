@@ -91,10 +91,8 @@
 
   </fieldset>
     <br />
-
-  <%= f.submit "Send til handlekurv", :what_to_do => "send_to_cart", class: 'btn btn-primary pull-right' %>
   
-    <%= f.submit "Lagre i mine bestillinger", :what_to_do => "save_in_myorders" , class: 'btn btn-success pull-lagre' %>
+    <%= f.submit "Lagre i mine bestillinger", name: 'handling', class: 'btn btn-success pull-right' %>
 </div>
 
   

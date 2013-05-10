@@ -57,27 +57,17 @@ class OrdersController < ApplicationController
 	  @order.order_status_id = 1
 	  @order.payment_type = 1  	
     @order.user_id = current_user.id
+ 
 
-    
-      respond_to do |format|
-        if @order.save
-      
-          if params[:what_to_do] = "save_in_myorders"
-            format.html { redirect_to orders_path, notice: 'Logg inn for å lagre bestilling.' }
-            format.json { render json: orders_path, status: :created, location: orders_path }
-            
-          elsif params[:what_to_do] = "send_to_cart"
-            format.html { redirect_to orders_path, notice: 'Bestilling sendt til Vinylfabrikken.' }
-            format.json { render json: orders_path, status: :created, location: orders_path }
-       
-          end 
-
-        else
-          format.html { render action: "new" }
-          format.json { render json: @order.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to orders_path, notice: 'Lagret i dine bestillinger.' }
+        format.json { render json: orders_path, status: :created, location: orders_path }    
+      else
+        format.html { render action: "new" }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
-    
+    end       
   end
 
   def update
