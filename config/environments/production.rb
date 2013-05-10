@@ -76,6 +76,20 @@ Vf::Application.configure do
 #      :url  => ":s3_eu_url"
 #    )
 
+
+  config.action_mailer.default_url_options = { :host => 'viylfabrikken-stage.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+
+
+  ActionMailer::Base.smtp_settings = {
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :domain => 'vinylfabrikken.no',
+  :authentication => :plain,
+  :user_name => 'kontakt@vinylfabrikken.no',
+  :password => 'kr3mFjes'
+  }
+  
   Paperclip::Attachment.default_options.merge!(
     :storage => :s3,
     :bucket => "vinylfabrikken-stage",
