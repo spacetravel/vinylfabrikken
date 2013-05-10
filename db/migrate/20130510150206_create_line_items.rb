@@ -1,7 +1,7 @@
 class CreateLineItems < ActiveRecord::Migration
   def change
-    drop_table :line_items
-    create_table :line_items do |t|
+
+    create_table :line_items, :force => true do |t|
       t.integer :order_id
       t.integer :cart_id
 
