@@ -1,0 +1,18 @@
+
+<% if notice %>
+<p id="notice" ><%= notice %></p>
+<% end %>
+
+<div class="cart_title">Min handlekurv</div>
+ 	<table class="table table-stiped">
+ 		<%= render(@cart.line_items) %>
+
+	 		
+	 	<tr>
+	 			<td colspan="2">Total pris</td>
+	 			<td class="total_cell">5600,00 kr (inkl. mva)</td>
+	 	</tr>
+ 	</table>
+
+
+<%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
