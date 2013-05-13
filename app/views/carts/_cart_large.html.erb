@@ -3,16 +3,38 @@
 <p id="notice" ><%= notice %></p>
 <% end %>
 
-<div class="cart_title">Min handlekurv</div>
- 	<table class="table table-striped table-condensed">
- 		<%= render(@cart.line_items, :where_to_render => 'large') %>
+ 		
 
 	 		
-	 	<tr>
-	 			<td colspan="3">Total pris</td>
-	 			<td class="total_cell">5600,00 kr (inkl. mva)</td>
-	 	</tr>
- 	</table>
+	 
+	<h1>Min handlekurv</h1><br />
+	 
+        <table class="table table-bordered table-striped">
+		  <thead>
+			  <tr>
+				<th>Tittel</th>
+				<th>Artist</th>
+				<th>Antall</th>
+				<th>Pris</th>
+				<th></th>
+			  </tr>
+			</thead>
+			<tbody>
+				<%= render(@cart.line_items, :where_to_render => 'large') %>
+			  <tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><strong>$4,700.00</strong></td>
+				<td>&nbsp;</td>
+			  </tr>		  
+			</tbody>
+		  </table>
 
 
-<%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
+		 	<div class="pull-left">
+			  <%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
+			</div>
+    		<div class="pull-right">
+        	    <a href="checkout.html" class="btn btn-primary pull-right">Gå til kassen</a>
+			</div>

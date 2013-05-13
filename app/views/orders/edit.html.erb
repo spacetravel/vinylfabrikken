@@ -1,5 +1,5 @@
 <%= form_for @order do |f| %>
-<div class="span8 offset2">	
+<div class="span8 offset2"> 
 
   <div id="orderDetails" class="orderDetails">
     <fieldset>
@@ -55,9 +55,9 @@
 
 </div>
 
-<div class="span8 offset2">	
+<div class="span8 offset2"> 
     <fieldset>
-   		
+      
       <div id="gravering_line">
         <%= render :partial => 'gravering', :locals => {  :f => f, :rpm => @order.rpm } %>
       </div>
@@ -91,8 +91,8 @@
 
   </fieldset>
     <br />
-  <%= f.submit "Send til handlekurv", class: 'btn btn-primary pull-right' %>
-  <%= f.submit "Lagre i mine bestillinger", class: 'btn btn-success pull-lagre' %>
+  
+    <%= f.submit "Lagre i mine bestillinger", name: 'handling', class: 'btn btn-success pull-right' %>
 </div>
 
   
@@ -101,4 +101,3 @@
 </script>
   
 <% end %>
-
