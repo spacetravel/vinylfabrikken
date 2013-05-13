@@ -1,5 +1,5 @@
 <% if where_to_render == 'menu' %>
-	<li style="padding:4px;"><%= link_to '<i class="icon-ok-circle icon-white" style="display:inline;padding-right:6px;"></i>'.html_safe+line_item.order.title+" / "+line_item.order.artist, "#", style:'display:inline;color:black' %> </li>
+	<li style="padding:4px;"><%= link_to '<i class="icon-ok-circle icon-white" style="display:inline;padding-right:6px;"></i>'.html_safe+line_item.order.title+" / "+line_item.order.artist+" ("+line_item.order.quantity.to_s+")", "#", style:'display:inline;color:black' %> </li>
 
 <% end %>
 

@@ -1,1 +1,4 @@
 $('#cart').html("<%=j render @cart %>");
+$('#line_items_count').html("<%=j @cart.line_items.count.to_s %>");
+$('#handlekurv').css({'background-color':'#ffffff'}).animate({'background-color':'#000000'}, 1000);
+$('#cart_dropdown').css({'display':'block'})
