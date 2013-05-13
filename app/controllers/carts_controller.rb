@@ -17,13 +17,17 @@ class CartsController < InheritedResources::Base
 
 
 	def destroy
-    @cart = current_cart
-    @cart.destroy
-    session[:cart_id] = nil
+	    @cart = current_cart
+	    @cart.destroy
+	    session[:cart_id] = nil
 
-    respond_to do |format|
-      format.html { redirect_to :action => 'show', notice: "Handlekurven er tom" }
-	  format.json { head :ok }
+	    respond_to do |format|
+	      format.html { redirect_to :action => 'show', notice: "Handlekurven er tom" }
+		  format.json { head :ok }
+		end
 	end
-  end
+
+	def checkout
+	
+	end
 end

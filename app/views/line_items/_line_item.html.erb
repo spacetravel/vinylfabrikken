@@ -10,7 +10,7 @@
 		<td><input type="text" placeholder="1" disabled="disabled" value="<%= line_item.order.quantity %>" class="input-mini"></td>
 		<td>$2,350.00</td>
 		<td><%= link_to "Rediger", edit_order_path(line_item.order.id), class: 'btn btn-primary btn-small', style: 'color:white' %></td>
-		<td><%= link_to "Fjern fra handlekurv", edit_order_path(line_item.order.id), class: 'btn btn-danger btn-small', style: 'color:white' %></td>
+		<td><%= button_to "Fjern fra handlekurv", line_item_path(line_item.id),  method: :delete,  class: 'btn btn-danger btn-small', style: 'color:white' %></td>
 	</tr>			  
 
 <% end %>

@@ -1,15 +1,10 @@
-
-<% if notice %>
-<p id="notice" ><%= notice %></p>
-<% end %>
-
- 		
-
-	 		
-	 
-	<h1>Min handlekurv</h1><br />
-	 
-        <table class="table table-bordered table-striped">
+<div class="row">
+	<div class="span12">
+			 		
+		 
+		<h1>Min handlekurv</h1><br />
+		 
+		<table class="table table-bordered table-striped">
 		  <thead>
 			  <tr>
 				<th>Tittel</th>
@@ -20,7 +15,9 @@
 			  </tr>
 			</thead>
 			<tbody>
-				<%= render(@cart.line_items, :where_to_render => 'large') %>
+				<div id="cart_line_items">
+					<%= render(@cart.line_items, :where_to_render => 'large') %>
+				</div>
 			  <tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
@@ -32,9 +29,12 @@
 		  </table>
 
 
-		 	<div class="pull-left">
-			  <%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
-			</div>
-    		<div class="pull-right">
-        	    <a href="checkout.html" class="btn btn-primary pull-right">Gå til kassen</a>
-			</div>
+	 	<div class="pull-left">
+		  <%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
+		</div>
+		<div class="pull-right">
+			<%= link_to "Gå til kassen", '/kasse/', style: 'color:white', class: 'btn btn-primary pull-right' %>
+		    
+		</div>
+	</div>
+</div>

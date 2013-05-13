@@ -10,7 +10,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'annotate'
 end
 
 group :production do
@@ -27,7 +27,9 @@ gem 'carrierwave'
 gem 'aws-sdk'
 gem "font-awesome-rails"
 gem 'activeadmin'
-gem 'rich', git: 'git://github.com/dogmacreative/rich.git', branch: 'active-admin'
+gem 'rich', branch: 'active-admin'
+gem 'i18n-country-translations'
+gem 'country-select-engine'
 
 # Gems used only for assets and not required
 # in production environments by default.
