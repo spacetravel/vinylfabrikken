@@ -88,8 +88,9 @@
                        Handlekurv
                        <b class="caret"></b>
                   </a>
-                   <ul class="dropdown-menu">
-                    <li><%= link_to "Min handlekurv", '/handlekurv' %></li>
+                   <ul class="dropdown-menu" id="cart"  style="width:300px">
+                    <%= render(@cart) %>
+
                   </ul>
                 </li>
               <% end %>
@@ -138,6 +139,7 @@
 	</div>	
 
     <div class="container">
+
       <%= yield %>
     </div>
       <!-- FOOTER -->

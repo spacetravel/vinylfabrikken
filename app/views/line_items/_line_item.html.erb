@@ -1,6 +1,15 @@
-<tr>
- 	<td class="handlekurv_line"><%= line_item.order.title %> </td>
- 	<td class="handlekurv_line"><%= line_item.order.artist %> </td>
- 	<td class="handlekurv_line"><%= line_item.order.quantity %> eksemplarer</td>
- 	<td class="handlekurv_line"> 5000,00 kr </td>
-</tr>
+<% if where_to_render == 'menu' %>
+	<li style="padding:4px;"><%= link_to '<i class="icon-ok-circle icon-white" style="display:inline;padding-right:6px;"></i>'.html_safe+line_item.order.title+" / "+line_item.order.artist, "#", style:'display:inline;color:black' %> </li>
+
+<% end %>
+
+<% if where_to_render == 'large' %>
+	<tr>
+		<td><%= line_item.order.title %></td>
+		<td><%= line_item.order.artist %></td>
+		<td><%= line_item.order.quantity %></td>
+		<td>500,- </td>
+		<td><%= link_to "Rediger bestilling", '#', class: 'btn btn-primary btn-small' %></td>
+	</tr>
+<% end %>
+

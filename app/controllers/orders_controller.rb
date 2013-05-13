@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def index
     
-    @orders = current_user.orders
+    @orders = current_user.orders.reverse
 
     respond_to do |format|
       format.html # index.html.erb
