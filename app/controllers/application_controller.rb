@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
   def render_cart
   	@cart = current_cart
   end
-
-
   
   def set_controller_and_action_names
     @current_controller = controller_name
