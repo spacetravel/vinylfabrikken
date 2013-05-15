@@ -17,7 +17,7 @@
   <link rel="icon" href="/assets/vinylicon.gif" />
 </head>
 <body class="container">
-  <div style="text-align:center;font-size:6em;font-family:arial;font-weight:bold;color:black;padding: 40px 0 40px 0">VINYLFABRIKKEN</div>
+  <a href="/"><div style="text-align:center;font-size:6em;font-family:arial;font-weight:bold;color:black;padding: 40px 0 40px 0">VINYLFABRIKKEN</div></a>
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container" style="width: auto;">
@@ -76,7 +76,8 @@
               <li><%= link_to "Kontakt oss", '/kontakt' %></li>
             </ul>
           </li>
-      
+      </ul>
+      <ul class="nav pull-right">
 
           <% if user_signed_in? %>
 
@@ -92,7 +93,7 @@
                   </ul>
                 </li>
               <% end %>
-            <li class="dropdown">
+            <li class="dropdown pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>
@@ -115,7 +116,7 @@
               </ul>
             </li>
           <% else %>
-            <li>
+            <li >
               <%= link_to "Logg inn", new_user_session_path %>
             </li>
 			   
