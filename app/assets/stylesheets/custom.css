@@ -10,6 +10,15 @@
 }
 
 
+.form-horizontal .controls {
+  margin-left: 0px !important;
+}
+
+
+.inline_field_wrapper {
+    display: inline-block;
+}
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -24,8 +33,6 @@ body {
   padding-top:30px;
   text-align: center
 }
-
-
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
