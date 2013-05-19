@@ -9,6 +9,20 @@ class ApplicationController < ActionController::Base
    redirect_to new_user_session_path unless current_user.try(:admin?) 
   end
 
+  def after_sign_in_path_for(resource)
+    if current_cart.line_items.any?
+
+      current_cart.line_items.each do |line_item|
+        @order = Order.find(line_item.order_id)
+        
+        @order.user_id = current_user.id
+        @order.save!
+      end
+      session[:current_order_id] = nil
+      return '/kasse/'
+    end 
+  end
+
   def render_cart
   	@cart = current_cart
   end

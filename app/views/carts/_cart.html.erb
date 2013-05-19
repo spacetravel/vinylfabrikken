@@ -1,3 +1,3 @@
-<%= render(@cart.line_items, :where_to_render => 'menu') %>
+<%= render :partial => '/line_items/line_item', :locals => { :where_to_render => 'menu'  }, :collection => @cart.line_items %>
 
 <%= link_to 'Gå til handlekurv', @cart, style: 'color:white;margin-right:5px;', class: 'btn btn-success btn-small pull-right' %>

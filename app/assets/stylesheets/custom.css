@@ -10,15 +10,6 @@
 }
 
 
-.form-horizontal .controls {
-  margin-left: 0px !important;
-}
-
-
-.inline_field_wrapper {
-    display: inline-block;
-}
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -33,6 +24,11 @@ body {
   padding-top:30px;
   text-align: center
 }
+
+.husk_meg_input {
+  padding:5px;
+}
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
@@ -295,3 +291,16 @@ filter: alpha(opacity=50);
     font-weight: bold;
       color: #404040;
     }
+
+.form-horizontal .controls {
+  margin-left: 0px !important;
+
+}
+.form-horizontal .control-label {
+    padding-right: 5px;
+
+}
+
+.inline_field_wrapper {
+    display: inline-block;
+}

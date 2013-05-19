@@ -1,6 +1,6 @@
 class CartsController < InheritedResources::Base
 
-    before_filter :authenticate_user!
+
 	before_filter :only => :show
 	
 	def show

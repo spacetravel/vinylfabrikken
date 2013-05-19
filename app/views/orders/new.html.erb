@@ -92,7 +92,11 @@
   </fieldset>
     <br />
   
-    <%= f.submit "Lagre i mine bestillinger", name: 'handling', class: 'btn btn-success pull-right' %>
+       <% if user_signed_in? %>
+        <%= f.submit "Lagre i mine bestillinger",  class: 'btn btn-primary pull-left' %>
+       <% else %>
+         <%= f.submit "Lagre og gå videre", :class => 'btn btn-success pull-right' %>
+       <% end %>
 </div>
 
   

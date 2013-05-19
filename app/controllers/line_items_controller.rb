@@ -2,14 +2,21 @@ class LineItemsController < ApplicationController
 
 	def index
 		@line_items = current_cart.line_items
+
 	end
 
 	def create
 
+		logger.debug ("test")
+		logger.debug ("test")
+		logger.debug ("test")
+		logger.debug ("test")
+		logger.debug ("test")
+		logger.debug ("test")
+
 		@cart = current_cart
 		order = Order.find(params[:order_id])
 		@line_item = @cart.add_order(order.id)
-
 
 		respond_to do |format|
 			if @line_item.save

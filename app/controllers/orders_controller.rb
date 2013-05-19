@@ -3,11 +3,17 @@
 class OrdersController < ApplicationController
   include OrdersHelper
 
-  before_filter :authenticate_user!
+#  before_filter :authenticate_user!, :only => [:destroy]
 
   def index
     
-    @orders = current_user.orders.reverse
+
+    if current_user.nil?
+      logger.debug "hvilken bestilling? " + session[:current_order_id].to_s
+      @orders = Order.find_all_by_id(session[:current_order_id])
+    else
+      @orders = current_user.orders.reverse
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -56,13 +62,22 @@ class OrdersController < ApplicationController
   	@order.order_date = Time.now
 	  @order.order_status_id = 1
 	  @order.payment_type = 1  	
-    @order.user_id = current_user.id
- 
+
+    unless current_user.nil?
+      @order.user_id = current_user.id
+    else
+      @order.user_id = 0
+    end
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to orders_path, notice: 'Lagret i dine bestillinger.' }
+
+        session[:current_order_id] = @order.id
+    
+        format.html { redirect_to orders_path, notice: 'Lagret bestilling' }
         format.json { render json: orders_path, status: :created, location: orders_path }    
+
+
       else
         format.html { render action: "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }

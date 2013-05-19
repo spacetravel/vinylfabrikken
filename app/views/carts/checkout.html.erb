@@ -1,6 +1,8 @@
 <div class="row">
 	<div class="span12">
 		<div id="accordion">
+
+		<% unless user_signed_in? %>
 		    <h3 >Steg 1: Alternativer for bestilling</h3>
 	       		<div class="accordion-inner">
 				    <div class="span6 no_margin_left">
@@ -15,28 +17,32 @@
 						<div class="checkout_heading">Allerede registrert?</div>
 						<p>Hvis du allerede har registrert deg hos oss så kan du logge inn her</p>
 
-						<form class="">
+						<%= form_for("user", :url => user_session_path) do |f| %>
 							<fieldset>
 								<div class="control-group">
 									<label for="focusedInput" class="control-label">Brukernavn</label>
 									<div class="controls">
-									<input type="text" placeholder="Skriv inn brukernavn" id="username" class="input-xlarge focused">
-									</div>
+
+								  <%= f.text_field :email, placeholder: 'Skriv inn e-post', class: 'input-xlarge focused' %>
+
 								</div>
 								<div class="control-group">
 									<label class="control-label">Passord</label>
 									<div class="controls">
-									<input type="password" placeholder="Skriv inn passord" id="password" class="input-xlarge">
+								  <%= f.password_field :password, placeholder: 'Skriv inn passord', class: 'input-xlarge' %>
 									</div>
 								</div>
 
-							  	<a class="btn btn-primary pull-right" href="#collapse2">Logg inn</a>
+							  <%= f.submit 'Logg inn', class: 'btn btn-primary pull-right' %>
 
 							</fieldset>
-						</form>
+						<% end %>
 				    </div>				  
                 </div>
-		 	<h3>Steg 2: Fakturadetaljer</h3>
+<% end %>
+<% if user_signed_in? %>
+
+		 	<h3>Steg 1: Fakturadetaljer</h3>
 
 		 	 <div class="accordion-inner">
 				<div class="span6 no_margin_left">
@@ -95,7 +101,6 @@
 					  </div>					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
-							<%= localized_country_select(:user, :country, [], :class => 'span4', :include_blank => 'Vennligst velg ...') %>
 						</div>
 					  </div>
 				  </div>
@@ -103,7 +108,7 @@
 						  <br /><a class="btn btn-primary pull-right" href="#collapse3">Continue</a><br /><br /><br />
 					 </div>
 				</div>
-		  <h3>Steg 3: Leveringsinformasjon</h3>
+		  <h3>Steg 2: Leveringsinformasjon</h3>
 				<div class="accordion-inner">
 					<div class="span6 no_margin_left">
 						<div class="checkout_heading">Personinformasjon</div>
@@ -161,7 +166,6 @@
 					  </div>					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
-							<%= localized_country_select(:user, :country, [], :class => 'span4', :include_blank => 'Vennligst velg ...') %>
 						</div>
 					  </div>
 
@@ -171,7 +175,7 @@
 					 </div>
 				</div>
 
-			<h3>Steg 4: Betaling</h3>
+			<h3>Steg 3: Betaling</h3>
 				<div class="accordion-inner">
 					<input type="radio" value="option1" name="payment1">Kredittkort<br />
 					<input type="radio" value="option2" name="payment1">Bankaksept<br />
@@ -187,16 +191,14 @@
 					  <br /><a class="btn btn-primary pull-right" href="#collapse3">Bekreft bestilling</a><br /><br /><br />
 					</div>				
 				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
 
 <script>
 	$(function() {
-
-		<% if user_signed_in? %>
-    		$( "#accordion" ).accordion({ active: 1 });
-    	<% end %>
-
+    	$( "#accordion" ).accordion({ active: 0 });
   	});
 </script>
+

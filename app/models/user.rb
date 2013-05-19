@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   before_create :send_welcome_email
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin, :first_name, :last_name, :phone, :address1, :address2, :poststed, :zipcode, :country_code
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin, :first_name, :last_name, :phone, :address1, :address2, :city, :zipcode, :country_code
   # attr_accessible :title, :body
 
   has_many :orders

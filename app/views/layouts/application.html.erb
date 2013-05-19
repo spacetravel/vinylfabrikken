@@ -17,7 +17,6 @@
   <link rel="icon" href="/assets/vinylicon.gif" />
 </head>
 <body class="container">
-  <a href="/"><div style="text-align:center;font-size:6em;font-family:arial;font-weight:bold;color:black;padding: 40px 0 40px 0">VINYLFABRIKKEN</div></a>
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container" style="width: auto;">
@@ -26,6 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
+        <a class="brand" href="/">Vinylfabrikken</a>
         <div class="nav-collapse">
           <ul class="nav">
              <li class="dropdown">
@@ -79,7 +79,6 @@
       </ul>
       <ul class="nav pull-right">
 
-          <% if user_signed_in? %>
 
               <% if session[:cart_id] %>
                 <li class="dropdown" id="cart_dropdown" <% if @cart.line_items.empty? %> style="display:none"<% end %>>
@@ -93,6 +92,9 @@
                   </ul>
                 </li>
               <% end %>
+
+          <% if user_signed_in? %>
+              
             <li class="dropdown pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -127,7 +129,7 @@
     </div><!-- /navbar-inner -->
   </div><!-- /navbar -->
 		<div class="container">
-
+    <%= session[:current_order_id]%>
 	  <% flash.each do |name, msg| %>
 	    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 	        <a class="close" data-dismiss="alert">x</a>

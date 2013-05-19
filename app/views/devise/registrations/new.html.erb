@@ -1,126 +1,135 @@
-<div class="span7 offset2">
 
-	<div class="well form-horizontal" >
-		<%= simple_form_for(resource, :as => resource_name, :class => "form-horizontal", :url => registration_path(resource_name)) do |f| %>
+<div class="row">
+
+  <div class="span12 ">
+
+    <div class="well form-horizontal" style="height:630px">
+			<legend style="font-family:Arial">Registrer deg</legend>
+
+				<%= simple_form_for(resource, :as => resource_name, :class => "form-horizontal", :url => registration_path(resource_name)) do |f| %>
 
 	  		<%= f.error_notification %>
-			<legend style="font-family:Arial">Registrering</legend>
-		
-			<div class="control-group">
-		        <label class="control-label">E-post</label>
-				<div class="controls">
-				    <div class="input-prepend">
-						 <span class="add-on"><i class="icon-envelope"></i></span>
-		
-						<input autofocus="autofocus" class="string email required inputut-xlarge " id="user_email" name="user[email]" placeholder="E-post"  type="email" value="">			</div>
-				</div>
-			</div>
-			<div class="control-group ">
-		        <label class="control-label">Passord</label>
-				<div class="controls">
-				    <div class="input-prepend">
-						<span class="add-on"><i class="icon-lock"></i></span>
-							<input class="password required" id="user_password" name="user[password]" placeholder="Passord"  type="password">					
-						</div>
-				</div>
-			</div>
-			<div class="control-group">
-		        <label class="control-label">Bekreft passord</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-lock"></i></span>
-						<input class="password required" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Bekreft passord"  type="password">
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group">
-		        <label class="control-label">Fornavn</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-user"></i></span>
-						<input class="string firstname required" id="user_first_name" name="user[first_name]" placeholder="Fornavn"  type="text">
-					</div>
-				</div>
-			</div>
-		
-			<div class="control-group">
-		        <label class="control-label">Etternavn</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-user"></i></span>
-						<input class="string lastname required" id="user_last_name" name="user[last_name]" placeholder="Etternavn"  type="text">
-					</div>
-				</div>
-			</div>
-		
-			<div class="control-group">
-		        <label class="control-label">Telefonnummer</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-phone"></i></span>
-						<input class="string phone required" id="user_phone" name="user[phone]" placeholder="Telefonnummer"  type="text">
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group">
-		        <label class="control-label">Adresse 1</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-home"></i></span>
-						<input class="string address required" id="user_address1" name="user[address1]" placeholder="Adresse"  type="text">
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group">
-		        <label class="control-label">Adresse 2</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-home"></i></span>
-						<input class="string address required" id="user_address2" name="user[address2]" placeholder="Adresse"  type="text">
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group">
-		        <label class="control-label">Poststed</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-home"></i></span>
-						<input class="string poststed required" id="user_poststed" name="user[poststed]" placeholder="Poststed"  type="text">
-					</div>
-				</div>
-			</div>
-
-			<div class="control-group">
-		        <label class="control-label">Postnummer</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-home"></i></span>
-						<input class="string postnummer required" id="user_zipcode" name="user[zipcode]" placeholder="Postnummer" size="4"  type="text">
-					</div>
-				</div>
-			</div>
+	
+	    <div class="span5">
+          <div class="control-group">
+              <label class="control-label">E-post</label>
+              <div class="controls">
+                <div class="input-prepend">
+                 <span class="add-on"><i class="icon-envelope"></i></span>
+                <%= f.input :email, :wrapper_html => { :class => "inline_field_wrapper" },  :required => true, label: false, :autofocus => true %>
+              </div>
+            </div>
+          </div>
+          <div class="control-group ">
+              <label class="control-label">Passord</label>
+              <div class="controls">
+                  <div class="input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>
+                       <%= f.input :password, :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :autocomplete => "off", :required => false %>
+                    </div>
+              </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Bekreft passord</label>
+            <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-lock"></i></span>
+                  <%= f.input :password_confirmation,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+              </div>
+            </div>
+          </div>
 
 
-			<div class="control-group">
-		        <label class="control-label">Land</label>
-				<div class="controls">
-				    <div class="input-prepend">
-					<span class="add-on"><i class="icon-flag"></i></span>
-						<%= localized_country_select(:user, :country_code, [], :class => 'span4', :include_blank => 'Vennligst velg ...') %>
-					</div>
-				</div>
-			</div>
+      </div>
 
-	      <div class="control-group">
-	        <div class="controls">
-	              <%= f.button :submit, "Registrer deg", :class => "btn btn-primary pull-right" %>
-	          </div>
-	        </div>
-	      </div>
+      <div class="span5">
+        <div class="control-group">
+              <label class="control-label">Fornavn</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+                <%= f.input :first_name,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+      
+        <div class="control-group">
+              <label class="control-label">Etternavn</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+                <%= f.input :last_name,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+      
+        <div class="control-group">
+              <label class="control-label">Telefonnummer</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-phone"></i></span>
+                <%= f.input :phone,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+              <label class="control-label">Adresse 1</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-home"></i></span>
+                <%= f.input :address1,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+              <label class="control-label">Adresse 2</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-home"></i></span>
+                <%= f.input :address2,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+              <label class="control-label">Poststed</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-home"></i></span>
+                <%= f.input :city,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+              <label class="control-label">Postnummer</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-home"></i></span>
+                <%= f.input :zipcode, as: :string, :strip_insignificant_zeros => false,  :wrapper_html => { :class => "inline_field_wrapper" },  label: false, :required => false %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="control-group">
+              <label class="control-label">Land</label>
+          <div class="controls">
+              <div class="input-prepend">
+            <span class="add-on"><i class="icon-flag"></i></span>
+              <%= localized_country_select(:user, :country_code, [], :class => 'span4', :include_blank => 'Vennligst velg ...') %>
+            </div>
+          </div>
+        </div>
+
+          <div class="control-group">
+            <div class="controls">
+                  <%= f.button :submit, "Registerer", :class => "btn btn-primary pull-right" %>
+              </div>
+            </div>
+          </div>
 		<% end %>
 
 	   </div>
