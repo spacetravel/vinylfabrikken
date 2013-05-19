@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516143409) do
+ActiveRecord::Schema.define(:version => 20130519224548) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -90,6 +90,22 @@ ActiveRecord::Schema.define(:version => 20130516143409) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "delivery_infos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "country"
+    t.text     "comments"
+    t.string   "payment_type"
+    t.text     "payment_comment"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "delivery_methods", :force => true do |t|
     t.string   "name"
@@ -205,6 +221,8 @@ ActiveRecord::Schema.define(:version => 20130516143409) do
   create_table "payment_methods", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.text     "desc"
   end
 
   create_table "plugs", :force => true do |t|

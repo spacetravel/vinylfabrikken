@@ -19,6 +19,7 @@ Vf::Application.routes.draw do
   resources :faqs
   resources :orders
   resources :prices
+  resources :delivery_infos
  
 
   match "/velgpakke" => "orders#choosepackage"

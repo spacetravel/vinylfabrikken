@@ -16,6 +16,16 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  phone                  :string(255)
+#  address1               :string(255)
+#  address2               :string(255)
+#  country_code           :string(255)
+#  is_editor              :boolean
+#  profile_image          :string(255)
+#  zipcode                :string(255)
+#  city                   :string(255)
 #
 
 require 'test_helper'

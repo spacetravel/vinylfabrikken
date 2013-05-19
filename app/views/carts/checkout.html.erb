@@ -1,5 +1,8 @@
 <div class="row">
 	<div class="span12">
+
+		<%= simple_form_for(@delivery_info) do |f| %>
+
 		<div id="accordion">
 
 		<% unless user_signed_in? %>
@@ -50,26 +53,26 @@
 					  <div class="control-group">
 						<label class="control-label">Fornavn</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn fornavnet ditt" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.first_name %>" placeholder="Skriv inn fornavnet ditt" class="span4">
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Etternavn</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn etternavnet ditt" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.last_name %>" placeholder="Skriv inn etternavnet ditt" class="span4">
 						</div>
 					  </div>					  
 					  <div class="control-group">
 						<label class="control-label">E-post</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn e-posten din" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.email %>" placeholder="Skriv inn e-posten din" class="span4">
 						</div>
 					  </div>					 
 
 					  <div class="control-group">
 						<label class="control-label">Telefonnummer</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn telefonnummer" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.phone %>" placeholder="Skriv inn telefonnummer" class="span4">
 						</div>
 					 </div>
 				  </div>
@@ -78,121 +81,126 @@
 					  <div class="control-group">
 						<label class="control-label">Adresse 1</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn adresse" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.address1 %>" placeholder="Skriv inn adresse" class="span4">
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Adresse 2</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn tilleggsinformasjon om adressen" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.address2 %>" placeholder="Skriv inn tilleggsinformasjon om adressen" class="span4">
 						</div>
 					  </div>					  
 					  <div class="control-group">
 						<label class="control-label">Poststed</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn poststed" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.city %>" placeholder="Skriv inn poststed" class="span4">
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Postnummer</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn postnummer" class="span4">
+						  <input type="text" disabled="disabled" value="<%= current_user.zipcode %>" placeholder="Skriv inn postnummer" class="span4">
 						</div>
 					  </div>					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
-						</div>
+							<%= localized_country_select(:user, :country_code, ["#{current_user.country_code}"],) %>						</div>
 					  </div>
 				  </div>
 					  <div class="span11 no_margin_left">
-						  <br /><a class="btn btn-primary pull-right" href="#collapse3">Continue</a><br /><br /><br />
+
+						  <br />
+						  <a onclick='$( "#accordion" ).accordion({ active: 1 });' class="btn btn-primary pull-right" style="color:white" href="#">Fortsett</a><br /><br /><br />
 					 </div>
 				</div>
-		  <h3>Steg 2: Leveringsinformasjon</h3>
+
+		  <h3 id="collapse3">Steg 2: Leveringsinformasjon</h3>
 				<div class="accordion-inner">
+
 					<div class="span6 no_margin_left">
-						<div class="checkout_heading">Personinformasjon</div>
+					<div class="checkout_heading">Personinformasjon</div>
 					  <div class="control-group">
 						<label class="control-label">Fornavn</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn fornavnet ditt" class="span4">
+						 <%= f.input :first_name, input_html: { id: 'firstname', class: 'span4' }, label: false, disabled: true %>
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Etternavn</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn etternavnet ditt" class="span4">
+						 <%= f.input :last_name, input_html: { id: 'lastname', class: 'span4' }, label: false, disabled: true %>
 						</div>
 					  </div>					  
-					  <div class="control-group">
-						<label class="control-label">E-post</label>
-						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn e-posten din" class="span4">
-						</div>
-					  </div>					 
+							 
 
-					  <div class="control-group">
-						<label class="control-label">Telefonnummer</label>
-						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn telefonnummer" class="span4">
+					</div>
+				  <div class="span5">
+				  	  	<div class="">
+		  				    <a id="fill_in_info" style="color:white" class="btn btn-inverse pull-right" href="#">Rediger leveringsinformasjon</a><br />
 						</div>
-					 </div>
-				   </div>
- 				   <div class="span5">
-					<div class="checkout_heading">Adresse</div>
+   					<div class="checkout_heading">Adresse</div>
 					  <div class="control-group">
 						<label class="control-label">Adresse 1</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn adresse" class="span4">
+						 <%= f.input :address1, input_html: { id: 'address1', class: 'span4' }, label: false, disabled: true %>
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Adresse 2</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn tilleggsinformasjon om adressen" class="span4">
+						 <%= f.input :address2, input_html: { id: 'address2', class: 'span4' }, label: false, disabled: true %>
+
 						</div>
 					  </div>					  
 					  <div class="control-group">
 						<label class="control-label">Poststed</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn poststed" class="span4">
+						 <%= f.input :city, input_html: { id: 'city',class: 'span4' }, label: false, disabled: true %>
 						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Postnummer</label>
 						<div class="controls docs-input-sizes">
-						  <input type="text" placeholder="Skriv inn postnummer" class="span4">
+						 <%= f.input :zipcode, input_html: { id: 'zipcode',class: 'span4' }, label: false, disabled: true %>
+
 						</div>
 					  </div>					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
+						 <%= f.input :country, input_html: { id: 'country', class: 'span4' }, label: false, disabled: true %>
+
 						</div>
 					  </div>
-
-					</div>
-					  					  <div class="span11 no_margin_left">
-					  <br /><a class="btn btn-primary pull-right" href="#collapse3">Continue</a><br /><br /><br />
+				  </div>
+					 <div class="span11 no_margin_left">
+					  <br />
+					  <a onclick='$( "#accordion" ).accordion({ active: 2 });' class="btn btn-primary pull-right" style="color:white" href="#">Fortsett</a>					 
+					  <a onclick='$( "#accordion" ).accordion({ active: 0 });' class="btn btn-primary pull-left" style="color:white" href="#">Tilbake</a>
 					 </div>
 				</div>
 
 			<h3>Steg 3: Betaling</h3>
 				<div class="accordion-inner">
-					<input type="radio" value="option1" name="payment1">Kredittkort<br />
-					<input type="radio" value="option2" name="payment1">Bankaksept<br />
-					<input type="radio" value="option3" name="payment1">Paypal<br /><br />
-					<input type="radio" value="option4" name="payment1">Overføre til vår konto<br />
-					<div class="control-group">
+
+					<%= f.input :payment_type, collection: @payment_methods %>
+						<div class="control-group">
  			           <label for="textarea" class="control-label">Kommentarer</label>
 			            <div class="controls">
-			              <textarea rows="3" id="textarea" class="input-xlarge span11"></textarea>
+			            <%= f.input :payment_comment, label: false, input_html: { class: 'span6' } %>
+			             
            				 </div>
           			</div>
 					<div class="span11 no_margin_left">
-					  <br /><a class="btn btn-primary pull-right" href="#collapse3">Bekreft bestilling</a><br /><br /><br />
+					  <br />
+					  <a onclick='$( "#accordion" ).accordion({ active: 1 });' style="color:white" class="btn btn-primary pull-left" href="#">Tilbake</a>
+					  	<%= f.submit 'Bekreft bestilling', class: 'btn btn-primary pull-right'  %>
+<br /><br /><br />
 					</div>				
 				</div>
-			<% end %>
+			
+		<% end %>
 		</div>
+	<% end %>		
 	</div>
 </div>
 
@@ -200,5 +208,17 @@
 	$(function() {
     	$( "#accordion" ).accordion({ active: 0 });
   	});
+	
+	$('#fill_in_info').click(function() {
+		$('#firstname').removeAttr('disabled');	
+		$('#lastname').removeAttr('disabled');	
+		$('#address1').removeAttr('disabled');	
+		$('#address2').removeAttr('disabled');	
+		$('#city').removeAttr('disabled');	
+		$('#zipcode').removeAttr('disabled');	
+		$('#country').removeAttr('disabled');	
+    });
+
+
 </script>
 

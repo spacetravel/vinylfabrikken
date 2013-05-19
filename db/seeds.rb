@@ -34,6 +34,13 @@ puts "- Created or updated delivery methods"
     end
 puts "- Created or updated order statuses"
 
+# Create the seed data for order statuses
+    ["VISA","Mastercard", "PayPal", "Overføre til vår konto", "Betale i butikken"].each do |payment_title|
+      PaymentMethod.find_or_create_by_title(payment_title, desc: "Beskrivelse av status ordere")
+    end
+puts "- Created or updated payment methods"
+
+
 # Adding Info Texts
 
 puts "- Creating info texts"

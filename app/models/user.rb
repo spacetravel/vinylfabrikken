@@ -16,6 +16,16 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  phone                  :string(255)
+#  address1               :string(255)
+#  address2               :string(255)
+#  country_code           :string(255)
+#  is_editor              :boolean
+#  profile_image          :string(255)
+#  zipcode                :string(255)
+#  city                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -32,6 +42,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :orders
+  has_one :delivery_information
 
   def after_sign_in_path_for(resource_or_scope)
    super
