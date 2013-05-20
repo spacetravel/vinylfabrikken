@@ -28,16 +28,21 @@ class CartsController < InheritedResources::Base
 	end
 
 	def checkout
-		@delivery_info = DeliveryInfo.new
 
-		@delivery_info.first_name = current_user.first_name
-		@delivery_info.last_name = current_user.last_name
-		@delivery_info.address1 = current_user.address1
-		@delivery_info.address2 = current_user.address2
-		@delivery_info.zipcode = current_user.zipcode
-		@delivery_info.city = current_user.city
-		@delivery_info.country = current_user.country_code
 
-		@payment_methods = PaymentMethod.select("title").all
+    	unless current_user.nil?
+    		@delivery_info = DeliveryInfo.new
+
+
+			@delivery_info.first_name = current_user.first_name
+			@delivery_info.last_name = current_user.last_name
+			@delivery_info.address1 = current_user.address1
+			@delivery_info.address2 = current_user.address2
+			@delivery_info.zipcode = current_user.zipcode
+			@delivery_info.city = current_user.city
+			@delivery_info.country = current_user.country_code
+
+			@payment_methods = PaymentMethod.select("title").all
+		end
 	end
 end

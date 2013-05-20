@@ -29,12 +29,16 @@
 		  </table>
 
 
-	 	<div class="pull-left">
-		  <%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
-		</div>
-		<div class="pull-right">
-			<%= link_to "Gå til kassen", '/kasse/', style: 'color:white', class: 'btn btn-primary pull-right' %>
-		    
-		</div>
+		<% if Cart.find(session[:cart_id]).line_items.any? %>
+		 	<div class="pull-left">
+			  <%= button_to 'Tøm handlekurv', @cart, class: 'btn btn-warning', method: :delete, confirm: 'Er du helt sikker?' %>
+			</div>
+
+
+			<div class="pull-right">
+				<%= link_to "Gå til kassen", '/kasse/', style: 'color:white', class: 'btn btn-primary pull-right' %>
+			    
+			</div>
+		<% end %>
 	</div>
 </div>

@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
+
+
     if current_cart.line_items.any?
 
       current_cart.line_items.each do |line_item|
@@ -20,7 +22,10 @@ class ApplicationController < ActionController::Base
       end
       session[:current_order_id] = nil
       return '/kasse/'
+    else
+      return root_url
     end 
+
   end
 
   def render_cart
@@ -32,7 +37,7 @@ class ApplicationController < ActionController::Base
     @current_action     = action_name
   end
   
-  private 
+
 
 	  def current_cart
 	  	Cart.find(session[:cart_id])
