@@ -27,22 +27,32 @@ class CartsController < InheritedResources::Base
 		end
 	end
 
+	def kvittering
+		current_cart.line_items.delete_all
+		@delivery_info = DeliveryInfo.find(params[:id])
+
+	end
+
 	def checkout
 
 
     	unless current_user.nil?
-    		@delivery_info = DeliveryInfo.new
 
+   			if current_user.delivery_info.nil?
 
-			@delivery_info.first_name = current_user.first_name
-			@delivery_info.last_name = current_user.last_name
-			@delivery_info.address1 = current_user.address1
-			@delivery_info.address2 = current_user.address2
-			@delivery_info.zipcode = current_user.zipcode
-			@delivery_info.city = current_user.city
-			@delivery_info.country = current_user.country_code
+	    		@delivery_info = DeliveryInfo.new
 
-			@payment_methods = PaymentMethod.select("title").all
+				@delivery_info.first_name = current_user.first_name
+				@delivery_info.last_name = current_user.last_name
+				@delivery_info.address1 = current_user.address1
+				@delivery_info.address2 = current_user.address2
+				@delivery_info.zipcode = current_user.zipcode
+				@delivery_info.city = current_user.city
+				@delivery_info.country = current_user.country_code
+
+			else
+				@delivery_info = current_user.delivery_info
+			end
 		end
 	end
 end

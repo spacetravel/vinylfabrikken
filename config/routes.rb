@@ -16,6 +16,7 @@ Vf::Application.routes.draw do
   resources :carts, :except => [:index]
   match "/handlekurv" => "carts#show"
   match "/kasse" => "carts#checkout"
+  match "/kvittering/:id" => "carts#kvittering"
   resources :faqs
   resources :orders
   resources :prices

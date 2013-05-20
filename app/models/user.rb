@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :orders
-  has_one :delivery_information
+  has_one :delivery_info
 
   def after_sign_in_path_for(resource_or_scope)
    super

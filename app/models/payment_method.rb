@@ -10,4 +10,6 @@
 class PaymentMethod < ActiveRecord::Base
   attr_accessible :title, :desc
 
+  has_many :delivery_infos
+
 end

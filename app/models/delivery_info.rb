@@ -19,9 +19,11 @@
 #
 
 class DeliveryInfo < ActiveRecord::Base
-  attr_accessible :user_id, :first_name, :last_name, :address1, :address2, :zipcode, :city, :country, :comments, :payment_type, :payment_comment
+  attr_accessible :user_id, :first_name, :last_name, :address1, :address2, :zipcode, :city, :country, :comments, :payment_type, :payment_comment, :payment_method_id
 
   belongs_to :user
+
+  belongs_to :payment_method
 
 
 
