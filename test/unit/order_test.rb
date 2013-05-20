@@ -22,6 +22,7 @@
 #  rpm                :string(255)
 #  quantity           :integer          default(300)
 #  catalogue_number   :string(255)
+#  invoice_id         :integer
 #
 
 require 'test_helper'

@@ -22,13 +22,15 @@
 #  rpm                :string(255)
 #  quantity           :integer          default(300)
 #  catalogue_number   :string(255)
+#  invoice_id         :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size, :rpm, :quantity, :gravering, :gravering_attributes, :matrix, :matrix_attributes, :testpress, :testpress_attributes, :pressing_attributes, :catalogue_number, :labels_attributes, :labels, :covers_attributes
+  attr_accessible :status, :user_id, :artwork_medium_id, :order_number, :order_date, :title, :artists, :delivery_method_id, :status_id, :number_of_records, :artist, :audio_master, :audio_master_attributes, :record_size, :rpm, :quantity, :gravering, :gravering_attributes, :matrix, :matrix_attributes, :testpress, :testpress_attributes, :pressing_attributes, :catalogue_number, :labels_attributes, :labels, :covers_attributes, :invoice_id
   
   before_destroy :ensure_not_referenced_by_any_line_item
 
+  belongs_to :invoice
   belongs_to :user
   
   has_many :line_items, :dependent => :destroy

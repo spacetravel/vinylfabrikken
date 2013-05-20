@@ -8,9 +8,34 @@
 		<td><%= line_item.order.title %></td>
 		<td><%= line_item.order.artist %></td>
 		<td><input type="text" placeholder="1" disabled="disabled" value="<%= line_item.order.quantity %>" class="input-mini"></td>
-		<td>$2,350.00</td>
+		<td><%= line_item.order.record_size %></td>		
+		<td>2.350 NOK</td>
 		<td><%= link_to "Rediger", edit_order_path(line_item.order.id), class: 'btn btn-primary btn-small', style: 'color:white' %></td>
 		<td><%= button_to "Fjern fra handlekurv", line_item_path(line_item.id),  method: :delete,  class: 'btn btn-danger btn-small', style: 'color:white' %></td>
+	</tr>			  
+
+<% end %>
+
+
+<% if where_to_render == 'checkout' %>
+	<tr>
+		<td><%= line_item.order.title %></td>
+		<td><%= line_item.order.artist %></td>
+		<td><%= line_item.order.quantity %></td>
+		<td><%= line_item.order.record_size %></td>		
+		<td colspan="3">2.350 NOK</td>
+	</tr>			  
+
+<% end %>
+
+
+<% if where_to_render == 'kvittering' %>
+	<tr>
+		<td><%= line_item.title %></td>
+		<td><%= line_item.artist %></td>
+		<td><%= line_item.quantity %></td>
+		<td><%= line_item.record_size %></td>		
+		<td colspan="3">2.350 NOK</td>
 	</tr>			  
 
 <% end %>

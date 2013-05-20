@@ -28,8 +28,10 @@ class CartsController < InheritedResources::Base
 	end
 
 	def kvittering
-		current_cart.line_items.delete_all
-		@delivery_info = DeliveryInfo.find(params[:id])
+
+#		current_cart.line_items.delete_all
+
+		@invoice = Invoice.find(params[:id])
 
 	end
 

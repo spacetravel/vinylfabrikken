@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520004554) do
+ActiveRecord::Schema.define(:version => 20130520134242) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20130520004554) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "payment_method_id"
+    t.integer  "invoice_id"
   end
 
   create_table "delivery_methods", :force => true do |t|
@@ -156,6 +157,16 @@ ActiveRecord::Schema.define(:version => 20130520004554) do
     t.text     "short_desc"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invoices", :force => true do |t|
+    t.string   "invoice_number"
+    t.datetime "invoice_date"
+    t.datetime "invoice_deadline"
+    t.decimal  "total_sum"
+    t.integer  "status"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "labels", :force => true do |t|
@@ -217,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20130520004554) do
     t.string   "rpm"
     t.integer  "quantity",           :default => 300
     t.string   "catalogue_number"
+    t.integer  "invoice_id"
   end
 
   create_table "payment_methods", :force => true do |t|
