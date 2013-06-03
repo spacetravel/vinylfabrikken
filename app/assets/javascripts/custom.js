@@ -1,37 +1,7 @@
 
 $( document ).ready(function(){
 
-   $('#flash').delay(500).fadeIn('normal', function() {
-      $(this).delay(2500).fadeOut();
-   });
 
-    // Slider functions for order form
-    $('.toggle-button').click(function() {
-
-      $(this).next('.toggle-info').slideToggle('slow', function() {
-
-      });
-    });
- 
-   // Slider functions for order form
-    $('.toggle-button').click(function() {
-         $(this).find('#plusminusicon').toggleClass('icon-plus-sign');
-         $(this).find('#plusminusicon').toggleClass('icon-minus-sign');
-    });
-
-    // Info boxes for order form
-    $('.infoBox').hide();
-    
-    $('.order_info').mouseenter(function(evt)  {
-       evt.preventDefault();
-       $(this).find('.infoBox').toggle();
-     }); 
-
-
-    $('.order_info').mouseleave(function(evt)  {
-       evt.preventDefault();
-       $(this).find('.infoBox').toggle();
-     });
 
     var currentValue = $('#range');
     var currentValueSmall = $('#range-small');

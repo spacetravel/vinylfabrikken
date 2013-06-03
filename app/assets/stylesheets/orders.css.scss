@@ -86,7 +86,7 @@ table.orderline {
 
 .orderDetails {
 	background-color:black;
-	padding:20px;
+	padding:15px;
 	margin-top:30px;
 	margin-bottom:30px;
 	-moz-border-radius: 15px;
@@ -94,6 +94,10 @@ table.orderline {
 
 	color:white;
 
+}
+
+.leverings_metode_dropdown select {
+	width: 50px !important;
 }
 
 .myOrdersWrapper {
