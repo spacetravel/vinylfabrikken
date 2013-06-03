@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :render_cart
   before_filter :set_controller_and_action_names
 
+ 
+
 
   def authenticate_admin_user!
    redirect_to new_user_session_path unless current_user.try(:admin?) 
@@ -46,4 +48,7 @@ class ApplicationController < ActionController::Base
 	  	session[:cart_id] = cart.id
 	  	cart
 	  end
+
+
+
 end

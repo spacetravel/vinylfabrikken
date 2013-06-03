@@ -1,6 +1,38 @@
 
 $( document ).ready(function(){
 
+   $('#flash').delay(500).fadeIn('normal', function() {
+      $(this).delay(2500).fadeOut();
+   });
+
+    // Slider functions for order form
+    $('.toggle-button').click(function() {
+
+      $(this).next('.toggle-info').slideToggle('slow', function() {
+
+      });
+    });
+ 
+   // Slider functions for order form
+    $('.toggle-button').click(function() {
+         $(this).find('#plusminusicon').toggleClass('icon-plus-sign');
+         $(this).find('#plusminusicon').toggleClass('icon-minus-sign');
+    });
+
+    // Info boxes for order form
+    $('.infoBox').hide();
+    
+    $('.order_info').mouseenter(function(evt)  {
+       evt.preventDefault();
+       $(this).find('.infoBox').toggle();
+     }); 
+
+
+    $('.order_info').mouseleave(function(evt)  {
+       evt.preventDefault();
+       $(this).find('.infoBox').toggle();
+     });
+
     var currentValue = $('#range');
     var currentValueSmall = $('#range-small');
     var sideA = $('#order_gravering_attributes_side_a_rpm');
@@ -62,7 +94,7 @@ $( document ).ready(function(){
         $('#pressing_status_text').html(albumQty + " x " + $('#order_pressing_attributes_color').val());
 
         // set labels qty status
-        $('#labels_status_text').html((albumQty*2) + " x " + $('#order_labels_attributes_type').val());
+        $('#labels_status_text').html(($('#order_quantity').val()*2) + " x " + $('#order_labels_attributes_label_type').val());    
 
         // set covers qty status
         $('#covers_status_text').html(albumQty + " x " + $('#order_covers_attributes_inner_sleeve_type').val());
@@ -86,9 +118,10 @@ $( document ).ready(function(){
 
     /* Labels logic */
 
-   $('#order_labels_attributes_type').change(function() {
+   $('#order_labels_attributes_label_type').change(function() {
 
-        $('#labels_status_text').html(($('#order_quantity').val()*2) + " x " + $('#order_labels_attributes_type').val());    
+
+        $('#labels_status_text').html(($('#order_quantity').val()*2) + " x " + $('#order_labels_attributes_label_type').val());    
     });
 
    /* Covers logic */

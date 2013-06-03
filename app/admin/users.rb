@@ -29,7 +29,8 @@ ActiveAdmin.register User, :as => "Bruker" do
     f.inputs "Kontaktinformasjon" do
 	end
     f.inputs "Systeminstillinger" do
-	  f.input :admin, :label => "Er denne brukeren administrator?"
+    f.input :admin, :label => "Er denne brukeren administrator?"
+    f.input :faktura_avtale, :label => "Har brukeren en fakturaavtale?"
 	end
 	f.actions
   end

@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	@url = "http://localhost:3000/users/login"
+  	@url =  "http://vinylfabrikken-stage.herokuapp.com"+new_user_session_path
   	mail(:to => user.email, :subject => "Velkommen til Vinylfabrikken")
   end
 end

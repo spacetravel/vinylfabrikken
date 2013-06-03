@@ -61,7 +61,7 @@ module Vf
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.5'
+    config.assets.version = '1.6'
 
         # Force locale on Heroku
     I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.yml').to_s]

@@ -6,7 +6,7 @@
 			<div class="myOrdersWrapper">
 				<div class="myOrderHeading">
 					<div class="pull-left">
-						<b><%= order.title %> / <%= order.artist %> </b>
+						<b><%= truncate(order.title, :length => 25)  %> / <%= truncate(order.artist, :length => 20) %> </b>
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
 						<div style="padding:0px">
 							<%= button_to "Rediger på bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
@@ -16,7 +16,7 @@
 					<div class="pull-right">
 						<i class="icon-info-sign icon-large pull-right order_info" style="padding-top:5px"></i>
 						
-						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
+						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
 					<br /><br />
 						<div style="padding:0px">
 							<%= button_to "Send til handlekurv",  line_items_path(order_id: order.id), remote: true, :class => 'btn btn-success pull-right' %>
@@ -25,12 +25,30 @@
 					</div>
 
 					<div class="pull-right" style="font-size:12px;padding:10px;">
-				        Levering: <b><%=  DeliveryMethod.find(order.delivery_method_id).name %></b><br />
-				        Størrelse: <b><%=  order.record_size %></b>
+						<ul>
+							<li>
+						         Farge: <b><%=  order.pressing.color %></b><br />
+						    </li>
+						    <li>
+						        Størrelse: <b><%=  order.record_size %></b>
+							</li>
+							<li>
+						         Cover: <b><%=  order.covers.sleeve_type %></b><br />
+						    </li>
+						</ul>
 				    </div>
 				  	<div class="pull-right" style="font-size:12px;padding:10px;">
-  			        	Hastighet <b>(rpm): <%=  order.rpm %></b> <br />
-  			        	Katalognummer: <%= order.catalogue_number %>
+  			        	<ul>
+							<li>
+						         Vekt: <b><%=  order.pressing.weight %>g</b><br />
+						    </li>
+							<li>
+								Hastighet (rpm):<b> <%=  order.rpm %></b> <br />
+  			        		</li>
+						    <li>
+						    Katalognummer: <b><%= order.catalogue_number %></b>
+							</li>
+						</ul>
 				      
 				    </div>
 				</div>

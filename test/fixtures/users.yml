@@ -26,6 +26,7 @@
 #  profile_image          :string(255)
 #  zipcode                :string(255)
 #  city                   :string(255)
+#  faktura_avtale         :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

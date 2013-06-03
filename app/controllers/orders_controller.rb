@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
   	@order.order_number = "VF"+@order.id.to_s 
   	@order.order_date = Time.now
 	  @order.order_status_id = 1
-	  @order.payment_type = 1  	
+	  @order.payment_type = 1
 
     unless current_user.nil?
       @order.user_id = current_user.id

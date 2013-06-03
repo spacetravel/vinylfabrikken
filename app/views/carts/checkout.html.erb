@@ -120,19 +120,21 @@
 						<div class="controls docs-input-sizes">
 						  <input type="text" disabled="disabled" value="<%= current_user.address2 %>" placeholder="Skriv inn tilleggsinformasjon om adressen" class="span4">
 						</div>
-					  </div>					  
-					  <div class="control-group">
-						<label class="control-label">Poststed</label>
-						<div class="controls docs-input-sizes">
-						  <input type="text" disabled="disabled" value="<%= current_user.city %>" placeholder="Skriv inn poststed" class="span4">
-						</div>
 					  </div>
 					  <div class="control-group">
 						<label class="control-label">Postnummer</label>
 						<div class="controls docs-input-sizes">
 						  <input type="text" disabled="disabled" value="<%= current_user.zipcode %>" placeholder="Skriv inn postnummer" class="span4">
 						</div>
-					  </div>					  <div class="control-group">
+					  </div>					  
+  					  <div class="control-group">
+						<label class="control-label">Poststed</label>
+						<div class="controls docs-input-sizes">
+						  <input type="text" disabled="disabled" value="<%= current_user.city %>" placeholder="Skriv inn poststed" class="span4">
+						</div>
+					  </div>
+
+					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
 							<%= localized_country_select(:user, :country_code, ["#{current_user.country_code}"],) %>						</div>
@@ -182,18 +184,19 @@
 						</div>
 					  </div>					  
 					  <div class="control-group">
+						<label class="control-label">Postnummer</label>
+						<div class="controls docs-input-sizes">
+						 <%= f.input :zipcode, input_html: { id: 'zipcode',class: 'span4' }, label: false %>
+
+						</div>
+					  </div>					  
+					  <div class="control-group">
 						<label class="control-label">Poststed</label>
 						<div class="controls docs-input-sizes">
 						 <%= f.input :city, input_html: { id: 'city',class: 'span4' }, label: false %>
 						</div>
 					  </div>
 					  <div class="control-group">
-						<label class="control-label">Postnummer</label>
-						<div class="controls docs-input-sizes">
-						 <%= f.input :zipcode, input_html: { id: 'zipcode',class: 'span4' }, label: false %>
-
-						</div>
-					  </div>					  <div class="control-group">
 						<label class="control-label">Land</label>
 						<div class="controls docs-input-sizes">
 						 <%= f.input :country, input_html: { id: 'country', class: 'span4' }, label: false %>

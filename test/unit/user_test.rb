@@ -26,6 +26,7 @@
 #  profile_image          :string(255)
 #  zipcode                :string(255)
 #  city                   :string(255)
+#  faktura_avtale         :boolean
 #
 
 require 'test_helper'

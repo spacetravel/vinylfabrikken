@@ -14,4 +14,6 @@ class AlbumMedium < ActiveRecord::Base
   attr_accessible :name, :address, :description
   has_many :audio_masters
 
+  
+
 end

@@ -7,6 +7,7 @@
         Min bestilling 
         <div class="pull-right">
           <i class="icon-info-sign  pull-right order_info" style="padding:5px"></i>
+          <div class="infoBox">Hjelp til bestilling          </div>
         </div>
 
     </div>
@@ -30,7 +31,7 @@
 
         <%= f.label "Opplag" %>
 
-        <%= f.range_field(:quantity, {:step => 5, :in => 0...2501}) %>
+        <%= f.range_field(:quantity, {:step => 5, :in => 0...5001}) %>
 
           <p class="note"><span id="range-small">0</span> stk</p>
       </div>
@@ -43,7 +44,7 @@
 
         <div style="font-size:18px">
           Antall plater<br /><br /> 
-          <input type="text" id="range" maxlength="4" max="2500"></span>
+          <input type="text" id="range" maxlength="5" max="5000"></span>
         </div>      
       </div>
 
