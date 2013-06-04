@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/">Vinylfabrikken</a>
+        <a class="brand" href="/">Oslo Vinylfabrikk</a>
         <div class="nav-collapse">
           <ul class="nav">
              <li class="dropdown">
@@ -108,6 +108,12 @@
                   <li class="divider"></li>
                   <li>
                     <%= link_to "Administrer", '/admin' %>
+                  </li>
+                <% end %>
+                <% if current_user.employee %>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Bestillinger", '/ansatte/bestillinger' %>
                   </li>
                 <% end %>
                 <li class="divider"></li>

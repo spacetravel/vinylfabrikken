@@ -3,7 +3,7 @@
 class OrdersController < ApplicationController
   include OrdersHelper
 
-#  before_filter :authenticate_user!, :only => [:destroy]
+  before_filter :authenticate_user!, :only => [:employee_orders]
 
   def index
     
@@ -62,6 +62,7 @@ class OrdersController < ApplicationController
   	@order.order_date = Time.now
 	  @order.order_status_id = 1
 	  @order.payment_type = 1
+    @order.order_status = OrderStatus.find_by_keyword("ingen")
 
     unless current_user.nil?
       @order.user_id = current_user.id
@@ -87,6 +88,8 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @order.order_status = OrderStatus.find_by_keyword("ingen")
+
     if @order.update_attributes(params[:order])
       redirect_to(orders_path)
     else
@@ -105,6 +108,24 @@ class OrdersController < ApplicationController
   end
 
   def move_to_shopping_cart
+  end
+
+  def to_approval
+      order = Order.find(params[:id])
+      if order.user_id = current_user.id
+        order.order_status = OrderStatus.find_by_keyword("tilgodkjenning")
+        order.save!
+      end
+      redirect_to :action => 'index'
+    
+  end
+
+  def employee_orders
+    if current_user.employee
+      @orders = Order.all
+    else
+      redirect_to '/'      
+    end
   end
   
 end

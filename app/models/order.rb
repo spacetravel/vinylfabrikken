@@ -35,7 +35,7 @@ class Order < ActiveRecord::Base
   
   has_many :line_items, :dependent => :destroy
 
-  has_one :order_status, :dependent => :destroy
+  belongs_to :order_status
   has_one :delivery_method, :dependent => :destroy
   has_one :cover_medium #, :dependent => :destroy
   has_one :audio_master #, :dependent => :destroy

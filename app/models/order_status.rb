@@ -13,7 +13,7 @@
 #
 
 class OrderStatus < ActiveRecord::Base
-   attr_accessible :title, :description, :color, :owner
+   attr_accessible :title, :description, :color, :owner, :keyword
 
-   belongs_to :order
+   has_many :orders
 end

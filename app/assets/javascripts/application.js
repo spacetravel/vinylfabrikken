@@ -38,9 +38,23 @@ $( document ).ready(function(){
          $(this).find('#plusminusicon').toggleClass('icon-minus-sign');
     });
 
+
+    // order status tekst
+
+    $('.order_status_desc').hide();
+    $('.order_status').mouseenter(function(evt)  {
+       evt.preventDefault();
+       $(this).next('.order_status_desc').toggle();
+     }); 
+
+
+    $('.order_status').mouseleave(function(evt)  {
+       evt.preventDefault();
+       $(this).next('.order_status_desc').toggle();
+     });
+    
     // Info boxes for order form
     $('.infoBox').hide();
-    
     $('.order_info').mouseenter(function(evt)  {
        evt.preventDefault();
        $(this).find('.infoBox').toggle();

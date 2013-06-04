@@ -86,7 +86,7 @@ table.orderline {
 
 .orderDetails {
 	background-color:black;
-	padding:15px;
+	padding:20px;
 	margin-top:30px;
 	margin-bottom:30px;
 	-moz-border-radius: 15px;
@@ -94,6 +94,14 @@ table.orderline {
 
 	color:white;
 
+}
+
+.orderDetails input {
+	width:160px;
+}
+
+.orderDetails select {
+	width:180px;
 }
 
 .leverings_metode_dropdown select {
@@ -105,7 +113,7 @@ table.orderline {
 	background-color:black;
 	padding:10px;
 	margin:20px;
-	min-height:100px;
+	min-height:150px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	color:white;
@@ -120,7 +128,7 @@ table.orderline {
 
 .myOrderBody {
 	min-height:60px;
-	padding:0;
+	padding:20px 0 0 0;
 	margin-bottom:20px;
 	background-color:black;
 }
@@ -130,4 +138,30 @@ table.orderline {
 	color:white;
 	width:100px;
 	font-size:18px;
+}
+
+.order_status {
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color:auto;
+	width:auto;
+	font-family:Arial;
+	font-size:9px;
+	padding:2px 5px 2px 5px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.order_status_1 {
+	background-color: magenta;
+}
+
+.order_status_desc {
+	font-size: 13px;
+	background-color: #ffffff;
+	padding: 5px;
+	color:black;
+	width: 160px;
+	border: solid 2px black;
+	position: absolute;
 }
