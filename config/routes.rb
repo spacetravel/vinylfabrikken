@@ -23,11 +23,12 @@ Vf::Application.routes.draw do
   resources :delivery_infos
  
   match "/ansatte/bestillinger" => "orders#employee_orders"
+  match "/tilgodkjenning/:id" => "orders#to_approval"
+  match "/godkjenn/:id" => "orders#approve"
  
 
   match "/velgpakke" => "orders#choosepackage"
   match "/tilhandlekurv/:id" => "orders#move_to_shopping_cart"
-  match "/tilgodkjenning/:id" => "orders#to_approval"
   match "/omoss" => "articles#show", :id => 1
   match "/kontakt" => "articles#show", :id => 2
   match "/partnere" => "articles#show", :id => 3

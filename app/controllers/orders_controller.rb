@@ -120,9 +120,19 @@ class OrdersController < ApplicationController
     
   end
 
+  def approve
+      order = Order.find(params[:id])
+      if current_user.employee
+        order.order_status = OrderStatus.find_by_keyword("godkjent")
+        order.save!
+      end
+      redirect_to :action => 'employee_orders'
+    
+  end
+
   def employee_orders
     if current_user.employee
-      @orders = Order.all
+      @orders = Order.all.reverse
     else
       redirect_to '/'      
     end
