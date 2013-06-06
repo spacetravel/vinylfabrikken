@@ -27,12 +27,20 @@
 						
 						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
 					<br /><br />
-						<% if order.order_status.keyword == "ingen" %>
 						<div style="padding-top:30px">
-							<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right' %>
+							<% if user_signed_in? %>
+								<% if order.order_status.keyword == "ingen" %>
+									<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right' %>
+								<% end %>
+								<% if order.order_status.keyword == "godkjent" %>
+									<%= button_to "Send til handlekurv", line_items_path(order_id: order.id).to_s, remote: true, :class => 'btn btn-success pull-right' %>
+								<% end %>
+					
+							<% else %>
+								<%= link_to "Logg inn for å gå videre",  new_user_session_path, :class => 'btn btn-success pull-right' %>
 
+							<% end %>
 						</div>
-						<% end %>
 					</div>
 
 					<div class="pull-right" style="font-size:12px;padding:10px;">

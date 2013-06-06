@@ -7,13 +7,6 @@ class LineItemsController < ApplicationController
 
 	def create
 
-		logger.debug ("test")
-		logger.debug ("test")
-		logger.debug ("test")
-		logger.debug ("test")
-		logger.debug ("test")
-		logger.debug ("test")
-
 		@cart = current_cart
 		order = Order.find(params[:order_id])
 		@line_item = @cart.add_order(order.id)

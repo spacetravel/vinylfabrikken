@@ -1,9 +1,26 @@
 <div class="span12">
-	<duv style="font-size:3em;padding:30px 0 30px 0" class="span9">Bestillinger</div>
+	<duv style="font-size:3em;padding:30px 0 30px 0" class="span9">Alle bestillinger</div>
+
+	<div class="span11" style="text-align:center">
+		<% if params[:order_status_id].nil? %>
+			<%= link_to "Alle bestillinger", { :controller => :orders, :action => 'employee_orders' }, class: 'btn-large', style: 'font-size:10px;color:white;background-color:green' %>		
+		<% else %>
+			<%= link_to "Alle bestillinger", { :controller => :orders, :action => 'employee_orders' }, class: 'btn', style: 'font-size:10px;color:white;background-color:green' %>		
+		<% end %>
+
+		<% @order_statuses.each do |order_status| %>
+			<% if params[:order_status_id]  == order_status.id.to_s %>
+				<%= link_to order_status.title, { :controller => :orders, :action => 'employee_orders', :order_status_id => order_status.id }, class: 'btn btn-large', style: 'font-size:10px;color:white;background-color:'+order_status.color %>		
+			<% else %>
+				<%= link_to order_status.title, { :controller => :orders, :action => 'employee_orders', :order_status_id => order_status.id }, class: 'btn', style: 'font-size:10px;color:white;background-color:'+order_status.color %>		
+			<% end %>
+			
+		<% end %>
+	</div>
 
 	<div class="span11">
 		<% @orders.each do |order| %>
-			<div class="myOrdersWrapper">
+			<div class="myOrdersWrapper" style="min-height:200px">
 				<div class="myOrderHeading">
 					<div class="pull-left">
 						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 25)  %> / <%= truncate(order.artist, :length => 20) %> </div>
@@ -28,12 +45,19 @@
 						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
 					<br /><br />
 						<div style="padding-top:30px">
-							<%= link_to "Godkjenn bestilling",  '/godkjenn/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>
+							<% if order.order_status.keyword == "tilgodkjenning" %>
+								<%= link_to "Godkjenn bestilling",  '/godkjenn/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>
+							<% else %>
+								<%= simple_form_for order do |f| %>
+  									<%= f.input(:order_status_id,  collection: @order_statuses, label: false) %>
+								    <%= f.button :submit,"Oppdater",  style: 'width:100px', class: 'btn btn-primary pull-right' %>
+								<% end %>
+							<% end %>
 
 						</div>
 					</div>
 
-					<div class="pull-right" style="font-size:12px;padding:10px;">
+					<div class="pull-left" style="font-size:12px;padding:10px;">
 						<ul>
 							<li>
 						         Farge: <b><%=  order.pressing.color %></b><br />
@@ -46,7 +70,7 @@
 						    </li>
 						</ul>
 				    </div>
-				  	<div class="pull-right" style="font-size:12px;padding:10px;">
+				  	<div class="pull-left" style="font-size:12px;padding:10px;">
   			        	<ul>
 							<li>
 						         Vekt: <b><%=  order.pressing.weight %>g</b><br />

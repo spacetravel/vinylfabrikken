@@ -1,6 +1,4 @@
 Vf::Application.routes.draw do
- 
-
 
 
   mount Rich::Engine => '/rich', :as => 'rich'
@@ -22,7 +20,7 @@ Vf::Application.routes.draw do
   resources :prices
   resources :delivery_infos
  
-  match "/ansatte/bestillinger" => "orders#employee_orders"
+  match "/ansatte/bestillinger/" => "orders#employee_orders"
   match "/tilgodkjenning/:id" => "orders#to_approval"
   match "/godkjenn/:id" => "orders#approve"
  

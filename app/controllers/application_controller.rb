@@ -13,21 +13,28 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
 
+   unless session[:current_order_id].nil?
+       @order = Order.find(session[:current_order_id])
+       @order.user_id = current_user.id
+       @order.save!
+       session[:current_order_id] = nil
+       return orders_path
+   else
 
-    if current_cart.line_items.any?
+      if current_cart.line_items.any?
 
-      current_cart.line_items.each do |line_item|
-        @order = Order.find(line_item.order_id)
-        
-        @order.user_id = current_user.id
-        @order.save!
-      end
-      session[:current_order_id] = nil
-      return '/kasse/'
-    else
-      return root_url
-    end 
-
+        current_cart.line_items.each do |line_item|
+          @order = Order.find(line_item.order_id)
+          
+          @order.user_id = current_user.id
+          @order.save!
+        end
+        session[:current_order_id] = nil
+        return '/kasse/'
+      else
+        return root_url
+      end 
+    end
   end
 
   def render_cart

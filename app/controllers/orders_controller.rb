@@ -60,7 +60,6 @@ class OrdersController < ApplicationController
 
   	@order.order_number = "VF"+@order.id.to_s 
   	@order.order_date = Time.now
-	  @order.order_status_id = 1
 	  @order.payment_type = 1
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
@@ -91,15 +90,16 @@ class OrdersController < ApplicationController
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
     if @order.update_attributes(params[:order])
-      redirect_to(orders_path)
+      redirect_to(:back)
     else
       render "edit"
     end
   end
 
   def destroy
-     Order.find(params[:id]).destroy
-     redirect_to :action => 'index'
+    Order.find(params[:id]).destroy
+     
+    redirect_to(:back) 
   end
 
 
@@ -132,7 +132,12 @@ class OrdersController < ApplicationController
 
   def employee_orders
     if current_user.employee
-      @orders = Order.all.reverse
+      unless params[:order_status_id].nil?      
+        @orders = Order.where("order_status_id = ?", params[:order_status_id]).reverse
+      else
+        @orders = Order.all.reverse
+      end
+      @order_statuses = OrderStatus.all
     else
       redirect_to '/'      
     end
