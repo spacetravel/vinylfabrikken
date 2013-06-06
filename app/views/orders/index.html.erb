@@ -5,8 +5,8 @@
 		<% @orders.each do |order| %>
 			<div class="myOrdersWrapper">
 				<div class="myOrderHeading">
-					<div class="pull-left">
-						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 25)  %> / <%= truncate(order.artist, :length => 20) %> </div>
+					<div class="pull-left" style="min-width:350px">
+						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 20)  %> / <%= truncate(order.artist, :length => 20) %> </div>
 
 						
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
@@ -30,7 +30,7 @@
 						<div style="padding-top:30px">
 							<% if user_signed_in? %>
 								<% if order.order_status.keyword == "ingen" %>
-									<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right' %>
+									<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>
 								<% end %>
 								<% if order.order_status.keyword == "godkjent" %>
 									<%= button_to "Send til handlekurv", line_items_path(order_id: order.id).to_s, remote: true, :class => 'btn btn-success pull-right' %>
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 
-					<div class="pull-right" style="font-size:12px;padding:10px;">
+					<div class="span3 pull-left" style="font-size:12px;padding:10px;">
 						<ul>
 							<li>
 						         Farge: <b><%=  order.pressing.color %></b><br />
@@ -56,7 +56,7 @@
 						    </li>
 						</ul>
 				    </div>
-				  	<div class="pull-right" style="font-size:12px;padding:10px;">
+				  	<div class="span3 pull-left" style="font-size:12px;padding:10px;">
   			        	<ul>
 							<li>
 						         Vekt: <b><%=  order.pressing.weight %>g</b><br />

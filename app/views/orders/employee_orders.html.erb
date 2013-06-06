@@ -22,7 +22,7 @@
 		<% @orders.each do |order| %>
 			<div class="myOrdersWrapper" style="min-height:200px">
 				<div class="myOrderHeading">
-					<div class="pull-left">
+					<div class="pull-left" style="min-width:350px">
 						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 25)  %> / <%= truncate(order.artist, :length => 20) %> </div>
 
 						
