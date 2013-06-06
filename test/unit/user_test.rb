@@ -27,6 +27,7 @@
 #  zipcode                :string(255)
 #  city                   :string(255)
 #  faktura_avtale         :boolean
+#  employee               :boolean          default(FALSE)
 #
 
 require 'test_helper'

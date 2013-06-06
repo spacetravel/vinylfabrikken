@@ -10,8 +10,8 @@
 
 						
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
-						<div style="padding-top:50px">
-							<%= button_to "Rediger på bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
+						<div style="padding-top:80px">
+							<%= button_to "Rediger bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
 						</div>
 					</div>
 
@@ -27,7 +27,7 @@
 						
 						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
 					<br /><br />
-						<div style="padding-top:30px">
+						<div style="padding-top:60px">
 							<% if user_signed_in? %>
 								<% if order.order_status.keyword == "ingen" %>
 									<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>

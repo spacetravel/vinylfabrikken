@@ -19,6 +19,7 @@ Vf::Application.routes.draw do
   resources :orders
   resources :prices
   resources :delivery_infos
+  resources :vendors
  
   match "/ansatte/bestillinger/" => "orders#employee_orders"
   match "/tilgodkjenning/:id" => "orders#to_approval"

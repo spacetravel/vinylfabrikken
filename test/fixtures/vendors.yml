@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: order_statuses
+# Table name: vendors
 #
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :text
-#  color       :string(255)
-#  owner       :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  order_id    :integer
-#  keyword     :string(255)
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  city       :string(255)
+#  link       :string(255)
+#  desc       :text
+#  speciality :text
+#  address    :string(255)
+#  phone      :string(255)
+#  website    :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

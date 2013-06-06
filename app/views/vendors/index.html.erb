@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="span10 offset1">
+	<h1 style="text-align:center">Utsalgssteder</h1><br />
+
+	<div style="text-align:center;font-size:16px">
+		<%= link_to "Oslo", { :controller => :vendors, :action => 'index', :city => 'Oslo' } %> | <%= link_to "Bergen", { :controller => :vendors, :action => 'index', :city => 'Bergen' } %> | <%= link_to "Trondheim", { :controller => :vendors, :action => 'index', :city => 'Trondheim' } %> | <%= link_to "Stavanger", { :controller => :vendors, :action => 'index', :city => 'Stavanger' } %> | <%= link_to "Tromsø", { :controller => :vendors, :action => 'index', :city => 'Tromsø' } %>
+	</div>
+	<br />
+
+    <div class="container span9" style="text-align:center;border: 2px solid black;margin-bottom:40px">
+<iframe name="kartet" id="kartet" width="100%" height="300"  frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=214836513614317098231.0004daa4af9b523fc8467&amp;ie=UTF8&amp;t=m&amp;ll=59.917043,10.767288&amp;spn=0.021511,0.060081&amp;z=14&amp;output=embed"></iframe><br />
+    Oversikten er lagd med utgangspunkt i <a href="http://www.osloby.no/oslosbeste/musikk/Her-kan-du-kjope-vinylplater-7174521.html#.UXAZ7EBdUyZ">denne artikkelen fra Aftenposten</a>
+
+ <small><a href="https://maps.google.com/maps/ms?msa=0&amp;msid=214836513614317098231.0004daa4af9b523fc8467&amp;ie=UTF8&amp;t=m&amp;ll=59.917043,10.767288&amp;spn=0.021511,0.060081&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">Større kart</a></small>    </div>
+
+		<table class="table table-condensed">
+		    <%= render :partial =>'vendors', :collection => @vendors  %>
+		</table>
+	</div>
+</div>
