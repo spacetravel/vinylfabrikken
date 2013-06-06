@@ -43,7 +43,7 @@ class CartsController < InheritedResources::Base
    			if current_user.delivery_info.nil?
 
 	    		@delivery_info = DeliveryInfo.new
-
+	    		
 				@delivery_info.first_name = current_user.first_name
 				@delivery_info.last_name = current_user.last_name
 				@delivery_info.address1 = current_user.address1

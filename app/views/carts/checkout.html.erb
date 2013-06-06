@@ -213,7 +213,7 @@
 
 			<h3>Steg 3: Betaling</h3>
 				<div class="accordion-inner">
-					<%= f.association :payment_method %>
+					<%= f.association :payment_method, :include_blank => "Velg betalingsmetode" %>
 						<div class="control-group">
  			           <label for="textarea" class="control-label">Kommentarer</label>
 			            <div class="controls">

@@ -90,7 +90,17 @@ class OrdersController < ApplicationController
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
     if @order.update_attributes(params[:order])
-      redirect_to(:back)
+ 
+      unless current_user.nil?
+        if current_user.employee
+          redirect_to(:back)
+        else
+          redirect_to :action => 'index'
+        end
+    else
+      redirect_to :action => 'index'
+    end
+
     else
       render "edit"
     end
