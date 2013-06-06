@@ -92,8 +92,8 @@ class OrdersController < ApplicationController
     if @order.update_attributes(params[:order])
  
       unless current_user.nil?
-        if current_user.employee
-          redirect_to(:back)
+        if current_user.employee 
+          redirect_to :action => 'employee_orders'
         else
           redirect_to :action => 'index'
         end
