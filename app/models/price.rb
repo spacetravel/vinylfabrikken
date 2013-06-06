@@ -11,5 +11,5 @@
 #
 
 class Price < ActiveRecord::Base
-   attr_accessible :name, :desc, :price
+   attr_accessible :name, :desc, :price, :keyword1, :keyword2
 end

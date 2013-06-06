@@ -24,6 +24,8 @@ ActiveAdmin.register Price, :as => "Pris" do
       f.input :name, :label => "Produkt"
       f.input :desc, :label => "Beskrivelse"
       f.input :price, :label => "Enhetspris"
+      f.input :keyword1, :label => "Stikkord #1"
+      f.input :keyword2, :label => "Stikkord #2"
 
 	end
 	f.actions
