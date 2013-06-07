@@ -2,7 +2,7 @@ class UserProfileController < ApplicationController
 
 	def show
 
-		if params[:employee_view] == 1 
+		if params[:employee_view] == 1 && current_user.employee 
 			@user = User.find(params[:id])
 		else
 			@user = current_user
@@ -11,7 +11,7 @@ class UserProfileController < ApplicationController
 	end
 
 	def orders
-		if params[:employee_view] == 1 
+		if params[:employee_view] == 1 && current_user.employee
 			@user = User.find(params[:id])
 		else
 			@user = current_user
