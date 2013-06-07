@@ -1,11 +1,21 @@
 class UserProfileController < ApplicationController
 
 	def show
-		@user = User.find(params[:id])
+
+		if params[:employee_view] == 1 
+			@user = User.find(params[:id])
+		else
+			@user = current_user
+		end
+
 	end
 
 	def orders
-		@user = User.find(params[:id])
+		if params[:employee_view] == 1 
+			@user = User.find(params[:id])
+		else
+			@user = current_user
+		end
 
 	    if current_user.nil?
 	      logger.debug "hvilken bestilling? " + session[:current_order_id].to_s

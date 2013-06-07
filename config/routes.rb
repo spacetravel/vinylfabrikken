@@ -22,8 +22,12 @@ Vf::Application.routes.draw do
   resources :vendors
 
  
-  match "/bruker/:id/" => "user_profile#show"
-  match "/bruker/bestillinger/:id/" => "user_profile#orders"
+  match "/profil/" => "user_profile#show"
+  match "/profil/bestillinger/" => "user_profile#orders"
+
+  match "/bruker/:id/" => "user_profile#show", :employee_view => 1
+  match "/bruker/bestillinger/:id/" => "user_profile#orders", :employee_view => 1
+
 
   match "/ansatte/bestillinger/" => "orders#employee_orders"
   match "/tilgodkjenning/:id" => "orders#to_approval"

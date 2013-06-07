@@ -1,7 +1,15 @@
 <div class="span11 profile">
 	<ul class="nav nav-tabs clearfix">
+
+		<% if current_user.employee %>
 			<li class="active"><a href="/bruker/<%=@user.id %>">Profil</a></li>
-			<li><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+			<li><a href="/proi/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+
+		<% else %>
+			<li class="active"><a href="/profil/">Profil</a></li>
+			<li><a href="/profil/bestillinger/">Bestillinger</a></li>
+
+		<% end %>
 			<li><a href="#">Transaksjoner</a></li>
 			<li><a href="#">Favoritter</a></li>
 	</ul>
@@ -16,7 +24,7 @@
 				
 				<div class="data">
 					<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-					<h3><%= @user.city %> <%= @user.country_code %></h3>
+					<h3><%= @user.city %>, <%= @user.country_code %></h3>
 
 					<dic>E-post: <%= @user.email %></div>
 					<div>Telefon: <%= @user.phone %></div>
