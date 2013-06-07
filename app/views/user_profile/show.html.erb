@@ -3,7 +3,7 @@
 
 		<% if current_user.employee %>
 			<li class="active"><a href="/bruker/<%=@user.id %>">Profil</a></li>
-			<li><a href="/proi/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+			<li><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
 
 		<% else %>
 			<li class="active"><a href="/profil/">Profil</a></li>
