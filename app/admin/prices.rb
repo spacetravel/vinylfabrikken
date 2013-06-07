@@ -21,6 +21,7 @@ ActiveAdmin.register Price, :as => "Pris" do
 
   form do |f|
     f.inputs "Informasjon" do
+      f.input :price_category, :label => "Kategori"
       f.input :name, :label => "Produkt"
       f.input :desc, :label => "Beskrivelse"
       f.input :price, :label => "Enhetspris"

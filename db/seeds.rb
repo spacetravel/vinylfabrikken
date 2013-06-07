@@ -32,6 +32,14 @@ puts "- Created or updated cover media"
 puts "- Created or updated delivery methods"
 
 
+# Create the seed data for price categories
+    PriceCategory.delete_all
+    [["Gravering","gravering"],["Matriser","matriser"],["Prøvetrykk","provetrykk"],["Pressing","pressing"],["Labels","labels"],["Cover","cover"]].each do |name, keyword|
+      PriceCategory.find_or_create_by_name(name, keyword: keyword)
+    end 
+ puts "- Created or updated price categories"
+
+
 
 
 # Create the seed data for order statuses

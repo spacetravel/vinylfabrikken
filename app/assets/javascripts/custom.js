@@ -1,8 +1,6 @@
 
 $( document ).ready(function(){
 
-
-
     var currentValue = $('#range');
     var currentValueSmall = $('#range-small');
     var sideA = $('#order_gravering_attributes_side_a_rpm');
@@ -16,11 +14,12 @@ $( document ).ready(function(){
     $('#order_rpm').change(function() {
 
         // set number of matrices to albumQty / 1000
-        var orderRpm = $('#order_rpm').val()
+        var orderRpm = $('#order_rpm').val();
     
-        sideA.val(orderRpm);    
+        sideA.val(orderRpm);
         sideB.val(orderRpm);    
         $('#gravering_status_text').html(orderRpm);    
+        
     });
 
     sideA.change(function() {
@@ -54,7 +53,7 @@ $( document ).ready(function(){
         albumQty = $('#order_quantity').val();
         matrixQty = Math.ceil(albumQty / 1000);
 
-        $('#order_matrix_attributes_quantity').val(matrixQty);    
+        $('#order_matrix_attributes_quantity').val(matrixQty);
         $('#matrise_status_text').html(matrixQty +" stk");
 
         currentValue.val(this.value);
