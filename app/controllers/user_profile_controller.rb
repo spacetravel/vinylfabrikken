@@ -13,9 +13,5 @@ class UserProfileController < ApplicationController
 	    else
 	      @orders = current_user.orders.reverse
 	    end
-
-	    respond_to do |format|
-	      format.html # index.html.erb
-	    end
 	end
 end
