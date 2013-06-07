@@ -27,7 +27,7 @@
 
 
 						<div style="padding-bottom:10px"> 
-							<%= link_to order.user.email, '#', style: 'color:white' %>
+							<%= link_to order.user.email, '/bruker/'+order.user.id.to_s, style: 'color:white' %>
 						</div>
 						
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>

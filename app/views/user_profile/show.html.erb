@@ -1,0 +1,28 @@
+<div class="span11 profile">
+	<ul class="nav nav-tabs clearfix">
+			<li class="active"><a href="/bruker/<%=@user.id %>">Profil</a></li>
+			<li><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+			<li><a href="#">Transaksjoner</a></li>
+			<li><a href="#">Favoritter</a></li>
+	</ul>
+	
+	<div  class="clearfix">
+		<section id="left">
+			<div id="userStats" class="clearfix ">
+				<div class="pic">
+
+					<a href="#"><img src="/assets/default_user.png" width="150" height="150" /></a>
+				</div>
+				
+				<div class="data">
+					<h1><%= @user.first_name + " " + @user.last_name %></h1>
+					<h3><%= @user.city + ", " + @user.country_code %></h3>
+
+					<dic>E-post: <%= @user.email %></div>
+					<div>Telefon: +<%= @user.phone %></div>
+				</div>
+			</div>
+		</section>
+		
+	</div>
+</div>
