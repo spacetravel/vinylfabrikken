@@ -20,7 +20,11 @@ Vf::Application.routes.draw do
   resources :prices
   resources :delivery_infos
   resources :vendors
+
  
+  match "/bruker/:id/" => "user_profile#show"
+  match "/bruker/bestillinger/:id/" => "user_profile#orders"
+
   match "/ansatte/bestillinger/" => "orders#employee_orders"
   match "/tilgodkjenning/:id" => "orders#to_approval"
   match "/godkjenn/:id" => "orders#approve"

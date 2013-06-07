@@ -99,7 +99,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>
-			 	         	<%= link_to 'Mine bestillinger', orders_path %>
+			 	         	<%= link_to 'Min profil', '/bruker/'+current_user.id.to_s %>
 				        </li>
                 <li>
 				    			<%= link_to 'Rediger profil', edit_user_registration_path %>

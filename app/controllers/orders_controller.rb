@@ -89,6 +89,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
+
+    
     if @order.update_attributes(params[:order])
  
       unless current_user.nil?

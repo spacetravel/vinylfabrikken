@@ -1,73 +1,69 @@
-<div class="span12">
-	<duv style="font-size:3em;padding:30px 0 30px 0" class="span9">Mine bestillinger</div>
+<div class="span11">
+	<% @orders.each do |order| %>
+		<div class="myOrdersWrapper">
+			<div class="myOrderHeading">
+				<div class="pull-left" style="min-width:350px">
+					<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 20)  %> / <%= truncate(order.artist, :length => 20) %> </div>
 
-	<div class="span11">
-		<% @orders.each do |order| %>
-			<div class="myOrdersWrapper">
-				<div class="myOrderHeading">
-					<div class="pull-left" style="min-width:350px">
-						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 20)  %> / <%= truncate(order.artist, :length => 20) %> </div>
-
-						
-						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
-						<div style="padding-top:80px">
-							<%= button_to "Rediger bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
-						</div>
-					</div>
-
-					<div class="pull-right">
-						<div style="margin-bottom:10px;background-color:<%= order.order_status.color %>" class="order_status">
-							<%= order.order_status.title %>
-						</div>
-						<div style="margin-bottom:10px" class="order_status_desc ">
-							<%= order.order_status.description %>
-						</div>
-
-						<i class="icon-info-sign icon-large pull-right order_info" style="padding-top:5px"></i>
-						
-						<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
-					<br /><br />
-						<div style="padding-top:60px">
-							<% if user_signed_in? %>
-								<% if order.order_status.keyword == "ingen" %>
-									<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>
-								<% end %>
-								<% if order.order_status.keyword == "godkjent" %>
-									<%= button_to "Send til handlekurv", line_items_path(order_id: order.id).to_s, remote: true, :class => 'btn btn-success pull-right' %>
-								<% end %>
 					
-							<% else %>
-								<%= link_to "Logg inn for å gå videre",  new_user_session_path, :class => 'btn btn-success pull-right', style: 'color:white' %>
+					<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
+					<div style="padding-top:80px">
+						<%= button_to "Rediger bestilling", { :controller => :orders, :action => 'edit', :id => order.id }, :method => :get, :class => 'btn btn-primary pull-left' %>
+					</div>
+				</div>
 
-							<% end %>
-						</div>
+				<div class="pull-right">
+					<div style="margin-bottom:10px;background-color:<%= order.order_status.color %>" class="order_status">
+						<%= order.order_status.title %>
+					</div>
+					<div style="margin-bottom:10px" class="order_status_desc ">
+						<%= order.order_status.description %>
 					</div>
 
-					<div class="span3 pull-left" style="font-size:12px;padding:10px;">
-						<ul>
-							<li>
-						         Farge: <b><%=  order.pressing.color %></b><br />
-						    </li>
-						    <li>
-						        Størrelse: <b><%=  order.record_size %></b>
-							</li>
-							<li>
-						         Cover: <b><%=  order.covers.sleeve_type %></b><br />
-						    </li>
-							<li>
-						         Vekt: <b><%=  order.pressing.weight %>g</b><br />
-						    </li>
-							<li>
-								Hastighet (rpm):<b> <%=  order.rpm %></b> <br />
-  			        		</li>
-						    <li>
-						    Katalognummer: <b><%= order.catalogue_number %></b>
-							</li>
-						</ul>
-				      
-				    </div>
+					<i class="icon-info-sign icon-large pull-right order_info" style="padding-top:5px"></i>
+					
+					<%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe, { :controller => :orders, :action => 'destroy', :id => order.id }, :method => :delete %>				
+				<br /><br />
+					<div style="padding-top:60px">
+						<% if user_signed_in? %>
+							<% if order.order_status.keyword == "ingen" %>
+								<%= link_to "Send til godkjenning",  '/tilgodkjenning/'+order.id.to_s, :class => 'btn btn-success pull-right', style: 'color:white' %>
+							<% end %>
+							<% if order.order_status.keyword == "godkjent" %>
+								<%= button_to "Send til handlekurv", line_items_path(order_id: order.id).to_s, remote: true, :class => 'btn btn-success pull-right' %>
+							<% end %>
+				
+						<% else %>
+							<%= link_to "Logg inn for å gå videre",  new_user_session_path, :class => 'btn btn-success pull-right', style: 'color:white' %>
+
+						<% end %>
+					</div>
 				</div>
+
+				<div class="span3 pull-left" style="font-size:12px;padding:10px;">
+					<ul>
+						<li>
+					         Farge: <b><%=  order.pressing.color %></b><br />
+					    </li>
+					    <li>
+					        Størrelse: <b><%=  order.record_size %></b>
+						</li>
+						<li>
+					         Cover: <b><%=  order.covers.sleeve_type %></b><br />
+					    </li>
+						<li>
+					         Vekt: <b><%=  order.pressing.weight %>g</b><br />
+					    </li>
+						<li>
+							Hastighet (rpm):<b> <%=  order.rpm %></b> <br />
+			        		</li>
+					    <li>
+					    Katalognummer: <b><%= order.catalogue_number %></b>
+						</li>
+					</ul>
+			      
+			    </div>
 			</div>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
 </div>
