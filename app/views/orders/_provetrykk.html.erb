@@ -3,7 +3,7 @@
       <i id="plusminusicon" class="icon-plus-sign" style="float:left;padding-top:5px"></i>
       <span class="orderline_title"><b>PRØVETRYKK</b></span>
       <span class="btn btn-warning btn-mini orderline_status">Ikke valgt</span>
-      <span id="provetrykk_status_text" class="orderline_status_text">10 ekspemplarer</span>
+      <span id="provetrykk_status_text" class="orderline_status_text">5 eksemplarer</span>
     </div>
   </div>
   <div class="toggle-info"> 
@@ -22,14 +22,13 @@
        <tr>
         <td><b>Antall plater</b></td>
         <td style="text-align:right">
-            <%= testpress_fields.select(:quantity, [['10 eksemplarer', 10], ['5 eksemplarer', 5]]) %>  
-   
-  </td>
+              5 eksemplarer
+        </td>
       </tr>
       <% end %>
       <tr>
         <td class="orderprice">Pris</td>
-        <td style="text-align:right">150 kr</td>
+        <td id="testpress_price" style="text-align:right;font-weight:bold">150 kr</td>
       </tr>
     </table>
 

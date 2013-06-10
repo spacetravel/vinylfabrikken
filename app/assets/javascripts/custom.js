@@ -65,6 +65,38 @@ $( document ).ready(function(){
         }
     }
 
+
+    function setTestpressPrice()
+    {
+        orderRpm = $('#order_rpm').val();
+        orderSize = $('#order_record_size').val();
+  
+        if (orderSize == "7 tommer") {
+            if (orderRpm == "33 1/3 rpm") {
+              $('#testpress_price').html(window.testpress_7_33 + " kr");
+            }
+            if (orderRpm == "45 rpm") {
+              $('#testpress_price').html(window.testpress_7_45 + " kr");
+            }           
+        }
+        if (orderSize == "10 tommer") {           
+            if (orderRpm == "33 1/3 rpm") {
+              $('#testpress_price').html(window.testpress_10_33 + " kr");
+            }
+            if (orderRpm == "45 rpm") {
+              $('#testpress_price').html(window.testpress_10_45 + " kr");
+            }           
+        }
+        if (orderSize == "12 tommer") {           
+            if (orderRpm == "33 1/3 rpm") {
+              $('#testpress_price').html(window.testpress_12_33 + " kr");
+            }
+            if (orderRpm == "45 rpm") {
+              $('#testpress_price').html(window.testpress_12_45 + " kr");
+            }           
+        }        
+    }
+
     /* Gravering logic */
 
     $('#order_rpm').change();
@@ -72,6 +104,7 @@ $( document ).ready(function(){
 
 
         setGraveringPrice();
+        setTestpressPrice();
 
 
         sideA.val(orderRpm);
@@ -83,7 +116,8 @@ $( document ).ready(function(){
 
     $('#order_record_size').change(function() {
 
-        setGraveringPrice();       
+        setGraveringPrice();
+        setTestpressPrice();
 
         // set number of matrices to albumQty / 1000
         albumQty = $('#order_quantity').val();
@@ -91,6 +125,7 @@ $( document ).ready(function(){
         setMatriserPrice(matrixQty);
 
     });
+     $('#order_record_size').change();
 
     sideA.change(function() {
             $('#gravering_status_text').html(sideA.val() + " / " + sideB.val());

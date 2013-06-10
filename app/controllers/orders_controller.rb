@@ -73,6 +73,36 @@ class OrdersController < ApplicationController
       end
     end
 
+    @testpress_cat = PriceCategory.find_by_keyword('provetrykk')
+    @testpress_prices = Price.where("price_category_id = ?",@testpress_cat.id)
+
+    @testpress_prices.each do |price|
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "45"
+          @price_testpress_7_45 = price.price
+        when "33"
+          @price_testpress_7_33 = price.price
+        end
+
+      when "10"
+        case price.keyword2
+        when "45"
+          @price_testpress_10_45 = price.price
+        when "33"
+          @price_testpress_10_33 = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "45"
+          @price_testpress_12_45 = price.price
+        when "33"
+          @price_testpress_12_33 = price.price
+        end
+      end
+    end
+
 
     @order = Order.new
     
