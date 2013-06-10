@@ -5,21 +5,63 @@ $( document ).ready(function(){
     var currentValueSmall = $('#range-small');
     var sideA = $('#order_gravering_attributes_side_a_rpm');
     var sideB = $('#order_gravering_attributes_side_b_rpm');
+    var orderRpm = $('#order_rpm').val();
+    var orderSize = $('#order_record_size').val();
 
+    function setGraveringPrice()
+    {
+        orderRpm = $('#order_rpm').val();
+        orderSize = $('#order_record_size').val();
 
+        if (orderSize == "7 tommer") {
+            if (orderRpm == "33 1/3 rpm") {
+                $('#gravering_price').html(window.gravering_7_33 + " kr / side");    
+            }
+            if (orderRpm == "45 rpm") {
+                $('#gravering_price').html(window.gravering_7_45 + " kr / side");    
+            }
+        }
+
+        if (orderSize == "10 tommer") {
+            if (orderRpm == "33 1/3 rpm") {
+                $('#gravering_price').html(window.gravering_10_33 + " kr / side");
+            }
+            if (orderRpm == "45 rpm") {
+               $('#gravering_price').html(window.gravering_10_45 + " kr / side");
+
+            }
+        }
+
+      if (orderSize == "12 tommer") {
+            if (orderRpm == "33 1/3 rpm") {
+                $('#gravering_price').html(window.gravering_12_33 + " kr / side");
+            }
+            if (orderRpm == "45 rpm") {
+                $('#gravering_price').html(window.gravering_12_45 + " kr / side");
+            }
+        }
+    }
 
     /* Gravering logic */
 
     $('#order_rpm').change();
     $('#order_rpm').change(function() {
 
-        // set number of matrices to albumQty / 1000
-        var orderRpm = $('#order_rpm').val();
-    
+
+        setGraveringPrice();
+
+
         sideA.val(orderRpm);
         sideB.val(orderRpm);    
         $('#gravering_status_text').html(orderRpm);    
         
+
+    });
+
+    $('#order_record_size').change(function() {
+
+        setGraveringPrice();       
+
     });
 
     sideA.change(function() {

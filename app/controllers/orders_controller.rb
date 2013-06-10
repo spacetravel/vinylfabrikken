@@ -21,8 +21,44 @@ class OrdersController < ApplicationController
     end
   end
   
-
   def new
+
+    # pricing logic
+
+    @gravering_cat = PriceCategory.find_by_keyword('gravering')
+    @gravering_prices = Price.where("price_category_id = ?",@gravering_cat.id)
+
+    @gravering_prices.each do |price|
+
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "45"
+          @price_gravering_7_45 = price.price
+        when "33"
+          @price_gravering_7_33 = price.price
+        end
+
+      when "10"
+        case price.keyword2
+        when "45"
+          @price_gravering_10_45 = price.price
+        when "33"
+          @price_gravering_10_33 = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "45"
+          @price_gravering_12_45 = price.price
+
+        when "33"
+          @price_gravering_12_33 = price.price
+
+        end
+      end
+
+    end
+
     @order = Order.new
     
     # Build order lines 

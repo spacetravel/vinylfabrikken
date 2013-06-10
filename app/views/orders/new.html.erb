@@ -1,3 +1,12 @@
+<%= javascript_tag do %>
+  window.gravering_7_45 = <%= @price_gravering_7_45 %>;
+  window.gravering_7_33 = <%= @price_gravering_7_33 %>;
+  window.gravering_10_45 = <%= @price_gravering_10_45 %>;
+  window.gravering_10_33 = <%= @price_gravering_10_33 %>;
+  window.gravering_12_45 = <%= @price_gravering_12_45 %>;
+  window.gravering_12_33 = <%= @price_gravering_12_33 %>;
+<% end %>
+
 <%= form_for @order do |f| %>
 <div class="span9 offset1">	
 
@@ -74,7 +83,7 @@
                 <div class="input-prepend">
                  <span class="add-on"  style="background-color:black"><i class="icon-bullseye " style="background-color:black"></i></span>
                    
-                  <%= select(:order, :record_size, [['12"', '12"'], ['10"', '10"'], ['7"','7"']]) %>
+                  <%= select(:order, :record_size, [['12 tommer', '12 tommer'], ['10 tommer', '10 tommer'], ['7 tommer','7 tommer']]) %>
               </div>
             </div>
           </div>  
