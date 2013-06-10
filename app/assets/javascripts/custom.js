@@ -8,7 +8,9 @@ $( document ).ready(function(){
     var orderRpm = $('#order_rpm').val();
     var orderSize = $('#order_record_size').val();
     var orderQuantity  = $('#order_quantity').val();
-
+    var recordColor = $('#order_pressing_attributes_color').val();
+    var recordWeight = $('#order_pressing_attributes_weight').val();
+    
     function setGraveringPrice()
     {
         orderRpm = $('#order_rpm').val();
@@ -97,6 +99,51 @@ $( document ).ready(function(){
         }        
     }
 
+    function setPressingPrice()
+    {
+        orderSize = $('#order_record_size').val();
+        recordColor = $('#order_pressing_attributes_color').val();
+        recordWeight = $('#order_pressing_attributes_weight').val();
+       
+        if (orderSize == "7 tommer") {
+            if (recordColor == "Svart") {
+              $('#pressing_price').html(window.pressing_7_svart + " kr");
+            }
+            else 
+            {
+              $('#pressing_price').html(window.pressing_7_farget + " kr");
+            }           
+        }
+        if (orderSize == "10 tommer") {
+            if (recordColor == "Svart") {
+              $('#pressing_price').html(window.pressing_10_svart + " kr");
+            }
+            else 
+            {
+              $('#pressing_price').html(window.pressing_10_farget + " kr");
+            }           
+        }
+        if (orderSize == "12 tommer") {
+            if (recordColor == "Svart") {
+                if (recordWeight == "140") {
+                  $('#pressing_price').html(window.pressing_12_svart_140 + " kr");
+                }
+                if (recordWeight == "180") {
+                  $('#pressing_price').html(window.pressing_12_svart_180 + " kr");
+                }
+            }
+            else 
+            {
+                if (recordWeight == "140") {
+                  $('#pressing_price').html(window.pressing_12_farget_140 + " kr");
+                }
+                if (recordWeight == "180") {
+                  $('#pressing_price').html(window.pressing_12_farget_180 + " kr");
+                }
+            }           
+        }        
+    }
+
     /* Gravering logic */
 
     $('#order_rpm').change();
@@ -114,10 +161,20 @@ $( document ).ready(function(){
 
     });
 
+    $('#order_pressing_attributes_weight').change(function() {
+
+        setPressingPrice();
+    });
+
+    $('#order_pressing_attributes_color').change(function() {
+        setPressingPrice();
+    });
+
     $('#order_record_size').change(function() {
 
         setGraveringPrice();
         setTestpressPrice();
+        setPressingPrice();
 
         // set number of matrices to albumQty / 1000
         albumQty = $('#order_quantity').val();

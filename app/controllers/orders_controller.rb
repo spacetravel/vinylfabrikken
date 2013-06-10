@@ -103,6 +103,44 @@ class OrdersController < ApplicationController
       end
     end
 
+    @pressing_cat = PriceCategory.find_by_keyword('pressing')
+    @pressing_prices = Price.where("price_category_id = ?",@pressing_cat.id)
+
+    @pressing_prices.each do |price|
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "svart"
+          @price_pressing_7_svart = price.price
+        when "farget"
+          @price_pressing_7_farget = price.price
+        end
+      when "10"
+        case price.keyword2
+        when "svart"
+          @price_pressing_10_svart = price.price
+        when "farget"
+          @price_pressing_10_farget = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "svart"
+          case price.keyword3
+          when "140"
+            @price_pressing_12_svart_140 = price.price
+          when "180"
+            @price_pressing_12_svart_180 = price.price
+          end
+        when "farget"
+          case price.keyword3
+          when "140"
+            @price_pressing_12_farget_140 = price.price
+          when "180"
+            @price_pressing_12_farget_180 = price.price
+          end
+        end
+      end
+    end
 
     @order = Order.new
     

@@ -11,7 +11,7 @@
 #
 
 class Price < ActiveRecord::Base
-   attr_accessible :name, :desc, :price, :keyword1, :keyword2, :price_category_id
+   attr_accessible :name, :desc, :price, :keyword1, :keyword2, :price_category_id, :keyword3
 
    belongs_to :price_category
 end

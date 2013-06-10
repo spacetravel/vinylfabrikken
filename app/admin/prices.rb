@@ -13,6 +13,7 @@ ActiveAdmin.register Price, :as => "Pris" do
     	link_to product.name, edit_admin_pri_path(product)
     end
     
+    column "Kategori", :price_category
     column "Enhetspris", :price
 
     default_actions
@@ -27,6 +28,7 @@ ActiveAdmin.register Price, :as => "Pris" do
       f.input :price, :label => "Enhetspris"
       f.input :keyword1, :label => "Stikkord #1"
       f.input :keyword2, :label => "Stikkord #2"
+      f.input :keyword3, :label => "Stikkord #3"
 
 	end
 	f.actions

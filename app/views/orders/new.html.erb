@@ -1,4 +1,6 @@
 <%= javascript_tag do %>
+
+  /* gravering */
   window.gravering_7_45 = <%= @price_gravering_7_45 %>;
   window.gravering_7_33 = <%= @price_gravering_7_33 %>;
   window.gravering_10_45 = <%= @price_gravering_10_45 %>;
@@ -6,10 +8,12 @@
   window.gravering_12_45 = <%= @price_gravering_12_45 %>;
   window.gravering_12_33 = <%= @price_gravering_12_33 %>;
 
+  /* matriser */
   window.matriser_7 = <%= @price_matriser_7 %>;
   window.matriser_10 = <%= @price_matriser_10 %>;
   window.matriser_12 = <%= @price_matriser_12 %>;
 
+  /* testpress */
   window.testpress_7_45 = <%= @price_testpress_7_45 %>;
   window.testpress_7_33 = <%= @price_testpress_7_33 %>;
   window.testpress_10_45 = <%= @price_testpress_10_45 %>;
@@ -17,6 +21,15 @@
   window.testpress_12_45 = <%= @price_testpress_12_45 %>;
   window.testpress_12_33 = <%= @price_testpress_12_33 %>;
 
+  /* pressing */
+  window.pressing_7_svart = <%= @price_pressing_7_svart %>;
+  window.pressing_7_farget = <%= @price_pressing_7_farget %>;
+  window.pressing_10_svart = <%= @price_pressing_10_svart %>;
+  window.pressing_10_farget = <%= @price_pressing_10_farget %>;
+  window.pressing_12_svart_140 = <%= @price_pressing_12_svart_140 %>;
+  window.pressing_12_farget_140 = <%= @price_pressing_12_farget_140 %>;
+  window.pressing_12_svart_180 = <%= @price_pressing_12_svart_180 %>;
+  window.pressing_12_farget_180 = <%= @price_pressing_12_farget_180 %>;
 <% end %>
 
 <%= form_for @order do |f| %>

@@ -42,16 +42,9 @@
           <%= pressing_fields.select(:weight, [['140g', 140], ['180g', 180]]) %> 
         </td>
       </tr>
-      <tr>
-        <td><b>Repressing?</b></td>
-        <td style="text-align:right">
-        
-          <%= pressing_fields.check_box(:repress) %> 
-        </td>
-      </tr>
        <tr>
         <td class="orderprice">Pris</td>
-        <td style="text-align:right">400 kr</td>
+        <td id="pressing_price" style="text-align:right">400 kr</td>
       </tr>
 
       <% end %>
