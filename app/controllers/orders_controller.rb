@@ -56,8 +56,23 @@ class OrdersController < ApplicationController
 
         end
       end
-
     end
+
+
+    @matrix_cat = PriceCategory.find_by_keyword('matriser')
+    @matrix_prices = Price.where("price_category_id = ?",@matrix_cat.id)
+
+    @matrix_prices.each do |price|
+      case price.keyword1
+      when "7"
+        @price_matriser_7 = price.price
+      when "10"
+        @price_matriser_10 = price.price
+      when "12"
+        @price_matriser_12 = price.price
+      end
+    end
+
 
     @order = Order.new
     

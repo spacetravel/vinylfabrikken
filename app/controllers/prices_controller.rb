@@ -1,6 +1,6 @@
 class PricesController < ApplicationController
 
 	def index
-		@prices = Price.all
+		@prices = Price.find(:all, :order => 'name')
 	end
 end
