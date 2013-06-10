@@ -10,6 +10,15 @@ $( document ).ready(function(){
     var orderQuantity  = $('#order_quantity').val();
     var recordColor = $('#order_pressing_attributes_color').val();
     var recordWeight = $('#order_pressing_attributes_weight').val();
+
+    var graveringPrice
+    var totalGraveringPrice
+    var matriserPrice
+    var totalMatriserPrice
+    var testpressPrice
+    var totalTestpressPrice
+    var pressingPrice
+    var totalPressingPrice
     
     function setGraveringPrice()
     {
@@ -18,53 +27,54 @@ $( document ).ready(function(){
 
         if (orderSize == "7 tommer") {
             if (orderRpm == "33 1/3 rpm") {
-                $('#gravering_price').html(window.gravering_7_33 + " kr / side");    
+               graveringPrice = window.gravering_7_33;
             }
             if (orderRpm == "45 rpm") {
-                $('#gravering_price').html(window.gravering_7_45 + " kr / side");    
+               graveringPrice = window.gravering_7_45;
             }
         }
 
         if (orderSize == "10 tommer") {
             if (orderRpm == "33 1/3 rpm") {
-                $('#gravering_price').html(window.gravering_10_33 + " kr / side");
+               graveringPrice = window.gravering_10_33;
             }
             if (orderRpm == "45 rpm") {
-               $('#gravering_price').html(window.gravering_10_45 + " kr / side");
+               graveringPrice = window.gravering_10_45;
 
             }
         }
 
       if (orderSize == "12 tommer") {
             if (orderRpm == "33 1/3 rpm") {
-                $('#gravering_price').html(window.gravering_12_33 + " kr / side");
+               graveringPrice = window.gravering_12_33;
             }
             if (orderRpm == "45 rpm") {
-                $('#gravering_price').html(window.gravering_12_45 + " kr / side");
+               graveringPrice = window.gravering_12_45;
             }
         }
+        $('#gravering_price').html(graveringPrice + " kr / side");
+        totalGraveringPrice = graveringPrice * 2;
     }
 
     function setMatriserPrice(matrixQuantity)
     {
         orderSize = $('#order_record_size').val();
         
-        var matrix_price = window.matriser_7 * matrixQuantity; 
+        var matrix_price
 
         if (orderSize == "7 tommer") {
-          var matrix_price = window.matriser_7 * matrixQuantity; 
-          $('#matrix_price').html(matrix_price + " kr");    
+           matrix_price = window.matriser_7 * matrixQuantity; 
         }
 
         if (orderSize == "10 tommer") {
-          var matrix_price = window.matriser_10 * matrixQuantity; 
-          $('#matrix_price').html(matrix_price + " kr");
+          matrix_price = window.matriser_10 * matrixQuantity; 
         }
 
         if (orderSize == "12 tommer") {
-          var matrix_price = window.matriser_12 * matrixQuantity; 
-          $('#matrix_price').html(matrix_price + " kr");
+          matrix_price = window.matriser_12 * matrixQuantity; 
         }
+        $('#matrix_price').html(matrix_price + " kr");
+        totalMatriserPrice = matrix_price;
     }
 
 
@@ -75,28 +85,30 @@ $( document ).ready(function(){
   
         if (orderSize == "7 tommer") {
             if (orderRpm == "33 1/3 rpm") {
-              $('#testpress_price').html(window.testpress_7_33 + " kr");
+              testpress_price = window.testpress_7_33;
             }
             if (orderRpm == "45 rpm") {
-              $('#testpress_price').html(window.testpress_7_45 + " kr");
+              testpress_price = window.testpress_7_45;
             }           
         }
         if (orderSize == "10 tommer") {           
             if (orderRpm == "33 1/3 rpm") {
-              $('#testpress_price').html(window.testpress_10_33 + " kr");
+              testpress_price = window.testpress_10_33;
             }
             if (orderRpm == "45 rpm") {
-              $('#testpress_price').html(window.testpress_10_45 + " kr");
+              testpress_price = window.testpress_10_45;
             }           
         }
         if (orderSize == "12 tommer") {           
             if (orderRpm == "33 1/3 rpm") {
-              $('#testpress_price').html(window.testpress_12_33 + " kr");
+               testpress_price = window.testpress_12_33;
             }
             if (orderRpm == "45 rpm") {
-              $('#testpress_price').html(window.testpress_12_45 + " kr");
+               testpress_price = window.testpress_12_45;
             }           
         }        
+       $('#testpress_price').html(testpress_price + " kr");
+       totalTestpressPrice = testpress_price;
     }
 
     function setPressingPrice()
@@ -104,44 +116,56 @@ $( document ).ready(function(){
         orderSize = $('#order_record_size').val();
         recordColor = $('#order_pressing_attributes_color').val();
         recordWeight = $('#order_pressing_attributes_weight').val();
-       
+        orderQuantity  = $('#order_quantity').val();
+
         if (orderSize == "7 tommer") {
             if (recordColor == "Svart") {
-              $('#pressing_price').html(window.pressing_7_svart + " kr");
+              pressingPrice = window.pressing_7_svart;
             }
             else 
             {
-              $('#pressing_price').html(window.pressing_7_farget + " kr");
+              pressingPrice = window.pressing_7_farget;
             }           
         }
         if (orderSize == "10 tommer") {
             if (recordColor == "Svart") {
-              $('#pressing_price').html(window.pressing_10_svart + " kr");
+              pressingPrice = window.pressing_10_svart;
             }
             else 
             {
-              $('#pressing_price').html(window.pressing_10_farget + " kr");
+              pressingPrice = window.pressing_10_farget;
             }           
         }
         if (orderSize == "12 tommer") {
             if (recordColor == "Svart") {
                 if (recordWeight == "140") {
-                  $('#pressing_price').html(window.pressing_12_svart_140 + " kr");
+                  pressingPrice = window.pressing_12_svart_140;
                 }
                 if (recordWeight == "180") {
-                  $('#pressing_price').html(window.pressing_12_svart_180 + " kr");
+                  pressingPrice = window.pressing_12_svart_180;
                 }
             }
             else 
             {
                 if (recordWeight == "140") {
-                  $('#pressing_price').html(window.pressing_12_farget_140 + " kr");
+                  pressingPrice = window.pressing_12_farget_140;
                 }
                 if (recordWeight == "180") {
-                  $('#pressing_price').html(window.pressing_12_farget_180 + " kr");
+                  pressingPrice = window.pressing_12_farget_180;
                 }
             }           
         }        
+        totalPressingPrice = pressingPrice * orderQuantity;        
+        $('#pressing_price').html(totalPressingPrice + " kr");
+ 
+    }
+
+
+    function setTotalPrice()
+    {
+
+         total_price = totalGraveringPrice + totalMatriserPrice + totalTestpressPrice + totalPressingPrice;
+         $('#total_price').html(parseFloat(total_price,10).toFixed(2) + " kr");   
     }
 
     /* Gravering logic */
@@ -152,7 +176,7 @@ $( document ).ready(function(){
 
         setGraveringPrice();
         setTestpressPrice();
-
+        setTotalPrice();
 
         sideA.val(orderRpm);
         sideB.val(orderRpm);    
@@ -164,10 +188,12 @@ $( document ).ready(function(){
     $('#order_pressing_attributes_weight').change(function() {
 
         setPressingPrice();
+        setTotalPrice();
     });
 
     $('#order_pressing_attributes_color').change(function() {
         setPressingPrice();
+        setTotalPrice();
     });
 
     $('#order_record_size').change(function() {
@@ -175,6 +201,7 @@ $( document ).ready(function(){
         setGraveringPrice();
         setTestpressPrice();
         setPressingPrice();
+        setTotalPrice();
 
         // set number of matrices to albumQty / 1000
         albumQty = $('#order_quantity').val();
@@ -216,12 +243,14 @@ $( document ).ready(function(){
         matrixQty = Math.ceil(albumQty / 1000);
 
         setMatriserPrice(matrixQty);
+        setPressingPrice();
 
         $('#order_matrix_attributes_quantity').val(matrixQty);
         $('#matrise_status_text').html(matrixQty +" stk");
 
         currentValue.val(this.value);
         currentValueSmall.html(this.value);
+        setTotalPrice();
 
         // set album qty status
         $('#pressing_status_text').html(albumQty + " x " + $('#order_pressing_attributes_color').val());
