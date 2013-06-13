@@ -142,6 +142,18 @@ class OrdersController < ApplicationController
       end
     end
 
+    @labels_cat = PriceCategory.find_by_keyword('labels')
+    @labels_prices = Price.where("price_category_id = ?",@labels_cat.id)
+
+    @labels_prices.each do |price|
+      case price.keyword1
+      when "hvit"
+        @price_labels_hvit = price.price
+      when "svart"
+        @price_labels_svart = price.price
+      end
+    end
+
     @order = Order.new
     
     # Build order lines 

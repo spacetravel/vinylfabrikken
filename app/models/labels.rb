@@ -10,7 +10,7 @@
 #
 
 class Labels < ActiveRecord::Base
-  attr_accessible :label_type
+  attr_accessible :label_type, :quantity
 
   belongs_to :order
 end

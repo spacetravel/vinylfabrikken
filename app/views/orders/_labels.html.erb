@@ -23,14 +23,20 @@
 
     <%= f.fields_for :labels do |labels_fields| %>
       <tr>
+        <td><b>Antall</b></td>
+        <td style="text-align:right">
+          <%= labels_fields.number_field :quantity, :style => 'width:80px' %> 
+        </td>
+      </tr>
+      <tr>
         <td><b>Farge / Trykk</b></td>
         <td style="text-align:right">
-          <%= labels_fields.select(:label_type, [['Hvit', 'Hvit'],['Svart', 'Svart'], ['Digitaltrykk', 'Digitaltrykk']]) %> 
+          <%= labels_fields.select(:label_type, [['Hvit', 'Hvit'],['Svart', 'Svart']]) %> 
         </td>
       </tr>
        <tr>
         <td class="orderprice">Pris</td>
-        <td style="text-align:right">400 kr</td>
+        <td id="labels_price" style="text-align:right;font-weight:bold">0 kr</td>
       </tr>
     <% end %>
 

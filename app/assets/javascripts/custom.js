@@ -10,6 +10,7 @@ $( document ).ready(function(){
     var orderQuantity  = $('#order_quantity').val();
     var recordColor = $('#order_pressing_attributes_color').val();
     var recordWeight = $('#order_pressing_attributes_weight').val();
+    var labelQuantity = $('#order_labels_attributes_quantity')
 
     var graveringPrice
     var totalGraveringPrice
@@ -18,6 +19,8 @@ $( document ).ready(function(){
     var testpressPrice
     var totalTestpressPrice
     var pressingPrice
+    var labelprice
+    var totalLabelsPrice
     var totalPressingPrice
     
     function setGraveringPrice()
@@ -157,14 +160,24 @@ $( document ).ready(function(){
         }        
         totalPressingPrice = pressingPrice * orderQuantity;        
         $('#pressing_price').html(totalPressingPrice + " kr");
- 
+    }
+
+    function setLabelPrice()
+    {
+       labelprice = window.labels_svart;
+       labelQuantity = $('#order_labels_attributes_quantity').val();
+
+       totalLabelsPrice = labelprice * labelQuantity;
+
+       $('#labels_price').html(totalLabelsPrice + " kr");
+
     }
 
 
     function setTotalPrice()
     {
 
-         total_price = totalGraveringPrice + totalMatriserPrice + totalTestpressPrice + totalPressingPrice;
+         total_price = totalGraveringPrice + totalMatriserPrice + totalTestpressPrice + totalPressingPrice + totalLabelsPrice;
          $('#total_price').html(parseFloat(total_price,10).toFixed(2) + " kr");   
     }
 
@@ -173,15 +186,14 @@ $( document ).ready(function(){
     $('#order_rpm').change();
     $('#order_rpm').change(function() {
 
-
         setGraveringPrice();
         setTestpressPrice();
         setTotalPrice();
 
         sideA.val(orderRpm);
-        sideB.val(orderRpm);    
-        $('#gravering_status_text').html(orderRpm);    
-        
+        sideB.val(orderRpm);
+
+        $('#gravering_status_text').html(orderRpm);
 
     });
 
@@ -209,7 +221,8 @@ $( document ).ready(function(){
         setMatriserPrice(matrixQty);
 
     });
-     $('#order_record_size').change();
+
+    $('#order_record_size').change();
 
     sideA.change(function() {
             $('#gravering_status_text').html(sideA.val() + " / " + sideB.val());
@@ -218,7 +231,6 @@ $( document ).ready(function(){
     sideB.change(function() {
             $('#gravering_status_text').html(sideA.val() + " / " + sideB.val());
     });
-
 
     // Trigger the event on load, so
     // the value field is populated:
@@ -250,6 +262,8 @@ $( document ).ready(function(){
 
         currentValue.val(this.value);
         currentValueSmall.html(this.value);
+        setLabelPrice();
+
         setTotalPrice();
 
         // set album qty status
@@ -257,12 +271,25 @@ $( document ).ready(function(){
 
         // set labels qty status
         $('#labels_status_text').html(($('#order_quantity').val()*2) + " x " + $('#order_labels_attributes_label_type').val());    
+        $('#order_labels_attributes_quantity').val($('#order_quantity').val()*2);    
 
         // set covers qty status
         $('#covers_status_text').html(albumQty + " x " + $('#order_covers_attributes_inner_sleeve_type').val());
     });
 
+    $('#order_labels_attributes_quantity').change(function() {
+        $('#labels_status_text').html( $('#order_labels_attributes_quantity').val() + " x " + $('#order_labels_attributes_label_type').val());    
+        setLabelPrice();
+        setTotalPrice();
+    });
 
+    $('#order_labels_attributes_label_type').change(function() {
+        $('#labels_status_text').html( $('#order_labels_attributes_quantity').val() + " x " + $('#order_labels_attributes_label_type').val());    
+        setLabelPrice();
+        setTotalPrice();        
+    });
+
+    
     /* Prøvetrykk logic */
 
     $('#order_testpress_attributes_quantity').change(function() {
@@ -293,4 +320,5 @@ $( document ).ready(function(){
     });
 
     $('#order_quantity').change();
+
 });

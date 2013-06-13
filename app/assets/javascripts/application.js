@@ -55,6 +55,7 @@ $( document ).ready(function(){
     
     // Info boxes for order form
     $('.infoBox').hide();
+    
     $('.order_info').mouseenter(function(evt)  {
        evt.preventDefault();
        $(this).find('.infoBox').toggle();
