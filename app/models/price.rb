@@ -14,4 +14,13 @@ class Price < ActiveRecord::Base
    attr_accessible :name, :desc, :price, :keyword1, :keyword2, :price_category_id, :keyword3
 
    belongs_to :price_category
+
+   scope :gravering, where(:price_category_id =>PriceCategory.where("keyword = ?", "gravering"))
+   scope :matriser, where(:price_category_id =>PriceCategory.where("keyword = ?", "matriser"))
+   scope :provetrykk, where(:price_category_id =>PriceCategory.where("keyword = ?", "provetrykk"))
+   scope :pressing, where(:price_category_id =>PriceCategory.where("keyword = ?", "pressing"))
+   scope :labels, where(:price_category_id =>PriceCategory.where("keyword = ?", "labels"))
+
+
+
 end

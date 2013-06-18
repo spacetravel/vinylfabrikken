@@ -2,7 +2,24 @@
 	<div class="span10 offset1">
 	<h1>Prisoversikt</h1><br /><br />
 		<table class="table table-striped">
-		    <%= render :partial =>'prices', :collection => @prices  %>
+			<h2 style="font-size:36px;padding-bottom:10px">Gravering</h2>
+		    <%= render :partial =>'prices', :collection => Price.gravering  %>
+		</table>
+		<table class="table table-striped">
+			<h2 style="font-size:36px;padding-bottom:10px">Matriser</h2>
+		    <%= render :partial =>'prices', :collection => Price.matriser  %>
+		</table>
+		<table class="table table-striped">
+			<h2 style="font-size:36px;padding-bottom:10px">Prøvetrykk</h2>
+		    <%= render :partial =>'prices', :collection => Price.provetrykk  %>
+		</table>
+		<table class="table table-striped">
+			<h2 style="font-size:36px;padding-bottom:10px">Presing</h2>
+		    <%= render :partial =>'prices', :collection => Price.pressing  %>
+		</table>
+		<table class="table table-striped">
+			<h2 style="font-size:36px;padding-bottom:10px">Labels</h2>
+		    <%= render :partial =>'prices', :collection => Price.labels  %>
 		</table>
 	</div>
 </div><!-- /.row -->
