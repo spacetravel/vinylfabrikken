@@ -1,18 +1,5 @@
 <div class="span11 profile">
-	<ul class="nav nav-tabs clearfix">
-
-		<% if current_user.employee %>
-			<li class="active"><a href="/bruker/<%=@user.id %>">Profil</a></li>
-			<li><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
-
-		<% else %>
-			<li class="active"><a href="/profil/">Profil</a></li>
-			<li><a href="/profil/bestillinger/">Bestillinger</a></li>
-
-		<% end %>
-			<li><a href="#">Transaksjoner</a></li>
-			<li><a href="#">Favoritter</a></li>
-	</ul>
+	<%= render 'menu' %>
 	
 	<div  class="clearfix">
 		<section id="left">

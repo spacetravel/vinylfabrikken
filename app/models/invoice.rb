@@ -16,6 +16,6 @@ class Invoice < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :orders
-  has_one :delivery_info
+  belongs_to :user
   
 end

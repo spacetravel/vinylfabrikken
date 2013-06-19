@@ -1,0 +1,22 @@
+<div class="span11">
+		<%= render 'menu' %>
+
+	<div  class="clearfix">
+		<table class="table table-striped">
+			<tr>
+				<th>ID</th>
+				<th>Fakturanummer</th>
+				<th>Fakturadato</th>
+				<th>Total sum</th>
+			</tr>
+			<% @invoices.each do |invoice| %>
+					<tr>
+						<td><%= link_to invoice.id, '/kvittering/'+invoice.id.to_s %></td>
+						<td><%= link_to invoice.invoice_number, '/kvittering/'+invoice.id.to_s %></td>
+						<td><%= invoice.invoice_date %></td>
+						<td><b><%= number_to_currency(invoice.total_sum) %></b></td>
+					</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

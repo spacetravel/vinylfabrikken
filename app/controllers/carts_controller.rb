@@ -51,9 +51,11 @@ class CartsController < InheritedResources::Base
 				@delivery_info.zipcode = current_user.zipcode
 				@delivery_info.city = current_user.city
 				@delivery_info.country = current_user.country_code
+				@delivery_info.save!
 
 			else
 				@delivery_info = current_user.delivery_info
+				@delivery_info.save!
 			end
 		end
 	end

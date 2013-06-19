@@ -24,9 +24,11 @@ Vf::Application.routes.draw do
  
   match "/profil/" => "user_profile#show"
   match "/profil/bestillinger/" => "user_profile#orders"
+  match "/profil/transaksjoner/" => "user_profile#transactions"
 
   match "/bruker/:id/" => "user_profile#show", :employee_view => 1
   match "/bruker/bestillinger/:id/" => "user_profile#orders", :employee_view => 1
+  match "/bruker/transaksjoner/:id/" => "user_profile#transactions", :employee_view => 1
 
 
   match "/ansatte/bestillinger/" => "orders#employee_orders"

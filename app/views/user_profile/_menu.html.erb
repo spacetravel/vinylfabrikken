@@ -1,0 +1,44 @@
+	<ul class="nav nav-tabs clearfix">
+		<% if current_user.employee %>
+
+
+			<% if params[:action] == "show" %>
+
+				<li class="active"><a href="/bruker/<%=@user.id %>">Profil</a></li>
+			<% else %>
+				<li><a href="/bruker/<%=@user.id %>">Profil</a></li>
+			<% end %>
+			
+			<% if params[:action] == "orders" %>
+				<li class="active"><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+			<% else %>
+				<li><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
+			<% end %>
+
+			<% if params[:action] == "transactions" %>
+				<li class="active"><a href="/bruker/transaksjoner/<%= @user.id %>">Transaksjoner</a></li>
+			<% else %>
+				<li><a href="/bruker/transaksjoner/<%= @user.id %>">Transaksjoner</a></li>
+			<% end %>
+		<% else %>
+			<% if params[:action] == "show" %>
+				<li class="active"><a href="/profil/">Profil</a></li>
+			<% else %>
+				<li><a href="/profil/">Profil</a></li>
+			<% end %>
+			<% if params[:action] == "orders" %>
+				<li class="active"><a href="/profil/bestillinger/">Bestillinger</a></li>
+			<% else %>
+				<li><a href="/profil/bestillinger/">Bestillinger</a></li>
+			<% end %>
+			
+			<% if params[:action] == "transactions" %>
+				<li class="active"><a href="/profil/transaksjoner">Transaksjoner</a></li>
+			<% else %>
+				<li><a href="/profil/transaksjoner">Transaksjoner</a></li>
+			<% end %>
+	
+		<% end %>
+			<li><a href="#">Favoritter</a></li>
+	</ul>
+	

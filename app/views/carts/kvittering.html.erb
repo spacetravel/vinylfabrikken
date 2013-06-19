@@ -64,12 +64,12 @@
 			</thead>
 			<tbody>
 			<tr>
-				<td><%= @invoice.delivery_info.first_name %></td>
-				<td><%= @invoice.delivery_info.last_name %></td>
-				<td><%= @invoice.delivery_info.address1 %><br /><%= @invoice.delivery_info.address2 %></td>
-				<td><%= @invoice.delivery_info.zipcode %></td>
-				<td><%= @invoice.delivery_info.city %></td>
-				<td><%= @invoice.delivery_info.country %></td>
+				<td><%= @invoice.user.delivery_info.first_name %></td>
+				<td><%= @invoice.user.delivery_info.last_name %></td>
+				<td><%= @invoice.user.delivery_info.address1 %><br /><%= @invoice.user.delivery_info.address2 %></td>
+				<td><%= @invoice.user.delivery_info.zipcode %></td>
+				<td><%= @invoice.user.delivery_info.city %></td>
+				<td><%= @invoice.user.delivery_info.country %></td>
 
 
 			</tr>

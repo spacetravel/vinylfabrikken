@@ -5,31 +5,30 @@ class DeliveryInfosController < ApplicationController
 	end
 
 	def create
-		@delivery_info = DeliveryInfo.create(params[:delivery_info])
-		@delivery_info.user_id = current_user.id
 
+		@delivery_info = DeliveryInfo.create(params[:delivery_info])
 
 		@invoice = Invoice.new
-	
+
+		@invoice.user_id = current_user.id
 		@invoice.invoice_number = 1234
 		@invoice.invoice_date = Time.now
-		@invoice.invoice_deadline = Time.now + 3.weeks
 		@invoice.total_sum = 4500
 		@invoice.status = 2
-	
 
 		@invoice.save!
-
+		
 		@cart.line_items.each do |line_item|
 			line_item.order.invoice_id = @invoice.id
 			line_item.order.save!
 		end
 
-		@delivery_info.invoice_id = @invoice.id
+		# save deliveryinfo to user and redirect to NEW INVOICE
 
 	
 		respond_to do |format|
-			if @delivery_info.save
+			if @delivery_info.save!
+				current_user.delivery_info = @delivery_info	
 				format.html { redirect_to '/kvittering/'+@invoice.id.to_s }
 				format.js
 				format.json { render json: '/kvittering/', status: :created, location: '/kvittering/' }

@@ -1,18 +1,6 @@
 <div class="span11">
-	<ul class="nav nav-tabs clearfix">
+	<%= render 'menu' %>
 
-		<% if current_user.employee %>
-			<li><a href="/bruker/<%=@user.id %>">Profil</a></li>
-			<li class="active"><a href="/bruker/bestillinger/<%= @user.id %>">Bestillinger</a></li>
-
-		<% else %>
-			<li><a href="/profil/">Profil</a></li>
-			<li class="active"><a href="/profil/bestillinger/">Bestillinger</a></li>
-
-		<% end %>
-			<li><a href="#">Transaksjoner</a></li>
-			<li><a href="#">Favoritter</a></li>
-	</ul>
 	
 	<div  class="clearfix">
 		<%= render :template => 'orders/index' %>
