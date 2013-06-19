@@ -39,6 +39,12 @@
         <td class="orderprice">Pris</td>
         <td id="gravering_price" style="text-align:right;font-weight:bold">0 kr</td>
       </tr>
+      <tr>
+        <td class="orderprice" colspan="2">Kommentarer</td>
+      </tr>
+       <tr>
+        <td  colspan="2"><%= gravering_fields.text_area :comments, :size => "70x6", class: 'span9'  %></td>
+      </tr>
     <% end %>
     </table>
 

@@ -46,6 +46,13 @@
         <td class="orderprice">Pris</td>
         <td id="pressing_price" style="text-align:right">400 kr</td>
       </tr>
+            <tr>
+        <td class="orderprice" colspan="2">Kommentarer</td>
+      </tr>
+       <tr>
+        <td  colspan="2"><%= pressing_fields.text_area :comments, :size => "70x6", class: 'span9'  %></td>
+      </tr>
+
 
       <% end %>
     </table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611131357) do
+ActiveRecord::Schema.define(:version => 20130619135827) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "thickness"
+    t.text     "comments"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -149,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "order_id"
+    t.text     "comments"
   end
 
   create_table "info_texts", :force => true do |t|
@@ -175,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.datetime "updated_at", :null => false
     t.string   "label_type"
     t.integer  "quantity"
+    t.text     "comments"
   end
 
   create_table "line_items", :force => true do |t|
@@ -189,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.datetime "updated_at", :null => false
     t.integer  "order_id"
     t.integer  "quantity"
+    t.text     "comments"
   end
 
   create_table "order_lines", :force => true do |t|
@@ -260,6 +264,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "order_id"
+    t.text     "comments"
   end
 
   create_table "price_categories", :force => true do |t|
@@ -311,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20130611131357) do
     t.integer  "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "comments"
   end
 
   create_table "users", :force => true do |t|

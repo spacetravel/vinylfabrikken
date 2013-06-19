@@ -176,6 +176,135 @@ class OrdersController < ApplicationController
   end
   
   def edit
+
+      @gravering_cat = PriceCategory.find_by_keyword('gravering')
+    @gravering_prices = Price.where("price_category_id = ?",@gravering_cat.id)
+
+    @gravering_prices.each do |price|
+
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "45"
+          @price_gravering_7_45 = price.price
+        when "33"
+          @price_gravering_7_33 = price.price
+        end
+
+      when "10"
+        case price.keyword2
+        when "45"
+          @price_gravering_10_45 = price.price
+        when "33"
+          @price_gravering_10_33 = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "45"
+          @price_gravering_12_45 = price.price
+
+        when "33"
+          @price_gravering_12_33 = price.price
+
+        end
+      end
+    end
+
+
+    @matrix_cat = PriceCategory.find_by_keyword('matriser')
+    @matrix_prices = Price.where("price_category_id = ?",@matrix_cat.id)
+
+    @matrix_prices.each do |price|
+      case price.keyword1
+      when "7"
+        @price_matriser_7 = price.price
+      when "10"
+        @price_matriser_10 = price.price
+      when "12"
+        @price_matriser_12 = price.price
+      end
+    end
+
+    @testpress_cat = PriceCategory.find_by_keyword('provetrykk')
+    @testpress_prices = Price.where("price_category_id = ?",@testpress_cat.id)
+
+    @testpress_prices.each do |price|
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "45"
+          @price_testpress_7_45 = price.price
+        when "33"
+          @price_testpress_7_33 = price.price
+        end
+
+      when "10"
+        case price.keyword2
+        when "45"
+          @price_testpress_10_45 = price.price
+        when "33"
+          @price_testpress_10_33 = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "45"
+          @price_testpress_12_45 = price.price
+        when "33"
+          @price_testpress_12_33 = price.price
+        end
+      end
+    end
+
+    @pressing_cat = PriceCategory.find_by_keyword('pressing')
+    @pressing_prices = Price.where("price_category_id = ?",@pressing_cat.id)
+
+    @pressing_prices.each do |price|
+      case price.keyword1
+      when "7"
+        case price.keyword2
+        when "svart"
+          @price_pressing_7_svart = price.price
+        when "farget"
+          @price_pressing_7_farget = price.price
+        end
+      when "10"
+        case price.keyword2
+        when "svart"
+          @price_pressing_10_svart = price.price
+        when "farget"
+          @price_pressing_10_farget = price.price
+        end
+      when "12"
+        case price.keyword2
+        when "svart"
+          case price.keyword3
+          when "140"
+            @price_pressing_12_svart_140 = price.price
+          when "180"
+            @price_pressing_12_svart_180 = price.price
+          end
+        when "farget"
+          case price.keyword3
+          when "140"
+            @price_pressing_12_farget_140 = price.price
+          when "180"
+            @price_pressing_12_farget_180 = price.price
+          end
+        end
+      end
+    end
+
+    @labels_cat = PriceCategory.find_by_keyword('labels')
+    @labels_prices = Price.where("price_category_id = ?",@labels_cat.id)
+
+    @labels_prices.each do |price|
+      case price.keyword1
+      when "hvit"
+        @price_labels_hvit = price.price
+      when "svart"
+        @price_labels_svart = price.price
+      end
+    end
     @order = Order.find(params[:id])
 
     respond_to do |format|

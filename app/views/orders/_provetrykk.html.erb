@@ -25,11 +25,18 @@
               5 eksemplarer
         </td>
       </tr>
-      <% end %>
+
       <tr>
         <td class="orderprice">Pris</td>
         <td id="testpress_price" style="text-align:right;font-weight:bold">150 kr</td>
       </tr>
+            <tr>
+        <td class="orderprice" colspan="2">Kommentarer</td>
+      </tr>
+       <tr>
+        <td  colspan="2"><%= testpress_fields.text_area :comments, :size => "70x6", class: 'span9'  %></td>
+      </tr>
+      <% end %>
     </table>
 
 </div>

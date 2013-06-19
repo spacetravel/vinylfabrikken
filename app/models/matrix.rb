@@ -10,7 +10,7 @@
 #
 
 class Matrix < ActiveRecord::Base
-   attr_accessible :title, :body, :quantity
+   attr_accessible :title, :body, :quantity, :comments
 
    belongs_to :order
 end

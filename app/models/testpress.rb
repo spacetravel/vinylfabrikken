@@ -10,7 +10,7 @@
 #
 
 class Testpress < ActiveRecord::Base
-   attr_accessible :quantity
+   attr_accessible :quantity, :comments
 
   belongs_to :order
 end
