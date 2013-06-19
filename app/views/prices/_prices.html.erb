@@ -3,5 +3,5 @@
 </tr>
 <tr>
 	<td><%= prices.desc %><br /><br /></td>
-	<td style="width:100px;font-weight:bold"><%= number_to_currency(prices.price) %></td>
+	<td style="width:100px;font-weight:bold"><%= number_to_currency(prices.price, :precision => 2, scale: 5) %></td>
 </tr>
