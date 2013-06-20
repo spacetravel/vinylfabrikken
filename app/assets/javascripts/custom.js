@@ -179,6 +179,8 @@ $( document ).ready(function(){
 
          total_price = totalGraveringPrice + totalMatriserPrice + totalTestpressPrice + totalPressingPrice + totalLabelsPrice;
          $('#total_price').html(parseFloat(total_price,10).toFixed(2) + " kr");   
+         $('#order_total_price').val(total_price);  
+
     }
 
     /* Gravering logic */

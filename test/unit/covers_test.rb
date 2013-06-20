@@ -9,6 +9,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  thickness         :string(255)
+#  comments          :text
 #
 
 require 'test_helper'

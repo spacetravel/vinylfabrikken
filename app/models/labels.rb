@@ -7,6 +7,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  label_type :string(255)
+#  quantity   :integer
+#  comments   :text
 #
 
 class Labels < ActiveRecord::Base

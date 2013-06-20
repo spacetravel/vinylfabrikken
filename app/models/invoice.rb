@@ -10,12 +10,13 @@
 #  status           :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :integer
 #
 
 class Invoice < ActiveRecord::Base
   # attr_accessible :title, :body
 
-  has_many :orders
+  has_many :line_items
   belongs_to :user
   
 end

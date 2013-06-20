@@ -36,14 +36,14 @@
 			</thead>
 			<tbody>
 				<div id="cart_line_items">
-					<%= render :partial => '/line_items/line_item', :collection => @invoice.orders, :locals => { :where_to_render => 'kvittering'  } %>				
+					<%= render :partial => '/line_items/line_item', :collection => @invoice.line_items, :locals => { :where_to_render => 'kvittering'  } %>				
 				</div>
 			  <tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td><strong>4.700 NOK</strong></td>
+				<td><strong><%= number_to_currency(@invoice.total_sum) %></strong></td>
 				<td>&nbsp;</td>
 				<th></th>
 			  </tr>		  

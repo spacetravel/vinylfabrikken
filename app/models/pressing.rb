@@ -10,6 +10,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  order_id   :integer
+#  comments   :text
 #
 
 class Pressing < ActiveRecord::Base

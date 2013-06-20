@@ -7,11 +7,14 @@
 #  cart_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  invoice_id :integer
 #
 
 class LineItem < ActiveRecord::Base
-  attr_accessible :cart_id, :order_id, :order
+  attr_accessible :cart_id, :order_id, :order, :invoice_id
 
   belongs_to :cart
   belongs_to :order
+  belongs_to :invoice
+
 end

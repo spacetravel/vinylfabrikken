@@ -347,8 +347,11 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.order_status = OrderStatus.find_by_keyword("ingen")
+    
 
+    unless current_user.employee
+      @order.order_status = OrderStatus.find_by_keyword("ingen")
+    end
 
     
     if @order.update_attributes(params[:order])

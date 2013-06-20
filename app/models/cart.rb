@@ -5,10 +5,11 @@
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  total_sum  :decimal(8, 2)
 #
 
 class Cart < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :total_sum
 
   has_many :line_items, dependent: :destroy
 

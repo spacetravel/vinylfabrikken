@@ -7,6 +7,7 @@
 #  updated_at :datetime         not null
 #  order_id   :integer
 #  quantity   :integer
+#  comments   :text
 #
 
 require 'test_helper'

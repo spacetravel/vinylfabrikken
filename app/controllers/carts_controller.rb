@@ -9,6 +9,15 @@ class CartsController < InheritedResources::Base
 		logger.error "Handlekurven finnes ikke"
 		redirect_to root_url, notice: "Handlekurven finnes ikke"
 	else
+
+		total = 0	
+		@cart.line_items.each do |line_item|
+			total += line_item.order.total_price
+		end
+
+		@cart.total_sum = total
+		@cart.save!
+		
 		respond_to do |format|
 			format.html
 			format.json { render json: @cart}

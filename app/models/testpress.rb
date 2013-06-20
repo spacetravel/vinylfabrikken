@@ -7,6 +7,7 @@
 #  quantity   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  comments   :text
 #
 
 class Testpress < ActiveRecord::Base
