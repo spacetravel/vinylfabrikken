@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620123954) do
+ActiveRecord::Schema.define(:version => 20130625142448) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -304,6 +304,13 @@ ActiveRecord::Schema.define(:version => 20130620123954) do
     t.string   "simplified_type",        :default => "file"
   end
 
+  create_table "sides", :force => true do |t|
+    t.integer  "side_num"
+    t.integer  "gravering_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "sliders", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
@@ -321,6 +328,14 @@ ActiveRecord::Schema.define(:version => 20130620123954) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "comments"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "duration"
+    t.integer  "name"
+    t.integer  "side_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

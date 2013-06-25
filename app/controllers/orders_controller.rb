@@ -417,5 +417,8 @@ class OrdersController < ApplicationController
       redirect_to '/'      
     end
   end
-  
+
+  def to_pdf
+
+  end
 end

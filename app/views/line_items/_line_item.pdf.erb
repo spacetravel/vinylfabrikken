@@ -1,0 +1,42 @@
+<% if where_to_render == 'menu' %>
+	<li style="padding:4px;"><%= link_to '<i class="icon-ok-circle icon-white" style="display:inline;padding-right:6px;"></i>'.html_safe+line_item.order.title+" / "+line_item.order.artist+" ("+line_item.order.quantity.to_s+")", "#", style:'display:inline;color:black' %> </li>
+
+<% end %>
+
+<% if where_to_render == 'large' %>
+	<tr>
+		<td><%= line_item.order.title %></td>
+		<td><%= line_item.order.artist %></td>
+		<td><input type="text" placeholder="1" disabled="disabled" value="<%= line_item.order.quantity %>" class="input-mini"></td>
+		<td><%= line_item.order.record_size %></td>		
+		<td><%= number_to_currency(line_item.order.total_price) %></td>
+		<td><%= link_to "Rediger", edit_order_path(line_item.order.id), class: 'btn btn-primary btn-small', style: 'color:white' %></td>
+		<td><%= button_to "Fjern fra handlekurv", line_item_path(line_item.id),  method: :delete,  class: 'btn btn-danger btn-small', style: 'color:white' %></td>
+	</tr>			  
+
+<% end %>
+
+
+<% if where_to_render == 'checkout' %>
+	<tr>
+		<td><%= line_item.order.title %></td>
+		<td><%= line_item.order.artist %></td>
+		<td><%= line_item.order.quantity %></td>
+		<td><%= line_item.order.record_size %></td>		
+		<td colspan="3"><%= number_to_currency(line_item.order.total_price) %></td>
+	</tr>			  
+
+<% end %>
+
+
+<% if where_to_render == 'kvittering' %>
+	<tr>
+		<td><%= line_item.order.title %></td>
+		<td><%= line_item.order.artist %></td>
+		<td><%= line_item.order.quantity %></td>
+		<td><%= line_item.order.record_size %></td>		
+		<td colspan="3"><%= number_to_currency(line_item.order.total_price) %></td>
+	</tr>			  
+
+<% end %>
+

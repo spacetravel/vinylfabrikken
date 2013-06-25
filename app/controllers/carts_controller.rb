@@ -41,7 +41,14 @@ class CartsController < InheritedResources::Base
 #		current_cart.line_items.delete_all
 
 		@invoice = Invoice.find(params[:id])
+	
+		respond_to do |format|
+		  format.html
+    	  format.pdf {
+	        render :pdf => "kvittering", :encoding => 'utf-8', :header => { :font_size => '8', :right => '[page] of [toPage]' }, :footer => {:font_size => '8', :right => 'Generert av vinylfabrikken.no' }
+      	  }
 
+		end
 	end
 
 	def checkout

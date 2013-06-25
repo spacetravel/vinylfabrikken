@@ -44,7 +44,8 @@ group :assets do
   gem 'bootswatch-rails'
 end
 
-
+gem "wicked_pdf"
+gem "wkhtmltopdf-heroku", :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
 
 
 # To use ActiveModel has_secure_password

@@ -1,0 +1,83 @@
+
+<div class="row">
+	<div class="span12">
+		<div class="offset1" style="font-size:32px;padding:30px 0 30px 0">Kvittering fra Vinylfabrikken</div>
+
+		<div class="span5 pull-right" style="font-size:14px;padding:40px 0px 40px 0px">
+			Bestillingsdato: <%= @invoice.invoice_date.strftime("%m/%d/%Y") %><br />
+			Ordrenummer: #<%= @invoice.invoice_number %><br />
+			Total sum: <%= number_to_currency(@invoice.total_sum) %> <br />
+			Kontonummer: 1222.12.12321 <br />
+			
+		</div>
+		<div class="span5 pull-left offset1" style="font-size:18px;padding:40px 0px 40px 0px">
+			<b>Vinylfabrikken AS</b><br />
+			Pløens gate 4<br />
+			0028 Oslo<br />
+			Norge
+		</div>
+<br />
+
+
+		<h3 class="span9 pull-left offset1">Varer</h3>
+
+
+	<table class="table table-bordered table-striped span9 offset1">
+		  <thead>
+			  <tr>
+				<th>Tittel</th>
+				<th>Artist</th>
+				<th>Antall</th>
+				<th>Størrelse</th>
+				<th>Pris</th>
+				<th></th>
+				<th></th>
+			  </tr>
+			</thead>
+			<tbody>
+				<div id="cart_line_items">
+					<%= render :partial => '/line_items/line_item', :format => 'pdf', :collection => @invoice.line_items, :locals => { :where_to_render => 'kvittering'  } %>				
+				</div>
+			  <tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><strong><%= number_to_currency(@invoice.total_sum) %></strong></td>
+				<td>&nbsp;</td>
+				<th></th>
+			  </tr>		  
+			</tbody>
+		  </table>
+
+		<h3 class="span9 offset1 pull-left">Kundeinformasjon</h3>
+		<table class="table table-striped span9 offset1">
+			<thead>
+				<tr>
+					<th>Fornavn</th>
+					<th>Etternavn</th>
+					<th>Adresse</th>
+					<th>Postnummer</th>
+					<th>Poststed</th>
+					<th>Land</th>
+					<th>Betalingsmetode</th>
+			</thead>
+			<tbody>
+			<tr>
+				<td><%= @invoice.user.delivery_info.first_name %></td>
+				<td><%= @invoice.user.delivery_info.last_name %></td>
+				<td><%= @invoice.user.delivery_info.address1 %><br /><%= @invoice.user.delivery_info.address2 %></td>
+				<td><%= @invoice.user.delivery_info.zipcode %></td>
+				<td><%= @invoice.user.delivery_info.city %></td>
+				<td><%= @invoice.user.delivery_info.country %></td>
+
+
+			</tr>
+			</tbody>
+		</table>
+		<div class="span9 offset1">
+			<a  class="btn btn-inverse pull-right" style="color:white" href="#"><i class="icon-print"></i> Skriv ut</a>					 
+	    	  <%= link_to("<i class='icon-download-alt'></i> Last ned som PDF".html_safe, '/kvittering/'+@invoice.id.to_s+'.pdf', :format =>'pdf', class:'btn btn-inverse pull-left', style:'color:white') %>
+		</div>
+	</div>
+</div>

@@ -77,7 +77,7 @@
 		</table>
 		<div class="span9 offset1">
 			<a  class="btn btn-inverse pull-right" style="color:white" href="#"><i class="icon-print"></i> Skriv ut</a>					 
-	    	  <a  class="btn btn-inverse pull-left" style="color:white" href="#"><i class="icon-download-alt"></i> Last ned som PDF</a>
+	    	  <%= link_to("<i class='icon-download-alt'></i> Last ned som PDF".html_safe, '/kvittering/'+@invoice.id.to_s+'.pdf', :target => '_new', :format =>'pdf', class:'btn btn-inverse pull-left', style:'color:white') %>
 		</div>
 	</div>
 </div>

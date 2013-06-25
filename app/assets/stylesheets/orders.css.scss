@@ -165,3 +165,49 @@ table.orderline {
 	border: solid 2px black;
 	position: absolute;
 }
+
+.gravering_upload_side {
+	background-color:black;
+	color:white;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding:10px;
+	font-weight:bold;
+	text-align:left;
+
+
+}
+
+.upload_spor {
+	background-color:white;
+	color:black;
+	margin-top:20px;
+	font-size:14px;
+	font-weight:none;
+	text-align:center;
+	width:50%;
+	float:left;
+	padding:5px;
+	margin:2px;
+}
+
+
+.upload_duration {
+	background-color:white;
+	color:black;
+	margin-top:20px;
+	font-size:14px;
+	font-weight:none;
+	text-align:center;
+	width:20%;
+	float:left;
+	padding:5px;
+	margin:2px;
+}
+
+.upload_track_button {
+	font-weight:none;
+	float:left;
+	margin-top:2px;
+	margin-left:2px;
+}
