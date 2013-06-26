@@ -167,6 +167,13 @@ class OrdersController < ApplicationController
     @order.build_covers
 
 
+    2.times do |side_num| 
+      side = @order.gravering.sides.build
+      side.side_num = side_num
+      side.save!
+      2.times { side.tracks.build }
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb

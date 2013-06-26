@@ -179,30 +179,28 @@ table.orderline {
 }
 
 .upload_spor {
-	background-color:white;
-	color:black;
 	margin-top:20px;
 	font-size:14px;
 	font-weight:none;
-	text-align:center;
 	width:50%;
 	float:left;
-	padding:5px;
 	margin:2px;
+	input {
+		width:170px;
+	}
 }
 
 
 .upload_duration {
-	background-color:white;
-	color:black;
 	margin-top:20px;
 	font-size:14px;
 	font-weight:none;
-	text-align:center;
-	width:20%;
 	float:left;
-	padding:5px;
 	margin:2px;
+	input {
+		width:10px;	
+	}
+	
 }
 
 .upload_track_button {
@@ -210,4 +208,12 @@ table.orderline {
 	float:left;
 	margin-top:2px;
 	margin-left:2px;
+}
+
+.upload_spor_num {
+	margin:2px;
+	float:left;
+	input {
+		width:10px;	
+	}
 }

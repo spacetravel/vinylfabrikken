@@ -40,20 +40,27 @@
         <td id="gravering_price" style="text-align:right;font-weight:bold">0 kr</td>
       </tr>
       <tr>
-        <td colspan="2" class="span8">          
-          <div class="span4 gravering_upload_side">SIDE A
-            <div class="pull-right">
-               <i id="plusminusicon" class="icon-plus-sign icon-2x"></i>
-            </div><br /><br />
-            <div class="upload_spor pull-left">Spor 1</div>
-            <div class="upload_duration pull-right">3:40</div>
-            <div class="upload_track_button pull-right"><button class="btn btn-primary">Last opp</button></div>
-          </div>
-          <div class="span4 gravering_upload_side">SIDE B
-            <div class="pull-right">
-               <i id="plusminusicon" class="icon-plus-sign icon-2x"></i>
+        <td colspan="2" class="span8">
+            <%= gravering_fields.fields_for :sides do |side| %>
+            <div class="span4 gravering_upload_side">Side <%= side.object.side_num + 1 %>
+              <div class="pull-right">
+                 <i id="plusminusicon" class="icon-plus-sign icon-2x"></i>
+              </div><br /><br />
+
+              <%= side.fields_for :tracks do |track| %>
+                <div class="upload_spor_num pull-left"><%= track.text_field :track_num, :maxlength => 1 %></div>
+                <div class="upload_spor pull-left"><%= track.text_field :name, placeholder: 'Tittel på sporet' %></div>
+                <div class="upload_duration pull-right">
+                                <%= track.text_field :duration_mins, :maxlength => 2 %>
+                                <%= track.text_field :duration_secs, :maxlength => 2 %>
+
+                </div>
+                <div class="upload_track_button pull-right"><button class="btn btn-primary">Last opp</button></div>
+                <div class="clearfix"></div>
+              <% end %>
             </div>
-          </div>
+
+             <% end %>
         </td>
       </tr>
 
