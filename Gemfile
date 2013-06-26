@@ -43,7 +43,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootswatch-rails'
-  gem 's3_direct_upload'
+
 end
 
 gem "wicked_pdf"
