@@ -171,7 +171,7 @@ class OrdersController < ApplicationController
       side = @order.gravering.sides.build
       side.side_num = side_num
       side.save!
-      2.times { side.tracks.build }
+      3.times { side.tracks.build }
     end
 
 

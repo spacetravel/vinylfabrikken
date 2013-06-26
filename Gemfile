@@ -31,6 +31,7 @@ gem 'rich', branch: 'active-admin'
 gem 'i18n-country-translations'
 gem 'country-select-engine'
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -42,6 +43,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootswatch-rails'
+  gem 's3_direct_upload'
 end
 
 gem "wicked_pdf"

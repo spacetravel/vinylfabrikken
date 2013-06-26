@@ -12,12 +12,11 @@
 #
 
 class Gravering < ActiveRecord::Base
-   attr_accessible :side_a_rpm, :side_b_rpm, :comments
+   attr_accessible :side_a_rpm, :side_b_rpm, :comments, :sides_attributes
 
    
    belongs_to :order
    has_many :sides
 
-   accepts_nested_attributes_for :sides, :reject_if => lambda { |a| a[:content].blank? }
-
+   accepts_nested_attributes_for :sides
 end
