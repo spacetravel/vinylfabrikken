@@ -7,6 +7,25 @@
 </div>
 
 <div class="span12">
+
+<div id="s3uploader"></div>
+<script>
+var _s3config = {
+	hash: 99413,
+	height: 180,
+	width: 250,
+	user: 'e3648c2fb3e5dbfb331d8d16cb18d90a',
+	folder: 'masters/',
+	secure: false
+};
+var _s3url = "https://s3uploader.com/s3uploader.2.min.js";
+
+(function(d,s,a){var b,fjs=d.getElementsByTagName(s)[0];
+if(d.getElementById(a))return;b=d.createElement(s);
+b.id=a;b.src=_s3url;fjs.parentNode.insertBefore(b,fjs)}
+(document,'script','s3uploader-sdk'));
+</script>
+
 	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
 
 		<div class="pakkeheading">	

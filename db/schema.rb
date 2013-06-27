@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626145324) do
+ActiveRecord::Schema.define(:version => 20130627192244) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -304,6 +304,17 @@ ActiveRecord::Schema.define(:version => 20130626145324) do
     t.string   "simplified_type",        :default => "file"
   end
 
+  create_table "s3_multipart_uploads", :force => true do |t|
+    t.string   "location"
+    t.string   "upload_id"
+    t.string   "key"
+    t.string   "name"
+    t.string   "uploader"
+    t.integer  "size"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sides", :force => true do |t|
     t.integer  "side_num"
     t.integer  "gravering_id"
@@ -338,6 +349,7 @@ ActiveRecord::Schema.define(:version => 20130626145324) do
     t.integer  "duration_secs"
     t.integer  "track_num"
     t.string   "name"
+    t.string   "uploader"
   end
 
   create_table "users", :force => true do |t|
@@ -382,6 +394,12 @@ ActiveRecord::Schema.define(:version => 20130626145324) do
     t.string   "website"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "videos", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "uploader"
   end
 
 end

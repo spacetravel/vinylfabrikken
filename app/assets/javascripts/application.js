@@ -14,10 +14,37 @@
 //= require jquery-ui.min
 //= require jquery_ujs
 //= require bootstrap
-
+//= require s3_multipart/lib
 //= require_tree .
 
 
+$(function() {
+  $(".submit-button").click(function() { // The button class passed into multipart_uploader_form (see "Getting Started")
+    new window.S3MP({
+      bucket: "vinylfabrikken-dev",
+      fileInputElement: "#uploader",
+      fileList: [], // An array of files to be uploaded (see "Getting Started")
+      onStart: function(upload) {
+        console.log("File %d has started uploading", upload.key)
+      },
+      onComplete: function(upload) {
+        console.log("File %d successfully uploaded", upload.key)
+      },
+      onPause: function(key) {
+        console.log("File %d has been paused", key)
+      },
+      onCancel: function(key) {
+        console.log("File upload %d was canceled", key)
+      },
+      onError: function(err) {
+        console.log("There was an error")
+      },
+      onProgress: function(num, size, done, percent, speed) {
+        console.log("File %d is %f percent done (%f of %f total) and uploading at %s", num, percent, done, size, speed);
+      }
+    });
+  });
+});
 
 $( document ).ready(function(){
 
