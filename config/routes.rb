@@ -1,8 +1,6 @@
 Vf::Application.routes.draw do
 
 
-  mount S3Multipart::Engine => "/s3_multipart"
-
   mount Rich::Engine => '/rich', :as => 'rich'
 
 
