@@ -94,8 +94,12 @@
     width: 250,
     user: 'e3648c2fb3e5dbfb331d8d16cb18d90a',
     folder: 'masters/',
-    secure: false
+    secure: false,
+    onComplete: function(filename){
+      alert('Upload Complete: ' + filename);
+    }
   };
+
   var _s3url = "https://s3uploader.com/s3uploader.2.min.js";
 
   (function(d,s,a){var b,fjs=d.getElementsByTagName(s)[0];
