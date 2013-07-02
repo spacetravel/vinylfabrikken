@@ -61,8 +61,18 @@
                                 <%= track.text_field :duration_secs, :maxlength => 2 %>
 
                 </div>
-                <div class="upload_track_button pull-right"><button class="btn btn-primary">Last opp</button></div>
-                <div id="s3uploader"></div>
+
+               <script id="template-upload" type="text/x-tmpl">
+                <div class="upload">
+                  {%=o.name%}
+                  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+                </div>
+                </script>
+   
+              <%= s3_uploader_form post: tracks_url, as: "track[file_url]" do %>
+                <%= file_field_tag :file, class: ' pull-left ' %>
+              <% end %>
+
                 <div class="clearfix"></div>
               <% end %>
               <div class="pull-right">
@@ -102,9 +112,16 @@
 
   var _s3url = "https://s3uploader.com/s3uploader.2.min.js";
 
-  (function(d,s,a){var b,fjs=d.getElementsByTagName(s)[0];
-  if(d.getElementById(a))return;b=d.createElement(s);
-  b.id=a;b.src=_s3url;fjs.parentNode.insertBefore(b,fjs)}
+  (function(d,s,a) {
+    var b,fjs = d.getElementsByTagName(s)[0];
+  
+    if(d.getElementById(a))
+        return;
+    b = d.createElement(s);
+    b.id=a;
+    b.src=_s3url;
+    fjs.parentNode.insertBefore(b,fjs)
+  }
   (document,'script','s3uploader-sdk'));
 
 </script>

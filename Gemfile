@@ -42,6 +42,8 @@ group :assets do
   gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'bootswatch-rails'
+  gem 'jquery-fileupload-rails'
+
 end
 
 gem "wicked_pdf"

@@ -21,6 +21,7 @@ Vf::Application.routes.draw do
   resources :delivery_infos
   resources :vendors
   resources :invoices
+  resources :tracks
 
  
   match "/profil/" => "user_profile#show"
