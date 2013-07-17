@@ -171,7 +171,9 @@ class OrdersController < ApplicationController
       side = @order.gravering.sides.build
       side.side_num = side_num
       side.save!
-      3.times { side.tracks.build }
+      20.times { 
+        track = side.tracks.build
+      }
     end
 
 
@@ -356,8 +358,10 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     
 
-    unless current_user.employee
+    unless current_user.nil?
+      unless current_user.employee
       @order.order_status = OrderStatus.find_by_keyword("ingen")
+      end
     end
 
     

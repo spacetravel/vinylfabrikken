@@ -6,6 +6,6 @@ class Track < ActiveRecord::Base
    before_create :default_name
 
    def default_name
-     self.name ||= File.basename(file_url, '.*').titleize if file_url
+     self.name ||= File.basename(self.file_url, '.*').titleize if self.file_url
    end
 end

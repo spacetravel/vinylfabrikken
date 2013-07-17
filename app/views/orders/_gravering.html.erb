@@ -41,6 +41,8 @@
       </tr>
       <tr>
         <td colspan="2" class="span8">
+
+            <%= s3_uploader_form post: tracks_url, as: "track[file_url]", id: "uploader_x" do %><% end %>
             <%= gravering_fields.fields_for :sides do |side| %>
             <div class="span4 gravering_upload_side">Side <%= side.object.side_num + 1 %>
           <br /><br />
@@ -51,9 +53,8 @@
                     M &nbsp;&nbsp; S
                 </div>
                 <div class="clearfix"></div>
-              <% track_counter = 0 %>
+              <% track_counter = 1 %>
               <%= side.fields_for :tracks do |track| %>
-                <% track_counter += 1 %>
                 <div class="upload_spor_num pull-left"><%= track.text_field :track_num, :value => track_counter, :maxlength => 1 %></div>
                 <div class="upload_spor pull-left"><%= track.text_field :name, placeholder: 'Tittel på sporet' %></div>
                 <div class="upload_duration pull-right">
@@ -61,19 +62,34 @@
                                 <%= track.text_field :duration_secs, :maxlength => 2 %>
 
                 </div>
+                <div class="clearfix"></div>
 
-               <script id="template-upload" type="text/x-tmpl">
-                <div class="upload">
-                  {%=o.name%}
-                  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+                <% upload_id = "_"+ (side.object.side_num + 1).to_s + "_" + track_counter.to_s %>
+                <div id="track<%= upload_id %>" class="pull-left">
+                    <%= track.hidden_field :file_url %>
+                    <% unless track.object.id.nil? %>
+                      <%= link_to track.object.name, track.object.file_url, style:'color:white' %>
+                    <% end %>
+                </div> 
+                <br />
+                <%= s3_uploader_form post: tracks_url+"?side_num="+(side.object.side_num + 1).to_s+"&track_num="+track_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
+                  
+                  <%= file_field_tag :file, class: 'pull-left' %>
+
+                <% end %>
+                <div class="pull-left">
+                 <script id="template-upload" type="text/x-tmpl">
+                  <div class="upload">
+                    <br />
+                      {%=o.name%}
+                    <div class="progress"><div class="bar" style="width: 0%;height:40px;"></div></div>
+                  </div>
+                  </script>
                 </div>
-                </script>
-   
-              <%= s3_uploader_form post: tracks_url, as: "track[file_url]" do %>
-                <%= file_field_tag :file, class: ' pull-left ' %>
-              <% end %>
 
                 <div class="clearfix"></div>
+
+                <% track_counter += 1 %>
               <% end %>
               <div class="pull-right">
                  <i id="plusminusicon" class="icon-plus-sign icon-2x"></i>
@@ -95,33 +111,3 @@
     </table>
 
 </div>
-
-<script>
-
-  var _s3config = {
-    hash: 99413,
-    height: 180,
-    width: 250,
-    user: 'e3648c2fb3e5dbfb331d8d16cb18d90a',
-    folder: 'masters/',
-    secure: false,
-    onComplete: function(filename){
-      alert('Upload Complete: ' + filename);
-    }
-  };
-
-  var _s3url = "https://s3uploader.com/s3uploader.2.min.js";
-
-  (function(d,s,a) {
-    var b,fjs = d.getElementsByTagName(s)[0];
-  
-    if(d.getElementById(a))
-        return;
-    b = d.createElement(s);
-    b.id=a;
-    b.src=_s3url;
-    fjs.parentNode.insertBefore(b,fjs)
-  }
-  (document,'script','s3uploader-sdk'));
-
-</script>

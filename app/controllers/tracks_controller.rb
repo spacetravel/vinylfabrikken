@@ -22,6 +22,6 @@ class TracksController < ApplicationController
   def destroy
     @track = Track.find(params[:id])
     @track.destroy
-    redirect_to tracks_url, notice: "Painting was successfully destroyed."
+    redirect_to tracks_url, notice: "Track was successfully destroyed."
   end
 end

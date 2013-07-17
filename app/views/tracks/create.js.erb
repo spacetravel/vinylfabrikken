@@ -1,0 +1,11 @@
+<% if @track.new_record? %>
+
+  alert("Failed to upload painting: <%= j @track.errors.full_messages.join(', ').html_safe %>");
+
+<% else %>
+  <% track_id = "#track_"+ params[:side_num] +"_"+ params[:track_num] %>
+
+  $("<%= track_id %>").remove('a');
+  $("<%= track_id %>").append("<%= j render(@track) %>");
+  $("<%= track_id %>").find('input').val("<%= @track.file_url %>");
+<% end %>
