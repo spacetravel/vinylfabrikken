@@ -136,6 +136,6 @@ $(document).ready ->
         data.context.remove() if data.context # remove progress bar
       
       fail: (e, data) ->
-        alert("#{data.files[0].name} failed to upload.")
+        alert("#{data.files[0].name} klarte ikke å laste opp.")
         console.log("Upload failed:")
         console.log(data)

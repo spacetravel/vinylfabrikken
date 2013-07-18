@@ -1,6 +1,6 @@
 <% if @track.new_record? %>
 
-  alert("Failed to upload painting: <%= j @track.errors.full_messages.join(', ').html_safe %>");
+  alert("Opplastingen ble avbrutt: <%= j @track.errors.full_messages.join(', ').html_safe %>");
 
 <% else %>
   <% track_id = "#track_"+ params[:side_num] +"_"+ params[:track_num] %>

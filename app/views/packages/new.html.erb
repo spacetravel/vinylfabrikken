@@ -30,14 +30,16 @@
 				Ha full kontroll i alle ledd
 			</div>		
 			<div class="pakkelinje">
-				<i class="icon-check icon-large"></i>yo
-				<%= f.text_input :quantity %>
+				<%= f.range_field :quantity, :in => 0..2500, :step => '5', :class => "pakkeQ" %>
+
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
 			</div>		
-			<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
 		</div>
 		<% end %>
 	</div>	
-	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
+	<div class="pakkeitem"><br />
+	<%= form_for @package do |f|  %>
 
 		<div class="pakkeheading">	
 			<i class="icon-star icon-large" style="padding:5px;"></i>
@@ -57,14 +59,19 @@
 				<i class="icon-check icon-large"></i>
 				150 x Foldere
 			</div>		
+	
 			<div class="pakkelinje">
-				<i class="icon-check icon-large"></i>
-				150 x Omslag med digitaltrykk
+				<%= f.range_field :quantity, :in => 0..2500, :step => '5', :class => "pakkeQ" %>
+
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
 			</div>		
-			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
+
 		</div>
+		<% end %>
 	</div>	
-	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
+	<div class="pakkeitem"><br />
+	<%= form_for @package do |f|  %>
 
 		<div class="pakkeheading">	
 			<i class="icon-headphones icon-large" style="padding:5px;"></i>
@@ -84,10 +91,18 @@
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
-			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
+			<div class="pakkelinje">
+				<%= f.range_field :quantity, :in => 0..2500, :step => '5', :class => "pakkeQ" %>
+
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
+			</div>		
+
 		</div>
+		<% end %>
 	</div>
-	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
+	<div class="pakkeitem"><br />
+	<%= form_for @package do |f|  %>
 
 		<div class="pakkeheading">	
 			<i class="icon-heart icon-large" style="padding:5px;"></i>
@@ -101,16 +116,24 @@
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				Velg antall, farge, fart og labels
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
-			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
+			<div class="pakkelinje">
+				<%= f.range_field :quantity, :in => 0..2500, :step => '5', :class => "pakkeQ" %>
+
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
+			</div>		
+
 		</div>
+		<% end %>
 	</div>
-	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
+	<div class="pakkeitem"><br />
+	<%= form_for @package do |f|  %>
 
 		<div class="pakkeheading">	
 			<i class="icon-bolt icon-large" style="padding:5px;"></i>
@@ -124,16 +147,24 @@
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				Velg antall, farge, fart og labels
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
-			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
+			<div class="pakkelinje">
+				<%= f.range_field :quantity, :in => 0..2500, :step => '5', :class => "pakkeQ" %>
+
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
+			</div>		
+
 		</div>
+		<% end %>
 	</div>
-	<div class="pakkeitem" onclick="window.location.href = '/orders/new'"><br />
+	<div class="pakkeitem"><br />
+	<%= form_for @package do |f|  %>
 
 		<div class="pakkeheading">	
 			<i class="icon-plus icon-large" style="padding:5px;"></i>
@@ -147,13 +178,19 @@
 	
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
-				Velg antall, farge, fart, labels og mange andre ting
+				Velg antall, farge, fart og labels
 			</div>		
 			<div class="pakkelinje">
 				<i class="icon-check icon-large"></i>
 				Lagre bestillingen
 			</div>		
-			<%= button_tag "Gå til bestilling", :class => 'pull-right' %>
+			<div class="pakkelinje">
+				<%= f.range_field :quantity, :in => 0..5000, :step => '5', :class => "pakkeQ" %>
+				<div class="pakkeAntall">300</div>
+				<%= submit_tag "Gå til bestilling", :class => 'pull-right' %>
+			</div>		
+
 		</div>
+		<% end %>
 	</div>	
 </div>

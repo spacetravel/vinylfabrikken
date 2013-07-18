@@ -323,4 +323,11 @@ $( document ).ready(function(){
 
     $('#order_quantity').change();
 
+    $(".pakkeQ").change(function() {
+        $(this).siblings(".pakkeAntall").html($(this).val());
+    });
+
+    $(".pakkeQ").val(300);
+    $(".pakkeQ").change();
+   
 });

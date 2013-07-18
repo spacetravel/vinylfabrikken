@@ -22,6 +22,7 @@ Vf::Application.routes.draw do
   resources :vendors
   resources :invoices
   resources :tracks
+  resources :packages
 
  
   match "/profil/" => "user_profile#show"
@@ -38,7 +39,7 @@ Vf::Application.routes.draw do
   match "/godkjenn/:id" => "orders#approve"
  
 
-  match "/velgpakke" => "orders#choosepackage"
+  match "/velgpakke" => "packages#new"
   match "/tilhandlekurv/:id" => "orders#move_to_shopping_cart"
   match "/omoss" => "articles#show", :id => 1
   match "/kontakt" => "articles#show", :id => 2

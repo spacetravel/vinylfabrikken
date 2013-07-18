@@ -33,6 +33,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :invoice
   belongs_to :user
+  belongs_to :package
   
   has_one :line_item
 
