@@ -26,9 +26,11 @@
 						<div style="font-weight:bold;padding-bottom:10px"><%= truncate(order.title, :length => 25)  %> / <%= truncate(order.artist, :length => 20) %> </div>
 
 
+						<% unless order.user.nil? %>
 						<div style="padding-bottom:10px"> 
 							<%= link_to order.user.email, '/bruker/'+order.user.id.to_s, style: 'color:white' %>
 						</div>
+						<% end %>
 						
 						<div style="font-size:14px;">(<%= order.quantity %> eksemplarer)</div>
 
