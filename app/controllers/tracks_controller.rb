@@ -9,6 +9,12 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    
+    respond_to do |format|
+      format.html { redirect_to @track }
+      format.js
+      format.json { head :ok }
+    end
   end
 
   def create

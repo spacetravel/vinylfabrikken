@@ -47,52 +47,9 @@
             <div class="span4 gravering_upload_side">Side <%= side.object.side_num + 1 %>
           <br /><br />
 
-                <div class="pull-left" style="width:30px;text-align:center">#</div>
-                <div class="upload_spor pull-left">Tittel</div>
-                <div class="upload_duration pull-right">
-                    M &nbsp;&nbsp; S
-                </div>
-                <div class="clearfix"></div>
-              <% track_counter = 1 %>
-              <%= side.fields_for :tracks do |track| %>
-                <div class="upload_spor_num pull-left"><%= track.text_field :track_num, :value => track_counter, :maxlength => 2, size: 2 %></div>
-                <div class="upload_spor pull-left"><%= track.text_field :name, placeholder: 'Tittel på sporet' %></div>
-                <div class="upload_duration pull-right">
-                                <%= track.text_field :duration_mins, :maxlength => 2, size: 2 %>
-                                <%= track.text_field :duration_secs, :maxlength => 2, size: 2 %>
+              <%= render partial: 'tracks', collection: side.object.tracks, locals: {:side => side} %>
 
-                </div>
-                <%= link_to '<i class="icon-remove icon-large pull-right order_info" style="padding-top:5px;color:white"></i>'.html_safe %>      
-                <div class="clearfix"></div>
-
-                <% upload_id = "_"+ (side.object.side_num + 1).to_s + "_" + track_counter.to_s %>
-                <div id="track<%= upload_id %>" class="pull-left">
-                    <%= track.hidden_field :file_url %>
-                    <% unless track.object.id.nil? %>
-                      <%= link_to track.object.name, track.object.file_url, style:'color:white' %>
-                    <% end %>
-                </div> 
-                <br />
-                <%= s3_uploader_form post: tracks_url+"?side_num="+(side.object.side_num + 1).to_s+"&track_num="+track_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
-                  
-                  <%= file_field_tag :file, class: 'pull-left' %>
-
-                <% end %>
-                <div class="pull-left">
-                 <script id="template-upload" type="text/x-tmpl">
-                  <div class="upload">
-                    <br />
-                      {%=o.name%}
-                    <div class="progress"><div class="bar" style="width: 0%;height:40px;"></div></div>
-                  </div>
-                  </script>
-
-                </div>
-
-                <div class="clearfix"></div>
-
-                <% track_counter += 1 %>
-              <% end %>
+          
               <div class="pull-right">
                  <i id="plusminusicon" class="icon-plus-sign icon-2x"></i>
               </div>

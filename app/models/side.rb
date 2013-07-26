@@ -1,5 +1,5 @@
 class Side < ActiveRecord::Base
-   attr_accessible :side_num, :gravering_id, :tracks_attributes
+   attr_accessible :side_num, :gravering_id, :tracks_attributes, :tracks
 
  
    has_many :tracks

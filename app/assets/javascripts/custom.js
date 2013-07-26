@@ -331,3 +331,5 @@ $( document ).ready(function(){
     $(".pakkeQ").change();
    
 });
+
+

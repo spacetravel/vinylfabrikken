@@ -1,0 +1,46 @@
+$(document).ready(function() {
+  return jQuery(function() {
+    return $('#uploader_2_2').fileupload({
+      add: function(e, data) {
+        var file, types;
+        ({
+          dataType: "script"
+        });
+        types = /(\.|\/)(gif|jpe?g|png)$/i;
+        file = data.files[0];
+        if (types.test(file.type) || types.test(file.name)) {
+          data.context = $(tmpl("template-upload", file));
+          $('#uploader_2_2').append(data.context);
+          return data.submit();
+        } else {
+          return alert("" + file.name + " er ikke en gif, jpeg, eller png-fil");
+        }
+      },
+      progress: function(e, data) {
+        var progress;
+        if (data.context) {
+          progress = parseInt(data.loaded / data.total * 100, 10);
+          return data.context.find('.bar').css('width', progress + '%');
+        }
+      },
+      done: function(e, data) {
+        var content, domain, file, path, to;
+        file = data.files[0];
+        domain = $('#uploader_2_2').attr('action');
+        path = $('#uploader_2_2 input[name=key]').val().replace('${filename}', file.name);
+        to = $('#uploader_2_2').data('post');
+        content = {};
+        content[$('#uploader_2_2').data('as')] = domain + path;
+        $.post(to, content);
+        if (data.context) {
+          return data.context.remove();
+        }
+      },
+      fail: function(e, data) {
+        alert("" + data.files[0].name + " klarte ikke å laste opp.");
+        console.log("Upload failed:");
+        return console.log(data);
+      }
+    });
+  });
+});

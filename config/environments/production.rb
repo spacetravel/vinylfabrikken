@@ -62,6 +62,7 @@ Vf::Application.configure do
   config.active_support.deprecation = :notify
 
   config.assets.precompile += %w( font-awesome-ie7.min.css )
+  config.assets.precompile += %w(orders.js)
 
   config.action_mailer.default_url_options = { :host => 'http://vinylfabrikken-stage.herokuapp.com/' }
   
