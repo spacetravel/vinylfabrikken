@@ -316,12 +316,29 @@ class OrdersController < ApplicationController
         @price_labels_svart = price.price
       end
     end
-    @order = Order.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @order }
+    
+    if current_user.nil?
+      unless session[:current_order_id].nil?
+        @order = Order.find(session[:current_order_id])
+
+        respond_to do |format|
+          format.html # show.html.erb
+          format.json { render json: @order }
+        end
+      else
+        redirect_to root_url
+      end
+    else    
+      @order = Order.by_user(current_user).find(params[:id])
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @order }
+      end
     end
+
+
   end
 
   def create
@@ -335,7 +352,7 @@ class OrdersController < ApplicationController
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
     unless current_user.nil?
-      @order.user_id = current_user.id
+      @order.user_id = current_user.i
     else
       @order.user_id = 0
     end

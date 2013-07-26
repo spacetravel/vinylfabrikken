@@ -68,6 +68,10 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :labels
   accepts_nested_attributes_for :covers
 
+  scope :by_user, lambda { |user|
+    where(:user_id => user.id)
+  }
+
   def ensure_not_referenced_by_any_line_item
     if line_items.empty?
       return true
