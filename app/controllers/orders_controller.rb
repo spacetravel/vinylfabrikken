@@ -169,7 +169,7 @@ class OrdersController < ApplicationController
     @package = Package.find(params[:package_id])
 
 
-    2.times do |side_num| 
+    2.times do |side_num|
       side = @order.gravering.sides.build
       side.side_num = side_num
       side.save!

@@ -1,32 +1,31 @@
-<%= side.fields_for :tracks do |t| %>
+<%= fields_for :track, track do |t| %>
 
 <div class="pull-left" style="width:30px;text-align:center">#</div>
 <div class="upload_spor pull-left">Tittel</div>
-<div class="upload_duration pull-right">
+<div class="upload_duration pull-right" style="margin-right:42px;">
     M &nbsp;&nbsp; S
 </div>
 <div class="clearfix"></div>
-<% tracks_counter += 1 %>
 
   <div class="upload_spor_num pull-left"><%= t.text_field :track_num, :value => tracks_counter, :maxlength => 2, size: 2 %></div>
     <div class="upload_spor pull-left"><%= t.text_field :name, placeholder: 'Tittel på sporet' %></div>
+    <%= link_to '<i class="icon-remove icon-2x pull-right order_info "style="padding-top:5px;color:white"></i>'.html_safe, style:'float:right;' %>      
     <div class="upload_duration pull-right">
-                    <%= t.text_field :duration_mins, :maxlength => 2, size: 2 %>
-                    <%= t.text_field :duration_secs, :maxlength => 2, size: 2 %>
+      <%= t.text_field :duration_mins, :maxlength => 2, size: 2 %>
+      <%= t.text_field :duration_secs, :maxlength => 2, size: 2 %>
 
     </div>
-    <%= link_to '<i class="icon-remove icon-large pull-right order_info "style="padding-top:5px;color:white"></i>'.html_safe %>      
     <div class="clearfix"></div>
 
-    <% upload_id = "_"+ (side.object.side_num + 1).to_s + "_" + tracks_counter.to_s %>
+    <% upload_id = "_"+ (side.side_num + 1).to_s + "_" + tracks_counter.to_s %>
     <div id="track<%= upload_id %>" class="pull-left">
         <%= t.hidden_field :file_url %>
         <% unless t.object.id.nil? %>
-          <%= link_to t.object.name, t.object.file_url, style:'color:white' %>
+          <%= link_to track.name, track.file_url, style:'color:white' %>
         <% end %>
     </div> 
     <br />
-    <%= s3_uploader_form post: tracks_url+"?side_num="+(side.object.side_num + 1).to_s+"&track_num="+tracks_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
+    <%= s3_uploader_form post: tracks_url+"?side_num="+(side.side_num + 1).to_s+"&track_num="+tracks_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
       
       <%= file_field_tag :file, class: 'pull-left' %>
 
