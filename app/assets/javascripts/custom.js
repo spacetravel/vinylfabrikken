@@ -330,6 +330,39 @@ $( document ).ready(function(){
     $(".pakkeQ").val(300);
     $(".pakkeQ").change();
    
+
+    $("#order_number_of_records").change(function() {
+
+            var num_recs = $("#order_number_of_records").val();
+        
+            switch (num_recs) {
+                case ('1'):
+                    $("#side_3").hide();   
+                    $("#side_4").hide();   
+                    $("#side_5").hide();   
+                    $("#side_6").hide();   
+                break;
+                case ('2'):
+                    $("#side_3").show();   
+                    $("#side_4").show();   
+                    $("#side_5").hide();   
+                    $("#side_6").hide();   
+                break;
+                case ('3'):
+                    $("#side_3").show();   
+                    $("#side_4").show();   
+                    $("#side_5").show();   
+                    $("#side_6").show();   
+                break;
+                default:
+                    $("#side_3").hide();   
+                    $("#side_4").hide();   
+                    $("#side_5").hide();   
+                    $("#side_6").hide();   
+        }
+    });
+    $("#order_number_of_records").change();
+
 });
 
 

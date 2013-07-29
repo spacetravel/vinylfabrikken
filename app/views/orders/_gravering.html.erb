@@ -44,7 +44,7 @@
 
             <%= s3_uploader_form post: tracks_url, as: "track[file_url]", id: "uploader_x" do %><% end %>
             <%= gravering_fields.fields_for :sides do |side| %>
-            <div class="span4 gravering_upload_side">Side <%= side.object.side_num + 1 %>
+            <div class="span4 gravering_upload_side" id="side_<%= side.object.side_num + 1 %>">Side <%= side.object.side_num + 1 %>
               <br /><br />
               <div id="tracks_container_<%= side.object.id %>">
                 
