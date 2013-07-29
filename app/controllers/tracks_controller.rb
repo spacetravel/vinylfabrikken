@@ -21,6 +21,8 @@ class TracksController < ApplicationController
     side = Side.find(params[:side_id])
 
     @track = Track.create(params[:track])
+    @track.side_id = side.id
+    @track.save!
 
     respond_to do |format|
       format.js
