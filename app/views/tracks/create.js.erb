@@ -3,6 +3,8 @@
   alert("Opplastingen ble avbrutt: <%= j @track.errors.full_messages.join(', ').html_safe %>");
 
 <% else %>
+
+alert("test");
   <% track_id = "#track_"+ params[:side_num] +"_"+ params[:track_num] %>
 
   $("<%= track_id %>").remove('a');
