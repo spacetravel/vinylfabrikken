@@ -14,9 +14,7 @@ class TracksController < ApplicationController
 
     @tracks_counter = params[:tracks_counter]
 
-    respond_to do |format|
-        format.js
-    end 
+    
   end
 
   def create

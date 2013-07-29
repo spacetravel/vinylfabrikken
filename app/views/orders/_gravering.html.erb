@@ -45,19 +45,20 @@
             <%= s3_uploader_form post: tracks_url, as: "track[file_url]", id: "uploader_x" do %><% end %>
             <%= gravering_fields.fields_for :sides do |side| %>
             <div class="span4 gravering_upload_side">Side <%= side.object.side_num + 1 %>
-          <br /><br />
-          <div id="tracks_container_<%= side.object.id %>">
-          <% tracks_counter = 0 %>
-          <% side.object.tracks.each do |track| %> 
+              <br /><br />
+              <div id="tracks_container_<%= side.object.id %>">
+                
+                 <% tracks_counter = 0 %>
+            
+                  <% side.object.tracks.each do |track| %> 
+                  <% tracks_counter += 1 %>
+                  <%= render partial: 'track', locals: {:track => track, :side => side.object, :tracks_counter => tracks_counter } %>
 
-               <% tracks_counter += 1 %>
-                <%= render partial: 'track', locals: {:track => track, :side => side.object, :tracks_counter => tracks_counter } %>
-
-            <% end %>
-          </div>
+                 <% end %>
+               </div>
               <div class="pull-right">
               
-                <%= link_to '<i id="add_track_button" style="color:white" class="icon-plus-sign icon-2x pull-right"></i>'.html_safe, new_track_path(side_id: side.object.id, tracks_counter: (tracks_counter + 1).to_s).to_s,id: 'add_track',  remote: true %>   
+                <%= link_to '<i id="add_track_button" style="color:white" class="icon-plus-sign icon-2x pull-right"></i>'.html_safe, new_track_path(side_id: side.object.id, tracks_counter: (tracks_counter + 1).to_s).to_s,id: 'add_track'+side.object.id.to_s,  remote: true %>   
 
               </div>
              </div>
