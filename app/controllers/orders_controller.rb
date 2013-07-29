@@ -169,11 +169,11 @@ class OrdersController < ApplicationController
     @package = Package.find(params[:package_id])
 
 
-    2.times do |side_num|
+    6.times do |side_num|
       side = @order.gravering.sides.build
       side.side_num = side_num
       side.save!
-      2.times { 
+      1.times { 
         track = side.tracks.build
       }
     end
