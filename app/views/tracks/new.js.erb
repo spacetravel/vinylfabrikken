@@ -4,4 +4,6 @@ $('#tracks_container_<%= @side.id %>').append("<%= j render(:partial => '/orders
 var substring = $('#add_track_<%= @side.id %>').attr('href').split("tracks_counter=")
 var new_count = parseInt(substring[1]) +1;
 
+alert(new_count);
+
 $('#add_track_<%= @side.id %>').attr('href', substring[0] + "tracks_counter=" + new_count);

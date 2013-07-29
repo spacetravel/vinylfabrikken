@@ -58,7 +58,7 @@
                </div>
               <div class="pull-right">
               
-                <%= link_to '<i id="add_track_button" style="color:white" class="icon-plus-sign icon-2x pull-right"></i>'.html_safe, new_track_path(side_id: side.object.id, tracks_counter: (tracks_counter + 1).to_s).to_s,id: 'add_track'+side.object.id.to_s,  remote: true %>   
+                <%= link_to '<i id="add_track_button" style="color:white" class="icon-plus-sign icon-2x pull-right"></i>'.html_safe, new_track_path(side_id: side.object.id, tracks_counter: (tracks_counter + 1).to_s).to_s,id: 'add_track_'+side.object.id.to_s,  remote: true %>   
 
               </div>
              </div>
