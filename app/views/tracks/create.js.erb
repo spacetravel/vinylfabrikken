@@ -1,9 +1,11 @@
 <% if @track.new_record? %>
 
   alert("Opplastingen ble avbrutt: <%= j @track.errors.full_messages.join(', ').html_safe %>");
-  alert("ikke test");
+
 <% else %>
+  <% track_id = "#track_"+ params[:side_num] +"_"+ params[:track_num] %>
 
-alert("test");
-
+  $("<%= track_id %>").remove('a');
+  $("<%= track_id %>").append("<%= j render(@track) %>");
+  $("<%= track_id %>").find('input').val("<%= @track.file_url %>");
 <% end %>

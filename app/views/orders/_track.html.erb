@@ -25,7 +25,7 @@
         <% end %>
     </div> 
     <br />
-    <%= s3_uploader_form post: tracks_url+"?side_num="+(side.side_num + 1).to_s+"&track_num="+tracks_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
+    <%= s3_uploader_form post: tracks_url+"?track_id="+track.id.to_s+"&side_id="+side.id.to_s+"&side_num="+(side.side_num + 1).to_s+"&track_num="+tracks_counter.to_s, as: "track[file_url]", id: "uploader"+upload_id do %>
       
       <%= file_field_tag :file, class: 'pull-left' %>
 

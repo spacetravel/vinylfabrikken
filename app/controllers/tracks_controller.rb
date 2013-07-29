@@ -20,18 +20,10 @@ class TracksController < ApplicationController
   def create
     side = Side.find(params[:side_id])
 
-    @track = side.tracks.build
-
+    @track = Track.create(params[:track])
 
     respond_to do |format|
-      if @track.save
-        format.html { redirect_to @side.gravering.order }
-        format.js
-        format.json { render json: @side.gravering.order, status: :created, location: @side.gravering.order }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
-      end
+      format.js
     end
   end
 
