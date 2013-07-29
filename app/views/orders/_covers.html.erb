@@ -24,6 +24,7 @@
       <tr>
         <td><b>Innerhylse</b></td>
         <td style="text-align:right">
+           <%= covers_fields.select(:inner_sleeve_pages, [['1 side', '1'], ['2 sider', '2']]) %>  
            <%= covers_fields.select(:inner_sleeve_type, [['Hvit', 'Hvit'], ['Svart', 'Svart']]) %>  
         </td>
       </tr>
