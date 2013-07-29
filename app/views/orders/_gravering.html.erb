@@ -52,7 +52,7 @@
             
                   <% side.object.tracks.each do |track| %> 
                   <% tracks_counter += 1 %>
-                  <%= render partial: 'track', locals: {:track => track, :side => side.object, :tracks_counter => tracks_counter } %>
+                  <%= render partial: 'track', locals: {:side_form => side, :track => track, :side => side.object, :tracks_counter => tracks_counter } %>
 
                  <% end %>
                </div>

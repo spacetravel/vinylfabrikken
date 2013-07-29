@@ -156,7 +156,7 @@ class OrdersController < ApplicationController
 
     @order = Order.new
     
-    # Build order lines 
+    # Build order lines
 
     @order.build_audio_master
     @order.build_gravering
@@ -352,7 +352,7 @@ class OrdersController < ApplicationController
     @order.order_status = OrderStatus.find_by_keyword("ingen")
 
     unless current_user.nil?
-      @order.user_id = current_user.i
+      @order.user_id = current_user.id
     else
       @order.user_id = 0
     end
