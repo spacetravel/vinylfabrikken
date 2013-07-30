@@ -15,10 +15,10 @@ class TracksController < ApplicationController
     @tracks_counter = params[:tracks_counter]
 
     @track.side_id = @side.id
+    @track.file_url = ""
 
     @track.save!
 
-    
   end
 
   def create
