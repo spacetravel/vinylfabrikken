@@ -14,6 +14,10 @@ class TracksController < ApplicationController
 
     @tracks_counter = params[:tracks_counter]
 
+    @track.side_id = @side.id
+
+    @track.save!
+
     
   end
 
