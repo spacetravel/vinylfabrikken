@@ -17,7 +17,7 @@ class TracksController < ApplicationController
     @track.side_id = @side.id
     @track.file_url = ""
 
-    @track.save!
+    # @track.save!
 
   end
 
