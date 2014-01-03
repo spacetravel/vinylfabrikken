@@ -1,9 +1,0 @@
-development:
-  access_key_id: AKIAI2J75VJLDQRV5EHQ
-  secret_access_key: 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
-  bucket: vinylfabrikken-dev
-production:
-  access_key_id: AKIAI2J75VJLDQRV5EHQ
-  secret_access_key: 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
-  bucket: vinylfabrikken-stage
-
